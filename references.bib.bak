@@ -1,0 +1,262 @@
+@TechReport{Albee1975,
+  author      = {Albee, H. F. and Cullins, H. L.},
+  institution = {U.S. Geological Survey},
+  title       = {Geologic Map of the Poker Peak Quadrangle, Bonneville County, Idaho. Geologic Quadrangle Map GQ 1260},
+  year        = {1975},
+}
+
+@Book{Allmendinger2020,
+  author = {Allmendinger, R. W.},
+  title  = {Modern Structural Practice: A structural geology laboratory manual for the 21st century},
+  year   = {2020},
+  url    = {https://www.rickallmendinger.net/download},
+}
+
+@Article{Allmendinger2013,
+  author  = {Allmendinger, R. W. and Judge, P.},
+  journal = {GSA Bulletin},
+  title   = {Stratigraphic uncertainty and errors in shortening from balanced sections in the North American Cordillera},
+  year    = {2013},
+  pages   = {1569-1579},
+  volume  = {125},
+}
+
+@Article{Allmendinger2020a,
+  author  = {Allmendinger, R. W.},
+  journal = {Geosphere 16},
+  title   = {GMDE: Extracting quantitative information from geologic maps},
+  year    = {2020},
+  pages   = {1-13},
+  volume  = {X},
+}
+
+@Book{Allmendinger2012,
+  author    = {Allmendinger, R. W. and Cardozo, N. and Fisher, D. M.},
+  publisher = {Cambridge University Press},
+  title     = {Structural Geology Algorithms: Vectors and Tensors},
+  year      = {2012},
+}
+
+@Manual{Allmendinger1989,
+  title        = {Notes on fault slip analysis. GSA short course},
+  author       = {Allmendinger, R. W. and Gephart, J. W. and Marrett, R. A.},
+  organization = {Geological Society of America},
+  year         = {1989},
+}
+
+@Article{Allmendinger2007,
+  author  = {Allmendinger, R. W. and Reilinger, R. and Loveless, J.},
+  journal = {Tectonics},
+  title   = {Strain and rotation rate from GPS in Tibet, Anatolia, and the Altiplano},
+  year    = {2007},
+  pages   = {TC3013},
+  volume  = {26},
+}
+
+@Article{Allmendinger2017,
+  author  = {Allmendinger, R. W. and Siron, C. R. and Scott, C. P.},
+  journal = {Journal of Structural Geology},
+  title   = {Structural data collection with mobile devices: Accuracy, redundancy,and best practices},
+  year    = {2017},
+  pages   = {98-112},
+  volume  = {102},
+}
+
+@Article{Allmendinger2005,
+  author  = {Allmendinger, R. W. and Smalley, R. J. and Bevis, M. and Caprio, H. and Brooks, B.},
+  journal = {Geology},
+  title   = {Bending the Bolivian orocline in real time},
+  year    = {2005},
+  pages   = {905-908},
+  volume  = {33},
+}
+
+@Book{Bennison2011,
+  author    = {Bennison, G. M. and Olver, P. A. and Moseley, K. A.},
+  publisher = {Hodder Education},
+  title     = {An Introduction to Geological Structures and Maps},
+  year      = {2011},
+  edition   = {8th},
+}
+
+@Article{Brooks2003,
+  author  = {Brooks, B. A. and Bevis, M. and Smalley Jr., R. and Kendrick, E. and Manceda, R. and Lauría, E. and Maturama, R. and Araújo, M. N. C.},
+  journal = {Geochemistry, Geophysics, Geosystems},
+  title   = {Crustal Motion in the Southern Andes (26-36S): do the Andes behave like a microplate?},
+  year    = {2003},
+  number  = {4},
+  pages   = {GC000505},
+  volume  = {G3},
+}
+
+@TechReport{C.I.U.1944,
+  author      = {C.I.U. AND WAR OFFICE},
+  institution = {Washington, D. C., War Office},
+  title       = {Town Plan of Roma (Rome) (North Sheet), 1:10,000},
+  year        = {1944},
+}
+
+@Article{Cardozo2009,
+  author  = {Cardozo, N. and Allmendinger, R. W.},
+  journal = {Computers and Geosciences},
+  title   = {SSPX: A program to compute strain from displacement/velocity data},
+  year    = {2009},
+  pages   = {1343-1357},
+  volume  = {35},
+}
+
+@Electronic{Cartopy2018,
+  author       = {Cartopy},
+  howpublished = {Online},
+  organization = {Cartopy},
+  title        = {Projections},
+  url          = {https://scitools.org.uk/cartopy/docs/latest/crs/projections.html},
+  year         = {2018},
+}
+
+@Electronic{Cartopy2018a,
+  author = {Cartopy},
+  title  = {Tissot’s Indicatrix},
+  url    = {https://scitools.org.uk/cartopy/docs/latest/gallery/tissot.html},
+  year   = {2018},
+}
+
+@Electronic{Cartopy2018b,
+  author = {Cartopy},
+  title  = {Understanding the Transform and Projection Keywords},
+  url    = {https://scitools.org.uk/cartopy/docs/latest/tutorials/understanding_transform.html},
+  year   = {2018},
+}
+
+@Article{Charlesworth1976,
+  author  = {Charlesworth, H. A. K. and Langenberg, C. W. and Ramsden, J.},
+  journal = {Canadian Journal of Earth Science},
+  title   = {Determining axes, axial planes, and sections of macroscopic folds using computer-based methods},
+  year    = {1976},
+  pages   = {54-65},
+  volume  = {13},
+}
+
+@Book{Coe2010,
+  author    = {Coe, A.},
+  publisher = {Wiley-Blackwell},
+  title     = {Geological Field Techniques},
+  year      = {2010},
+}
+
+@Book{Compton1985,
+  author    = {Compton, R. R.},
+  publisher = {John Wiley & Sons},
+  title     = {Geology in the field},
+  year      = {1985},
+}
+
+@Article{DePaor1983,
+  author  = {DePaor, D. G.},
+  journal = {Journal of Structural Geology},
+  title   = {Ortographic analysis of geological structures - I. Deformation theory},
+  year    = {1983},
+  pages   = {255-277},
+  volume  = {5},
+}
+
+@Article{Fernandez2005,
+  author  = {Fernandez, O.},
+  journal = {Journal of Structural Geology},
+  title   = {Obtaining a best fitting plane through 3D georeferenced data},
+  year    = {2005},
+  pages   = {855–858},
+  volume  = {27},
+}
+
+@Book{Fisher1987,
+  author    = {Fisher, N. I. and Lewis, T. and Embleton, B. J. J.},
+  publisher = {Cambridge University Press},
+  title     = {Statistical analysis of spherical data},
+  year      = {1987},
+}
+
+@Book{Fossen2016,
+  author    = {Fossen, H.},
+  publisher = {Cambridge University Press},
+  title     = {Structural Geology},
+  year      = {2016},
+}
+
+@Article{Frodeman1995,
+  author  = {Frodeman, R.},
+  journal = {GSA Bulletin},
+  title   = {Geological reasoning: Geology as an interpretive and historical science},
+  year    = {1995},
+  pages   = {960-968},
+  volume  = {107},
+}
+
+@TechReport{Staff1941,
+  author      = {Geographic Section - General Staff},
+  institution = {Great Britain: War Office},
+  title       = {Aberdeen, 1:1,000,000},
+  year        = {1941},
+}
+
+@Article{Gephart1990,
+  author  = {Gephart, J. W.},
+  journal = {Tectonics},
+  title   = {Stress and the direction of slip on fault planes},
+  year    = {1990},
+  pages   = {845-858},
+  volume  = {9},
+}
+
+@Book{Gudmunsson2011,
+  author    = {Gudmunsson, A.},
+  publisher = {Cambridge University Press},
+  title     = {Rock fractures in geological processes},
+  year      = {2011},
+}
+
+@Book{Hetenyi1946,
+  author    = {Hetenyi, M.},
+  publisher = {The University of Michigan Press},
+  title     = {Beams on Elastic Foundations. Theory with Applications in the Fields of Civil and Mechanical Engineering},
+  year      = {1946},
+}
+
+@Electronic{Hoek2006,
+  author = {Hoek, E.},
+  title  = {Practical Rock Engineering. Available from this},
+  url    = {https://www.rocscience.com/assets/resources/learning/hoek/Practical-Rock-Engineering-Full-Text.pdf},
+  year   = {2006},
+}
+
+@Manual{Iliffe2008,
+  title   = {Datums and Map Projections: For Remote Sensing, GIS, and Surveying},
+  address = {Dunbeath, Scotland, Whittles.},
+  author  = {Iliffe, J. and Lott, R.},
+  year    = {2008},
+}
+
+@Misc{Oil2018,
+  author = {International Association of Oil and Gas Producers},
+  title  = {Geomatics Guidance Note 7, Part 2 Coordinate conversions and Transformations including Formulas},
+  year   = {2018},
+}
+
+@Article{Jacobs2016,
+  author  = {Jacobs, C. T. and Gorman, G. J. and Rees, H. E. and Craig, L. E.},
+  journal = {Journal of Geological Education},
+  title   = {Experiences with efficient methodologies for teaching computer programming to geoscientists},
+  year    = {2016},
+  pages   = {183-198},
+  volume  = {64},
+}
+
+@Book{,
+  author    = {Jaeger, J. C. and Cook, N. G. W. and Zimmerman, R. W.},
+  publisher = {Blackwell Publishing},
+  title     = {Fundamentals of Rock Mechanics},
+  year      = {2007},
+  edition   = {4th},
+}
+
+@Comment{jabref-meta: databaseType:bibtex;}

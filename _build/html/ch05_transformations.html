@@ -1,0 +1,1899 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>5. Transformations &#8212; Computational Geosciences</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="6. Tensors" href="ch06_tensors.html" />
+    <link rel="prev" title="4. Coordinate systems and vectors" href="ch04_coordinate_systems_vectors.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Computational Geosciences</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to the Computational Geosciences resource
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  GET STARTED
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="preface.html">
+   Preface
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="changelog.html">
+   Changelog
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="todo.html">
+   TODOs
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  CONTENTS
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="ch01_computation_geosciences.html">
+   1. Computation in Geosciences
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ch02_understanding_location.html">
+   2. Understanding location
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ch03_geological_features.html">
+   3. Geological features
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ch04_coordinate_systems_vectors.html">
+   4. Coordinate systems and vectors
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   5. Transformations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ch06_tensors.html">
+   6. Tensors
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ch07_stress.html">
+   7. Stress
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ch08_strain.html">
+   8. Strain
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ch09_elasticity.html">
+   9. Elasticity
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  THE COMPANION NOTEBOOKS
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="notebooks/ch01/ch01_nb01.html">
+   Introduction to Python and Jupyter Notebooks
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=lab/tree/docs/ch05_transformations.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fch05_transformations.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/ch05_transformations.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#transforming-coordinates-and-vectors">
+   5.1. Transforming coordinates and vectors
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#coordinate-transformations">
+     5.1.1. Coordinate transformations
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#transformation-of-vectors">
+     5.1.2. Transformation of vectors
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-simple-transformation-from-enu-to-ned">
+     5.1.3. A simple transformation: From
+     <strong>
+      ENU
+     </strong>
+     to
+     <strong>
+      NED
+     </strong>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#applications">
+   5.2. Applications
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#stratigraphic-thickness">
+     5.2.1. Stratigraphic thickness
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#outcrop-trace-of-a-plane">
+     5.2.2. Outcrop trace of a plane
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#down-plunge-projection">
+     5.2.3. Down-plunge projection
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#rotations">
+     5.2.4. Rotations
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#plotting-great-and-small-circles-using-rotations">
+     5.2.5. Plotting great and small circles using rotations
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercises">
+   5.3. Exercises
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#references">
+   5.4. References
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Transformations</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#transforming-coordinates-and-vectors">
+   5.1. Transforming coordinates and vectors
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#coordinate-transformations">
+     5.1.1. Coordinate transformations
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#transformation-of-vectors">
+     5.1.2. Transformation of vectors
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-simple-transformation-from-enu-to-ned">
+     5.1.3. A simple transformation: From
+     <strong>
+      ENU
+     </strong>
+     to
+     <strong>
+      NED
+     </strong>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#applications">
+   5.2. Applications
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#stratigraphic-thickness">
+     5.2.1. Stratigraphic thickness
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#outcrop-trace-of-a-plane">
+     5.2.2. Outcrop trace of a plane
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#down-plunge-projection">
+     5.2.3. Down-plunge projection
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#rotations">
+     5.2.4. Rotations
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#plotting-great-and-small-circles-using-rotations">
+     5.2.5. Plotting great and small circles using rotations
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercises">
+   5.3. Exercises
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#references">
+   5.4. References
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="transformations">
+<span id="ch05"></span><h1><span class="section-number">5. </span>Transformations<a class="headerlink" href="#transformations" title="Permalink to this headline">#</a></h1>
+<p>Many problems in geology, like in real life, are simpler when viewed from another perspective. For example, when studying the movement of continents through time because of plate tectonics (<a class="reference internal" href="#ch05-fig01"><span class="std std-numref">Figure 5.1</span></a>a), two coordinate systems are required, one in a present-day geographic frame, and another one attached to the continent. Or to analyze a fault (<a class="reference internal" href="#ch05-fig01"><span class="std std-numref">Figure 5.1</span></a>b), we need one coordinate system attached to the fault (with one axis parallel to the pole and another to the slickensides), which we may want to relate to the more familiar <strong>NED</strong> system. A change in coordinate system is called a coordinate transformation and this is an operation that happens everywhere. Computer games, flight simulators, and subsurface interpretation programs rely heavily on coordinate transformations.</p>
+<figure class="align-default" id="ch05-fig01">
+<a class="reference internal image-reference" href="_images/ch05_fig01.png"><img alt="_images/ch05_fig01.png" src="_images/ch05_fig01.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 5.1 </span><span class="caption-text">Examples of coordinate transformations in geology. <strong>a.</strong> Continental drift, <strong>b.</strong> A fault plane. Red is the local coordinate system for analysis (continent in <strong>a</strong>, fault in <strong>b</strong>), and gray/black is the geographic coordinate system. Modified from Allmendinger et al. (2012).</span><a class="headerlink" href="#ch05-fig01" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<section id="transforming-coordinates-and-vectors">
+<span id="ch05-1"></span><h2><span class="section-number">5.1. </span>Transforming coordinates and vectors<a class="headerlink" href="#transforming-coordinates-and-vectors" title="Permalink to this headline">#</a></h2>
+<section id="coordinate-transformations">
+<span id="ch05-1-1"></span><h3><span class="section-number">5.1.1. </span>Coordinate transformations<a class="headerlink" href="#coordinate-transformations" title="Permalink to this headline">#</a></h3>
+<p>A transformation involves a change in the origin and orientation of the coordinate system. We will refer to the new axes as the primed coordinate system, <span class="math notranslate nohighlight">\(\mathbf{X\text{'}}\)</span>, and the old coordinate system as the unprimed system, <span class="math notranslate nohighlight">\(\mathbf{X}\)</span> (<a class="reference internal" href="#ch05-fig02"><span class="std std-numref">Figure 5.2</span></a>a). Let’s assume the origin of the old and new coordinate systems is the same. The change in orientation of the new coordinate system is defined by the angles between the new coordinate axes and the old axes. These angles are marked systematically, the first subscript refers to the new coordinate axis and the second subscript to the old coordinate axis. For example, <span class="math notranslate nohighlight">\(\theta_{23}\)</span> is the angle between the <span class="math notranslate nohighlight">\(\mathbf{X_2\text{'}}\)</span> axis and the <span class="math notranslate nohighlight">\(\mathbf{X_3}\)</span> axis (<a class="reference internal" href="#ch05-fig02"><span class="std std-numref">Figure 5.2</span></a>a).</p>
+<figure class="align-default" id="ch05-fig02">
+<a class="reference internal image-reference" href="_images/ch05_fig02.png"><img alt="_images/ch05_fig02.png" src="_images/ch05_fig02.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 5.2 </span><span class="caption-text"><strong>a.</strong> Rotation of a Cartesian coordinate system. The old axes are black, the new axes are primed and red. Only three of the nine possible angles are shown. <strong>b.</strong> Graphic device for remembering how the subscript of the direction cosines relate to the new and the old axes. Modified from Allmendinger et al. (2012).</span><a class="headerlink" href="#ch05-fig02" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>To define the transformation, we use the cosines of these angles rather than the angles themselves (<a class="reference internal" href="#ch05-fig02"><span class="std std-numref">Figure 5.2</span></a>b). These are the direction cosines of the new axes with respect to the old axes. The subscript convention is exactly the same. For example, <span class="math notranslate nohighlight">\(a_{23}\)</span> is the direction cosine of the <span class="math notranslate nohighlight">\(\mathbf{X_2\text{'}}\)</span> axis with respect to the <span class="math notranslate nohighlight">\(\mathbf{X_3}\)</span> axis. There are nine direction cosines that form a 3 <span class="math notranslate nohighlight">\(\times\)</span> 3 array, where each row refers to a new axis and each column to an old axis (<a class="reference internal" href="#ch05-fig02"><span class="std std-numref">Figure 5.2</span></a>b). This matrix <strong>a</strong> of direction cosines is known as the <em>transformation matrix</em>, and it is the key element that defines the transformation.</p>
+<p>Fortunately, not all the nine direction cosines in the transformation matrix for <a class="reference internal" href="#ch05-fig02"><span class="std std-numref">Figure 5.2</span></a> are independent. Since the base vectors of the new coordinate system are unit vectors, their magnitude is 1:</p>
+<div class="math notranslate nohighlight" id="equation-ch05-eq01">
+<span class="eqno">(5.1)<a class="headerlink" href="#equation-ch05-eq01" title="Permalink to this equation">#</a></span>\[\begin{split}
+\begin{gathered}
+     a_{11}^2 + a_{12}^2 + a_{13}^2 = 1 \\
+    a_{21}^2 + a_{22}^2 + a_{23}^2 = 1 \\
+    a_{31}^2 + a_{32}^2 + a_{33}^2 = 1
+\end{gathered}
+\end{split}\]</div>
+<p>and because the base vectors of the new coordinate system are perpendicular to each other, the dot product of two of these axes is zero:</p>
+<div class="math notranslate nohighlight" id="equation-ch05-eq02">
+<span class="eqno">(5.2)<a class="headerlink" href="#equation-ch05-eq02" title="Permalink to this equation">#</a></span>\[\begin{split}
+\begin{gathered}
+    a_{21}a_{31} + a_{22}a_{32} + a_{23}a_{33} = 0 \\
+    a_{31}a_{11} + a_{32}a_{12} + a_{33}a_{13} = 0 \\
+    a_{11}a_{21} + a_{12}a_{22} + a_{13}a_{23} = 0
+\end{gathered}
+\end{split}\]</div>
+<p>Equations 5.1 and 5.2 are known as the <em>orthogonality relations</em>. Since we have nine unknowns (i.e. the nine direction cosines) and six equations, there are only three independent direction cosines in the transformation matrix. If we know three of the direction cosines defining the transformation, we can calculate the other six.</p>
+</section>
+<section id="transformation-of-vectors">
+<span id="ch05-1-2"></span><h3><span class="section-number">5.1.2. </span>Transformation of vectors<a class="headerlink" href="#transformation-of-vectors" title="Permalink to this headline">#</a></h3>
+<p>Once we know the transformation matrix <strong>a</strong> and the components of a vector in the old coordinate system, we can calculate the components of the vector in the new coordinate system. The equations are fairly simple:</p>
+<div class="math notranslate nohighlight" id="equation-ch05-eq03">
+<span class="eqno">(5.3)<a class="headerlink" href="#equation-ch05-eq03" title="Permalink to this equation">#</a></span>\[\begin{split}
+\begin{gathered}
+    v_1\text{'} = a_{11}v_1 + a_{12}v_2 + a_{13}v_3 \\
+    v_2\text{'} = a_{21}v_1 + a_{22}v_2 + a_{23}v_3 \\
+    v_3\text{'} = a_{31}v_1 + a_{32}v_2 + a_{33}v_3
+\end{gathered}
+\end{split}\]</div>
+<p>or using the Einstein summation notation:</p>
+<div class="math notranslate nohighlight" id="equation-ch05-eq04">
+<span class="eqno">(5.4)<a class="headerlink" href="#equation-ch05-eq04" title="Permalink to this equation">#</a></span>\[
+v_i\text{'} = a_{ij}v_j
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(i\)</span> is the free suffix, and <span class="math notranslate nohighlight">\(j\)</span> is the dummy suffix. Assuming that <span class="math notranslate nohighlight">\(i\)</span> and <span class="math notranslate nohighlight">\(j\)</span> are either 1, 2, or 3, Equation 5.4 represents three separate equations (the three indices of <span class="math notranslate nohighlight">\(i\)</span>), each one with three terms (the three indices of <span class="math notranslate nohighlight">\(j\)</span>). These equations are easy to implement in Python code:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+    <span class="n">v_new</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+        <span class="n">v_new</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span><span class="o">*</span><span class="n">v_old</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="n">v_new</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>You will see this code snippet repeatedly in the functions of this chapter. Linear algebra is elegant. To convert the vector from the new coordinate system back to the old coordinate system, you just need to do:</p>
+<div class="math notranslate nohighlight" id="equation-ch05-eq05">
+<span class="eqno">(5.5)<a class="headerlink" href="#equation-ch05-eq05" title="Permalink to this equation">#</a></span>\[
+v_i = a_{ji}v_j\text{'}
+\]</div>
+<p>or in Python code:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+    <span class="n">v_old</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+        <span class="n">v_old</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">j</span><span class="p">,</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">v_new</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="n">v_old</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+</pre></div>
+</div>
+</section>
+<section id="a-simple-transformation-from-enu-to-ned">
+<span id="ch05-1-3"></span><h3><span class="section-number">5.1.3. </span>A simple transformation: From <strong>ENU</strong> to <strong>NED</strong><a class="headerlink" href="#a-simple-transformation-from-enu-to-ned" title="Permalink to this headline">#</a></h3>
+<p>There is a simple coordinate transformation that nicely illustrates the theory above: the transformation from an <strong>ENU</strong> to a <strong>NED</strong> coordinate system (<a class="reference internal" href="ch04_coordinate_systems_vectors.html#ch04-fig01"><span class="std std-numref">Figure 4.1</span></a>). It is simple because the angles involved are either 0, 90, or 180. The direction cosines of the new axes (<strong>NED</strong>) with respect to the old axes (<strong>ENU</strong>), and the transformation matrix <strong>a</strong> is:</p>
+<div class="math notranslate nohighlight" id="equation-ch05-eq06">
+<span class="eqno">(5.6)<a class="headerlink" href="#equation-ch05-eq06" title="Permalink to this equation">#</a></span>\[\begin{split}
+\textbf{a} =
+\begin{pmatrix}
+    \cos{90} &amp; \cos{0} &amp; \cos{90} \\
+    \cos{0} &amp; \cos{90} &amp; \cos{90} \\
+    \cos{90} &amp; \cos{90} &amp; \cos{180}
+\end{pmatrix}
+\end{split}\]</div>
+<p>which simplifies to:</p>
+<div class="math notranslate nohighlight" id="equation-ch05-eq07">
+<span class="eqno">(5.7)<a class="headerlink" href="#equation-ch05-eq07" title="Permalink to this equation">#</a></span>\[\begin{split}
+\label{eq5.7}
+\textbf{a}=
+\begin{pmatrix}
+    0 &amp; 1 &amp; 0 \\
+    1 &amp; 0 &amp; 0 \\
+    0 &amp; 0 &amp; -1
+\end{pmatrix}
+\end{split}\]</div>
+<p>When we use this matrix in Eq. <a class="reference internal" href="#equation-ch05-eq04">(5.4)</a>, we get:</p>
+<div class="math notranslate nohighlight" id="equation-ch05-eq08">
+<span class="eqno">(5.8)<a class="headerlink" href="#equation-ch05-eq08" title="Permalink to this equation">#</a></span>\[
+v_1\text{'} = v_2;\quad v_2\text{'} = v_1; \quad v_3\text{'} = -v_3;
+\]</div>
+<p>Notice that in this special case <strong>a</strong> is symmetric (<span class="math notranslate nohighlight">\(a_{ij}=a_{ji}\)</span>), so the elements of <strong>a</strong> are also the direction cosines of <strong>ENU</strong> with respect to <strong>NED</strong>. In the following sections, we will look at more complicated coordinate transformations, but the principles mentioned here will still apply.</p>
+</section>
+</section>
+<section id="applications">
+<span id="ch05-2"></span><h2><span class="section-number">5.2. </span>Applications<a class="headerlink" href="#applications" title="Permalink to this headline">#</a></h2>
+<section id="stratigraphic-thickness">
+<span id="ch05-2-1"></span><h3><span class="section-number">5.2.1. </span>Stratigraphic thickness<a class="headerlink" href="#stratigraphic-thickness" title="Permalink to this headline">#</a></h3>
+<p>The thickness of a tabular stratigraphic unit is the perpendicular distance between the parallel planes bounding the unit. This is also called the stratigraphic thickness (Ragan, 2009). A general problem though is that locations on the planes bounding the unit, are commonly given in a geographic (e.g. <strong>ENU</strong>) coordinate system. One therefore must use ortographic projections and trigonometry to determine the stratigraphic thickness of the unit from the locations (Ragan, 2009).</p>
+<p>An easier approach is to use a transformation. <a class="reference internal" href="#ch05-fig03"><span class="std std-numref">Figure 5.3</span></a> illustrates the situation. Points on the top and base of the unit are given in an <strong>ENU</strong> coordinate system. We can transform these points into a coordinate system attached to the bedding planes, where the strike (RHR) of the planes is the first axis, the dip the second axis, and the pole to the planes the third axis. We will call this coordinate system the <strong>SDP</strong> system. The thickness of the unit is just the difference between the <strong>P</strong> coordinates of any point on the top and any point on the base of the unit.</p>
+<figure class="align-default" id="ch05-fig03">
+<a class="reference internal image-reference" href="_images/ch05_fig03.png"><img alt="_images/ch05_fig03.png" src="_images/ch05_fig03.png" style="width: 450px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 5.3 </span><span class="caption-text">Coordinate transformation from an <strong>ENU</strong> to a Strike-Dip-Pole (<strong>SDP</strong>) coordinate system. The thickness of the unit can be calculated by subtracting the <strong>P</strong> coordinates of any point on the top and any point on the base. Modified from Allmendinger (2020a).</span><a class="headerlink" href="#ch05-fig03" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>We can find the elements of the matrix <strong>a</strong> for this transformation using trigonometry. However, we will follow a more didactic approach. We will reference the two <strong>ENU</strong> and <strong>SDP</strong> coordinate systems with respect to the <strong>NED</strong> coordinate system, and then use the dot product to determine the direction cosines of <strong>SDP</strong> into <strong>ENU</strong>.</p>
+<p>The direction cosines of the <strong>ENU</strong> coordinate system with respect to the <strong>NED</strong> coordinate system are given by Eq. <a class="reference internal" href="#equation-ch05-eq07">(5.7)</a>. The direction cosines of the <strong>SDP</strong> coordinate system with respect to the <strong>NED</strong> coordinate system can be found using  <a class="reference internal" href="ch04_coordinate_systems_vectors.html#ch04-tab01"><span class="std std-numref">Table 4.1</span></a>:</p>
+<div class="math notranslate nohighlight" id="equation-ch05-eq09">
+<span class="eqno">(5.9)<a class="headerlink" href="#equation-ch05-eq09" title="Permalink to this equation">#</a></span>\[\begin{split}
+\begin{gathered}
+    \mathbf{S} = [\cos(strike),\sin(strike),0] \\
+    \mathbf{D} = [\cos(strike+90)\cos(dip),\sin(strike+90)\cos(dip),\sin(dip)] \\
+    \mathbf{P} = [\cos(strike-90)\cos(90-dip),\sin(strike-90)\cos(90-dip),\sin(90-dip)]
+\end{gathered}
+\end{split}\]</div>
+<p>which simplifies to:</p>
+<div class="math notranslate nohighlight" id="equation-ch05-eq10">
+<span class="eqno">(5.10)<a class="headerlink" href="#equation-ch05-eq10" title="Permalink to this equation">#</a></span>\[\begin{split}
+\begin{gathered}
+	\mathbf{S} = [\cos(strike),\sin(strike),0]  \\
+	\mathbf{D} = [-\sin(strike)\cos(dip),\cos(strike)\cos(dip),\sin(dip)] \\
+	\mathbf{P} = [\sin(strike)\sin(dip),-\cos(strike)\sin(dip),\cos(dip)]
+\end{gathered}
+\end{split}\]</div>
+<p>The transformation matrix <strong>a</strong> from the <strong>ENU</strong> to the <strong>SDP</strong> coordinate system has as components the direction cosines of the new <strong>SDP</strong> axes into the old <strong>ENU</strong> axes. From Eq. <a class="reference internal" href="ch04_coordinate_systems_vectors.html#equation-ch04-eq09">(4.9)</a>, one can see that these are just the dot product between the new and old axes:</p>
+<div class="math notranslate nohighlight" id="equation-ch05-eq11">
+<span class="eqno">(5.11)<a class="headerlink" href="#equation-ch05-eq11" title="Permalink to this equation">#</a></span>\[\begin{split}
+\textbf{a}=
+    \begin{pmatrix}
+    \mathbf{S}\cdot\mathbf{E} &amp; \mathbf{S}\cdot\mathbf{N} &amp; \mathbf{S}\cdot\mathbf{U} \\
+    \mathbf{D}\cdot\mathbf{E} &amp; \mathbf{D}\cdot\mathbf{N} &amp; \mathbf{D}\cdot\mathbf{U} \\
+    \mathbf{P}\cdot\mathbf{E} &amp; \mathbf{P}\cdot\mathbf{N} &amp; \mathbf{P}\cdot\mathbf{U}
+\end{pmatrix}
+\end{split}\]</div>
+<p>which is equal to:</p>
+<div class="math notranslate nohighlight" id="equation-ch05-eq12">
+<span class="eqno">(5.12)<a class="headerlink" href="#equation-ch05-eq12" title="Permalink to this equation">#</a></span>\[\begin{split}
+\textbf{a}=
+    \begin{pmatrix}
+    \sin(strike) &amp; \cos(strike) &amp; 0 \\
+    \cos(strike)\cos(dip) &amp; -\sin(strike)\cos(dip) &amp; -\sin(dip) \\
+    -\cos(strike)\sin(dip) &amp; \sin(strike)\sin(dip) &amp; -\cos(dip)
+\end{pmatrix}
+\end{split}\]</div>
+<p>So if point 1 is at the top of the unit and has coordinates <span class="math notranslate nohighlight">\([E_1,N_1,U_1]\)</span>, and point 2 is at the base of the unit and has coordinates <span class="math notranslate nohighlight">\([E_2,N_2,U_2]\)</span>, the <strong>P</strong> coordinates of these points are:</p>
+<div class="math notranslate nohighlight" id="equation-ch05-eq13">
+<span class="eqno">(5.13)<a class="headerlink" href="#equation-ch05-eq13" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{gathered}
+	P_1 = -\cos(strike)\sin(dip)E_1+\sin(strike)\sin(dip)N_1-\cos(dip)U_1  \\
+	P_2 = -\cos(strike)\sin(dip)E_2+\sin(strike)\sin(dip)N_2-\cos(dip)U_2  \\
+\end{gathered}
+\end{split}\]</div>
+<p>and the thickness of the unit is:</p>
+<div class="math notranslate nohighlight" id="equation-ch05-eq14">
+<span class="eqno">(5.14)<a class="headerlink" href="#equation-ch05-eq14" title="Permalink to this equation">#</a></span>\[
+t = P_2-P_1
+\]</div>
+<p>The function <a class="reference external" href="https://github.com/nfcd/compGeo/blob/master/source/functions/true_thickness.py">true_thickness</a> calculates the thickness of a unit given the strike and dip of the unit, and the <strong>ENU</strong> coordinates of two top and base points:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+
+<span class="k">def</span> <span class="nf">true_thickness</span><span class="p">(</span><span class="n">strike</span><span class="p">,</span><span class="n">dip</span><span class="p">,</span><span class="n">top</span><span class="p">,</span><span class="n">base</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    true_thickness calculates the thickness (t) of a unit</span>
+<span class="sd">    given the strike (strike) and dip (dip) of the unit,</span>
+<span class="sd">    and points at its top (top) and base (base)</span>
+<span class="sd">    </span>
+<span class="sd">    top and base are 1 x 3 arrays defining the location</span>
+<span class="sd">    of top and base points in an ENU coordinate system.</span>
+<span class="sd">    For each one of these arrays, the first, second</span>
+<span class="sd">    and third entries are the E, N and U coordinates</span>
+<span class="sd">    </span>
+<span class="sd">    NOTE: strike and dip should be input in radians</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># make the transformation matrix a </span>
+    <span class="c1"># from ENU coordinates to SDP coordinates</span>
+    <span class="n">sin_str</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">strike</span><span class="p">)</span>
+    <span class="n">cos_str</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">strike</span><span class="p">)</span>
+    <span class="n">sin_dip</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">dip</span><span class="p">)</span>
+    <span class="n">cos_dip</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">dip</span><span class="p">)</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="n">sin_str</span><span class="p">,</span> <span class="n">cos_str</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+    <span class="p">[</span><span class="n">cos_str</span><span class="o">*</span><span class="n">cos_dip</span><span class="p">,</span> <span class="o">-</span><span class="n">sin_str</span><span class="o">*</span><span class="n">cos_dip</span><span class="p">,</span> <span class="o">-</span><span class="n">sin_dip</span><span class="p">],</span>
+    <span class="p">[</span><span class="o">-</span><span class="n">cos_str</span><span class="o">*</span><span class="n">sin_dip</span><span class="p">,</span> <span class="n">sin_str</span><span class="o">*</span><span class="n">sin_dip</span><span class="p">,</span> <span class="o">-</span><span class="n">cos_dip</span><span class="p">]])</span>
+    
+    <span class="c1"># transform the top and base points</span>
+    <span class="c1"># from ENU to SDP coordinates</span>
+    <span class="n">topn</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+    <span class="n">basen</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">):</span>
+            <span class="n">topn</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span><span class="o">*</span><span class="n">top</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="n">topn</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+            <span class="n">basen</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span><span class="o">*</span><span class="n">base</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="n">basen</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    
+    <span class="c1"># compute the thickness of the unit</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">basen</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">-</span> <span class="n">topn</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+    
+    <span class="k">return</span> <span class="n">t</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s use this function to determine the thickness of the sedimentary units T to Q in the geologic map of <a class="reference internal" href="#ch05-fig04"><span class="std std-numref">Figure 5.4</span></a>. This time we have points at the top and base of these units, and their <strong>ENU</strong> coordinates are:</p>
+<figure class="align-default" id="ch05-fig04">
+<a class="reference internal image-reference" href="_images/ch05_fig04.png"><img alt="_images/ch05_fig04.png" src="_images/ch05_fig04.png" style="width: 500px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 5.4 </span><span class="caption-text">Geologic map of sedimentary units with an orientation 84.5/22.5 (RHR) (Bennison et al., 2011). Points at the top and base of units T to Q are used to determine the thickness of the units.</span><a class="headerlink" href="#ch05-fig04" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<ul class="simple">
+<li><p>point1 = [1147, 3329, 400]</p></li>
+<li><p>point2 = [1323, 2362, 500]</p></li>
+<li><p>point3 = [1105, 1850, 400]</p></li>
+<li><p>point4 = [1768, 940, 300]</p></li>
+<li><p>point5 = [1842, 191, 200]</p></li>
+</ul>
+<p>The notebook <a class="reference external" href="https://github.com/nfcd/compGeo/blob/master/source/notebooks/ch5-1.ipynb">ch5-1</a> shows the solution to this problem:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">pi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span>
+
+<span class="kn">from</span> <span class="nn">compgeo.true_thickness</span> <span class="kn">import</span> <span class="n">true_thickness</span>
+
+
+<span class="c1"># Strike and dip of the unit in radians</span>
+<span class="n">strike</span><span class="p">,</span> <span class="n">dip</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">([</span><span class="mf">84.5</span><span class="p">,</span> <span class="mf">22.5</span><span class="p">])</span> 
+
+<span class="c1"># ENU coordinates of the points</span>
+<span class="n">p1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1147</span><span class="p">,</span> <span class="mi">3329</span><span class="p">,</span> <span class="mi">400</span><span class="p">])</span> 
+<span class="n">p2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1323</span><span class="p">,</span> <span class="mi">2362</span><span class="p">,</span> <span class="mi">500</span><span class="p">])</span> 
+<span class="n">p3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1105</span><span class="p">,</span> <span class="mi">1850</span><span class="p">,</span> <span class="mi">400</span><span class="p">])</span> 
+<span class="n">p4</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1768</span><span class="p">,</span> <span class="mi">940</span><span class="p">,</span> <span class="mi">300</span><span class="p">])</span> 
+<span class="n">p5</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1842</span><span class="p">,</span> <span class="mi">191</span><span class="p">,</span> <span class="mi">200</span><span class="p">])</span>
+
+<span class="c1"># Compute the thickness of the units</span>
+<span class="n">thickT</span> <span class="o">=</span> <span class="n">true_thickness</span><span class="p">(</span><span class="n">strike</span><span class="p">,</span><span class="n">dip</span><span class="p">,</span><span class="n">p2</span><span class="p">,</span><span class="n">p1</span><span class="p">)</span>
+<span class="n">thickS</span> <span class="o">=</span> <span class="n">true_thickness</span><span class="p">(</span><span class="n">strike</span><span class="p">,</span><span class="n">dip</span><span class="p">,</span><span class="n">p3</span><span class="p">,</span><span class="n">p2</span><span class="p">)</span>
+<span class="n">thickR</span> <span class="o">=</span> <span class="n">true_thickness</span><span class="p">(</span><span class="n">strike</span><span class="p">,</span><span class="n">dip</span><span class="p">,</span><span class="n">p4</span><span class="p">,</span><span class="n">p3</span><span class="p">)</span>
+<span class="n">thickQ</span> <span class="o">=</span> <span class="n">true_thickness</span><span class="p">(</span><span class="n">strike</span><span class="p">,</span><span class="n">dip</span><span class="p">,</span><span class="n">p5</span><span class="p">,</span><span class="n">p4</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Thickness of unit T = </span><span class="si">{:.1f}</span><span class="s2"> m&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">thickT</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Thickness of unit S = </span><span class="si">{:.1f}</span><span class="s2"> m&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">thickS</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Thickness of unit R = </span><span class="si">{:.1f}</span><span class="s2"> m&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">thickR</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Thickness of unit Q = </span><span class="si">{:.1f}</span><span class="s2"> m&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">thickQ</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Thickness of unit T = 467.2 m
+Thickness of unit S = 94.6 m
+Thickness of unit R = 278.6 m
+Thickness of unit Q = 195.6 m
+</pre></div>
+</div>
+</div>
+</div>
+<p>What about if there are uncertainties in the strike and dip of the unit, and in the coordinates of the top and base points? The function <a class="reference external" href="https://github.com/nfcd/compGeo/blob/master/source/functions/true_thickness_u.py">true_thickness_u</a> in the resource git repository handles this case. Suppose that in the problem above, the uncertainties in strike and dip are 4and 2respectively, the uncertainty in east and north coordinates is 10 m, and in elevation is 5 m. The notebook <a class="reference external" href="https://github.com/nfcd/compGeo/blob/master/source/notebooks/ch5-2.ipynb">ch5-2</a> shows the solution to this problem:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import libraries</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">pi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span>
+
+<span class="kn">from</span> <span class="nn">uncertainties</span> <span class="kn">import</span> <span class="n">ufloat</span>
+
+<span class="kn">from</span> <span class="nn">compgeo.true_thickness_u</span> <span class="kn">import</span> <span class="n">true_thickness_u</span>
+
+
+<span class="c1"># Strike and dip of the unit in radians</span>
+<span class="n">strike</span><span class="p">,</span> <span class="n">dip</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">([</span><span class="mf">84.5</span><span class="p">,</span> <span class="mf">22.5</span><span class="p">])</span> 
+
+<span class="c1"># Strike and dip errors in radians</span>
+<span class="n">ustrike</span><span class="p">,</span> <span class="n">udip</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span> 
+
+<span class="c1"># Create the strike and dip with uncertainties</span>
+<span class="n">strike</span> <span class="o">=</span> <span class="n">ufloat</span><span class="p">(</span><span class="n">strike</span><span class="p">,</span> <span class="n">ustrike</span><span class="p">)</span> 
+<span class="n">dip</span> <span class="o">=</span> <span class="n">ufloat</span><span class="p">(</span><span class="n">dip</span><span class="p">,</span> <span class="n">udip</span><span class="p">)</span>
+
+<span class="c1"># ENU coordinates of the points</span>
+<span class="c1"># with uncertainties in E-N = 10, and U = 5</span>
+<span class="n">p1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">ufloat</span><span class="p">(</span><span class="mi">1147</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">ufloat</span><span class="p">(</span><span class="mi">3329</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> 
+               <span class="n">ufloat</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span> <span class="mi">5</span><span class="p">)])</span> 
+<span class="n">p2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">ufloat</span><span class="p">(</span><span class="mi">1323</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">ufloat</span><span class="p">(</span><span class="mi">2362</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> 
+               <span class="n">ufloat</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span> <span class="mi">5</span><span class="p">)])</span> 
+<span class="n">p3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">ufloat</span><span class="p">(</span><span class="mi">1105</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">ufloat</span><span class="p">(</span><span class="mi">1850</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> 
+               <span class="n">ufloat</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span> <span class="mi">5</span><span class="p">)])</span> 
+<span class="n">p4</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">ufloat</span><span class="p">(</span><span class="mi">1768</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">ufloat</span><span class="p">(</span><span class="mi">940</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> 
+               <span class="n">ufloat</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">5</span><span class="p">)])</span> 
+<span class="n">p5</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">ufloat</span><span class="p">(</span><span class="mi">1842</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">ufloat</span><span class="p">(</span><span class="mi">191</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> 
+               <span class="n">ufloat</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">5</span><span class="p">)])</span>
+
+<span class="c1"># Compute the thickness of the units</span>
+<span class="n">thickT</span> <span class="o">=</span> <span class="n">true_thickness_u</span><span class="p">(</span><span class="n">strike</span><span class="p">,</span> <span class="n">dip</span><span class="p">,</span> <span class="n">p2</span><span class="p">,</span> <span class="n">p1</span><span class="p">)</span>
+<span class="n">thickS</span> <span class="o">=</span> <span class="n">true_thickness_u</span><span class="p">(</span><span class="n">strike</span><span class="p">,</span> <span class="n">dip</span><span class="p">,</span> <span class="n">p3</span><span class="p">,</span> <span class="n">p2</span><span class="p">)</span>
+<span class="n">thickR</span> <span class="o">=</span> <span class="n">true_thickness_u</span><span class="p">(</span><span class="n">strike</span><span class="p">,</span> <span class="n">dip</span><span class="p">,</span> <span class="n">p4</span><span class="p">,</span> <span class="n">p3</span><span class="p">)</span>
+<span class="n">thickQ</span> <span class="o">=</span> <span class="n">true_thickness_u</span><span class="p">(</span><span class="n">strike</span><span class="p">,</span> <span class="n">dip</span><span class="p">,</span> <span class="n">p5</span><span class="p">,</span> <span class="n">p4</span><span class="p">)</span> 
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Thickness of unit T = </span><span class="si">{:.1f}</span><span class="s2"> m&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">thickT</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Thickness of unit S = </span><span class="si">{:.1f}</span><span class="s2"> m&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">thickS</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Thickness of unit R = </span><span class="si">{:.1f}</span><span class="s2"> m&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">thickR</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Thickness of unit Q = </span><span class="si">{:.1f}</span><span class="s2"> m&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">thickQ</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Thickness of unit T = 467.2+/-31.5 m
+Thickness of unit S = 94.6+/-20.4 m
+Thickness of unit R = 278.6+/-37.0 m
+Thickness of unit Q = 195.6+/-27.0 m
+</pre></div>
+</div>
+</div>
+</div>
+<p>For the thinnest unit S, the uncertainty in thickness is about 20% the thickness of the unit!</p>
+</section>
+<section id="outcrop-trace-of-a-plane">
+<span id="ch05-2-2"></span><h3><span class="section-number">5.2.2. </span>Outcrop trace of a plane<a class="headerlink" href="#outcrop-trace-of-a-plane" title="Permalink to this headline">#</a></h3>
+<p>The <strong>ENU</strong> to <strong>SDP</strong> transformation is useful to solve another interesting problem, namely the outcrop trace of a plane on irregular terrain (<a class="reference internal" href="ch03_geological_features.html#ch03-fig09"><span class="std std-numref">Figure 3.9</span></a>; Allmendinger, 2020b). If we know the orientation of the plane (strike and dip), the <strong>ENU</strong> coordinates of a location where the plane outcrops, and the topography of the terrain as a digital elevation model (DEM), we can determine the outcrop trace of the plane using computation. The solution is surprisingly simple, the plane outcrops wherever the <strong>P</strong> coordinate of the terrain is equal to the <strong>P</strong> coordinate of the plane’s outcrop location.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>DEM is a grid of regularly spaced points in east and north and with elevation at each point.</p>
+</div>
+<p>Let’s call the <strong>P</strong> coordinate of the plane’s outcrop location <span class="math notranslate nohighlight">\(P_1\)</span>, and the <strong>P</strong> coordinate of a point in the DEM grid <span class="math notranslate nohighlight">\(P_{gp}\)</span>. The difference between these two is:</p>
+<div class="math notranslate nohighlight" id="equation-ch05-eq15">
+<span class="eqno">(5.15)<a class="headerlink" href="#equation-ch05-eq15" title="Permalink to this equation">#</a></span>\[
+D = P_1 - P_{gp}
+\]</div>
+<p>At each point in the DEM grid, we can calculate and store this difference. The plane will outcrop wherever <span class="math notranslate nohighlight">\(D\)</span> is zero. Therefore, to draw the outcrop trace, we just need to contour the <span class="math notranslate nohighlight">\(D\)</span> value of zero on the grid. The function <a class="reference external" href="https://github.com/nfcd/compGeo/blob/master/source/functions/outcrop_trace.py">outcrop_trace</a> computes the value of <span class="math notranslate nohighlight">\(D\)</span> on a DEM grid of regularly spaced points defined by <strong>E</strong> (<span class="math notranslate nohighlight">\(\mathbf{XG}\)</span>), <strong>N</strong> (<span class="math notranslate nohighlight">\(\mathbf{YG}\)</span>) and <strong>U</strong> (<span class="math notranslate nohighlight">\(\mathbf{ZG}\)</span>) coordinates. Notice that these arrays must follow the format given by the NumPy <code class="docutils literal notranslate"><span class="pre">meshgrid</span></code> function:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+
+<span class="k">def</span> <span class="nf">outcrop_trace</span><span class="p">(</span><span class="n">strike</span><span class="p">,</span><span class="n">dip</span><span class="p">,</span><span class="n">p1</span><span class="p">,</span><span class="n">XG</span><span class="p">,</span><span class="n">YG</span><span class="p">,</span><span class="n">ZG</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    outcrop_trace estimates the outcrop trace of a plane,</span>
+<span class="sd">    given the strike (strike) and dip (dip) of the plane,</span>
+<span class="sd">    the ENU coordinates of a point (p1) where the plane</span>
+<span class="sd">    outcrops, and a DEM of the terrain as a regular grid</span>
+<span class="sd">    of points with E (XG), N (YG) and U (ZG) coordinates.</span>
+<span class="sd">    </span>
+<span class="sd">    After using this function, to draw the outcrop trace</span>
+<span class="sd">    of the plane, you just need to draw the contour 0 on</span>
+<span class="sd">    the grid XG,YG,DG</span>
+<span class="sd">    </span>
+<span class="sd">    NOTE: strike and dip should be input in radians</span>
+<span class="sd">        p1 must be an array</span>
+<span class="sd">        XG and YG arrays should be constructed using</span>
+<span class="sd">        the numpy function meshgrid</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># make the transformation matrix from ENU coordinates to</span>
+    <span class="c1"># SDP coordinates. We just need the third row of this</span>
+    <span class="c1"># matrix</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+    <span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">strike</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">dip</span><span class="p">)</span> 
+    <span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">strike</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">dip</span><span class="p">)</span> 
+    <span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">dip</span><span class="p">);</span>
+    
+    <span class="c1"># Initialize DG</span>
+    <span class="n">n</span><span class="p">,</span> <span class="n">m</span> <span class="o">=</span> <span class="n">XG</span><span class="o">.</span><span class="n">shape</span>
+    <span class="n">DG</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n</span><span class="p">,</span><span class="n">m</span><span class="p">))</span>
+    
+    <span class="c1"># Estimate the P coordinate of the outcrop point p1</span>
+    <span class="n">P1</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">p1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">p1</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span><span class="o">*</span><span class="n">p1</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+    
+    <span class="c1"># Estimate the P coordinate at each point of the DEM</span>
+    <span class="c1"># grid and subtract P1</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">n</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">m</span><span class="p">):</span>
+            <span class="n">DG</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">P1</span> <span class="o">-</span> <span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">XG</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">YG</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> 
+                <span class="o">+</span> <span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span><span class="o">*</span><span class="n">ZG</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">])</span>
+    
+    <span class="k">return</span> <span class="n">DG</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s apply this function to the map of <a class="reference internal" href="#ch05-fig05"><span class="std std-numref">Figure 5.5</span></a>. On the western half of this map, the contact between units B and C outcrops at point 1 and has an orientation 020/22 (RHR). On the eastern half of the map, the same contact outcrops at point 2 and has an orientation 160/22 (RHR). The notebook <a class="reference external" href="https://github.com/nfcd/compGeo/blob/master/source/notebooks/ch5-3.ipynb">ch5-3</a> draws the outcrop trace of the contact. Notice that the <strong>ENU</strong> coordinates of the points of the DEM grid are input from the text files <a class="reference external" href="https://github.com/nfcd/compGeo/blob/master/source/data/ch5-3/XG.txt">XG</a>, <a class="reference external" href="https://github.com/nfcd/compGeo/blob/master/source/data/ch5-3/YG.txt">YG</a>, and <a class="reference external" href="https://github.com/nfcd/compGeo/blob/master/source/data/ch5-3/ZG.txt">ZG</a>.</p>
+<figure class="align-default" id="ch05-fig05">
+<a class="reference internal image-reference" href="_images/ch05_fig05.png"><img alt="_images/ch05_fig05.png" src="_images/ch05_fig05.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 5.5 </span><span class="caption-text">The contact between units B and C outcrops at point 1 with orientation 020/22 (RHR), and at point 2 with orientation 160/22 (RHR). From this information and a DEM of the terrain, we can determine the outcrop trace of the contact.</span><a class="headerlink" href="#ch05-fig05" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import libraries</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="kn">from</span> <span class="nn">compgeo.outcrop_trace</span> <span class="kn">import</span> <span class="n">outcrop_trace</span>
+
+
+<span class="c1"># Read the DEM grid</span>
+<span class="n">XG</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="s2">&quot;data/ch5-3/XG.txt&quot;</span><span class="p">))</span>
+<span class="n">YG</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="s2">&quot;data/ch5-3/YG.txt&quot;</span><span class="p">))</span>
+<span class="n">ZG</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="s2">&quot;data/ch5-3/ZG.txt&quot;</span><span class="p">))</span>
+
+<span class="c1"># Make a figure</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+
+<span class="c1"># Contour the terrain</span>
+<span class="n">cval</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span><span class="mi">700</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>
+<span class="n">cp</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">XG</span><span class="p">,</span><span class="n">YG</span><span class="p">,</span><span class="n">ZG</span><span class="p">,</span><span class="n">cval</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">clabel</span><span class="p">(</span><span class="n">cp</span><span class="p">,</span> <span class="n">inline</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Western contact</span>
+<span class="n">pi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span>
+<span class="n">strike</span><span class="p">,</span> <span class="n">dip</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">([</span><span class="mi">20</span><span class="p">,</span> <span class="mi">22</span><span class="p">])</span> 
+<span class="n">point1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">692</span><span class="p">,</span> <span class="mi">1212</span><span class="p">,</span> <span class="mi">600</span><span class="p">])</span>
+<span class="n">DG</span> <span class="o">=</span> <span class="n">outcrop_trace</span><span class="p">(</span><span class="n">strike</span><span class="p">,</span><span class="n">dip</span><span class="p">,</span><span class="n">point1</span><span class="p">,</span><span class="n">XG</span><span class="p">,</span><span class="n">YG</span><span class="p">,</span><span class="n">ZG</span><span class="p">)</span>
+<span class="n">cval</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># Contour only CG zero value</span>
+<span class="n">cp</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">XG</span><span class="p">,</span><span class="n">YG</span><span class="p">,</span><span class="n">DG</span><span class="p">,</span><span class="n">cval</span><span class="p">,</span><span class="n">colors</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span><span class="n">linewidths</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">point1</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">point1</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="s2">&quot;bo&quot;</span><span class="p">,</span><span class="n">markersize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="c1"># Eastern contact</span>
+<span class="n">strike</span><span class="p">,</span> <span class="n">dip</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">([</span><span class="mi">160</span><span class="p">,</span> <span class="mi">22</span><span class="p">])</span> 
+<span class="n">point2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">3203</span><span class="p">,</span> <span class="mi">1031</span><span class="p">,</span> <span class="mi">200</span><span class="p">])</span>
+<span class="n">DG</span> <span class="o">=</span> <span class="n">outcrop_trace</span><span class="p">(</span><span class="n">strike</span><span class="p">,</span><span class="n">dip</span><span class="p">,</span><span class="n">point2</span><span class="p">,</span><span class="n">XG</span><span class="p">,</span><span class="n">YG</span><span class="p">,</span><span class="n">ZG</span><span class="p">)</span>
+<span class="n">cp</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">XG</span><span class="p">,</span><span class="n">YG</span><span class="p">,</span><span class="n">DG</span><span class="p">,</span><span class="n">cval</span><span class="p">,</span><span class="n">colors</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span><span class="n">linewidths</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">point2</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">point2</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="s2">&quot;bo&quot;</span><span class="p">,</span><span class="n">markersize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="c1"># Make axes equal</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;equal&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/ch05_transformations_26_0.png" src="_images/ch05_transformations_26_0.png" />
+</div>
+</div>
+</section>
+<section id="down-plunge-projection">
+<span id="ch05-2-3"></span><h3><span class="section-number">5.2.3. </span>Down-plunge projection<a class="headerlink" href="#down-plunge-projection" title="Permalink to this headline">#</a></h3>
+<p>Folded rock layers normally have a cylindrical symmetry; the layers are bent about a single axis or direction, called the fold axis. In a cylindrical fold, the fold axis is a line of minimum, zero curvature, and the lines of maximum, non-zero curvature are perpendicular to it (Suppe, 1985). The least distorted view of such structure is on the plane perpendicular to the fold axis, which is called the profile plane (<a class="reference internal" href="#ch05-fig06"><span class="std std-numref">Figure 5.6</span></a>). Projecting the fold data to this profile plane is called a <em>down-plunge</em> projection.</p>
+<p>Constructing a down-plunge projection by hand typically involves an orthographic projection, and this problem is complicated (and tedious), particularly if points on the fold are not at the same elevation. Fortunately, we can solve this problem as a coordinate transformation, where points on the fold referenced in a <strong>ENU</strong> coordinate system, are transformed to a new <span class="math notranslate nohighlight">\(\mathbf{X_1\text{'}}\mathbf{X_2\text{'}}\mathbf{X_3\text{'}}\)</span> coordinate system, with <span class="math notranslate nohighlight">\(\mathbf{X_3\text{'}}\)</span> parallel to the fold axis, and <span class="math notranslate nohighlight">\(\mathbf{X_1\text{'}}\mathbf{X_2\text{'}}\)</span> defining the profile plane (<a class="reference internal" href="#ch05-fig06"><span class="std std-numref">Figure 5.6</span></a>).</p>
+<p>We will again derive the matrix <strong>a</strong> for this transformation using linear algebra. The direction cosines of the <strong>ENU</strong> coordinate system with respect to the <strong>NED</strong> coordinate system are given by Eq. <a class="reference internal" href="#equation-ch05-eq07">(5.7)</a>. The direction cosines of the <span class="math notranslate nohighlight">\(\mathbf{X_1\text{'}}\mathbf{X_2\text{'}}\mathbf{X_3\text{'}}\)</span> coordinate system with respect to the <strong>NED</strong> coordinate system can be found using  <a class="reference internal" href="ch04_coordinate_systems_vectors.html#ch04-tab01"><span class="std std-numref">Table 4.1</span></a>. If the trend and plunge of the fold axis are <span class="math notranslate nohighlight">\(T\)</span> and <span class="math notranslate nohighlight">\(P\)</span>, these direction cosines are (<a class="reference internal" href="#ch05-fig06"><span class="std std-numref">Figure 5.6</span></a>):</p>
+<figure class="align-default" id="ch05-fig06">
+<a class="reference internal image-reference" href="_images/ch05_fig06.png"><img alt="_images/ch05_fig06.png" src="_images/ch05_fig06.png" style="width: 450px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 5.6 </span><span class="caption-text">The two coordinate systems involved in a down-plunge projection of a fold. Modified from Allmendinger et al. (2012).</span><a class="headerlink" href="#ch05-fig06" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<div class="math notranslate nohighlight" id="equation-ch05-eq16">
+<span class="eqno">(5.16)<a class="headerlink" href="#equation-ch05-eq16" title="Permalink to this equation">#</a></span>\[\begin{split}
+\begin{gathered}
+    \mathbf{X_1\text{'}} = [\cos(T)\cos(P-90),\sin(T)\cos(P-90),\sin(P-90)] \\
+    \mathbf{X_2\text{'}} = [\cos(T+90),\sin(T+90),0)] \\
+    \mathbf{X_3\text{'}} = [\cos(T)\cos(P),\sin(T)\cos(P),\sin(P)]
+\end{gathered}
+\end{split}\]</div>
+<p>which simplifies to:</p>
+<div class="math notranslate nohighlight" id="equation-ch05-eq17">
+<span class="eqno">(5.17)<a class="headerlink" href="#equation-ch05-eq17" title="Permalink to this equation">#</a></span>\[\begin{split}
+\begin{gathered}
+	\mathbf{X_1\text{'}} = [\cos(T)\sin(P),\sin(T)\sin(P),-\cos(P)]  \\
+	\mathbf{X_2\text{'}} = [-\sin(T),\cos(T),0] \\
+	\mathbf{X_3\text{'}} = [\cos(T)\cos(P),\sin(T)\cos(P),\sin(P)]
+\end{gathered}
+\end{split}\]</div>
+<p>The direction cosines of the new <span class="math notranslate nohighlight">\(\mathbf{X_1\text{'}}\mathbf{X_2\text{'}}\mathbf{X_3\text{'}}\)</span> axes into the old <strong>ENU</strong> axes are the dot product between the new and old axes:</p>
+<div class="math notranslate nohighlight" id="equation-ch05-eq18">
+<span class="eqno">(5.18)<a class="headerlink" href="#equation-ch05-eq18" title="Permalink to this equation">#</a></span>\[\begin{split}\textbf{a}=
+    \begin{pmatrix}
+    \mathbf{X_1\text{'}}\cdot\mathbf{E} &amp; \mathbf{X_1\text{'}}\cdot\mathbf{N} &amp; \mathbf{X_1\text{'}}\cdot\mathbf{U} \\
+    \mathbf{X_2\text{'}}\cdot\mathbf{E} &amp; \mathbf{X_2\text{'}}\cdot\mathbf{N} &amp; \mathbf{X_2\text{'}}\cdot\mathbf{U} \\
+    \mathbf{X_3\text{'}}\cdot\mathbf{E} &amp; \mathbf{X_3\text{'}}\cdot\mathbf{N} &amp; \mathbf{X_3\text{'}}\cdot\mathbf{U}
+\end{pmatrix}
+\end{split}\]</div>
+<p>which is equal to:</p>
+<div class="math notranslate nohighlight" id="equation-ch05-eq19">
+<span class="eqno">(5.19)<a class="headerlink" href="#equation-ch05-eq19" title="Permalink to this equation">#</a></span>\[\begin{split}
+\textbf{a}=
+    \begin{pmatrix}
+        \sin(T)\sin(P) &amp; \cos(T)\sin(P) &amp; \cos(P) \\
+        \cos(T) &amp; -\sin(T) &amp; 0 \\
+        \sin(T)\cos(P) &amp; \cos(T)\cos(P) &amp; -\sin(P)
+    \end{pmatrix}
+\end{split}\]</div>
+<p>This is the transformation matrix <strong>a</strong> for the down-plunge projection. To project <span class="math notranslate nohighlight">\(i\)</span>-th points on the fold with coordinates <span class="math notranslate nohighlight">\([E_i,N_i,U_i]\)</span>, we just need to do the following:</p>
+<div class="math notranslate nohighlight" id="equation-ch05-eq20">
+<span class="eqno">(5.20)<a class="headerlink" href="#equation-ch05-eq20" title="Permalink to this equation">#</a></span>\[\begin{split}
+\begin{gathered}
+	X_{1i}'=\sin(T)\sin(P)E_i+\cos(T)\sin(P)N_i+\cos(P)U_i \\
+	X_{2i}'=\cos(T)E_i-\sin(T)N_i
+\end{gathered}
+\end{split}\]</div>
+<p>and then plot <span class="math notranslate nohighlight">\(X_{2i}'\)</span> against <span class="math notranslate nohighlight">\(X_{1i}'\)</span> (<a class="reference internal" href="#ch05-fig06"><span class="std std-numref">Figure 5.6</span></a>) to draw the fold.</p>
+<p>The function <a class="reference external" href="https://github.com/nfcd/compGeo/blob/master/source/functions/down_plunge.py">down_plunge</a> computes the down-plunge projection of a bed from the <strong>ENU</strong> coordinates of points on the bed, and the fold axis orientation:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+
+<span class="k">def</span> <span class="nf">down_plunge</span><span class="p">(</span><span class="n">bs</span><span class="p">,</span><span class="n">trd</span><span class="p">,</span><span class="n">plg</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    down_plunge constructs the down plunge projection of a bed</span>
+<span class="sd">    </span>
+<span class="sd">    bs is a npoints x 3 array, which holds npoints</span>
+<span class="sd">    on the digitized bed, each point defined by</span>
+<span class="sd">    3 coordinates: X1 = East, X2 = North, X3 = Up</span>
+<span class="sd">    </span>
+<span class="sd">    trd and plg are the trend and plunge of the fold axis</span>
+<span class="sd">    and they should be entered in radians</span>
+<span class="sd">    </span>
+<span class="sd">    dpbs are the bed&#39;s transformed coordinates</span>
+<span class="sd">    </span>
+<span class="sd">    Python function translated from the Matlab function</span>
+<span class="sd">    DownPlunge in Allmendinger et al. (2012)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Number of points in bed</span>
+    <span class="n">nvtex</span> <span class="o">=</span> <span class="n">bs</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    
+    <span class="c1"># Allocate some arrays</span>
+    <span class="n">a</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+    <span class="n">dpbs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">bs</span><span class="p">)))</span>
+    
+    <span class="c1"># Calculate the transformation matrix a(i,j)</span>
+    <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">trd</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">plg</span><span class="p">)</span>
+    <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">trd</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">plg</span><span class="p">)</span>
+    <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">plg</span><span class="p">)</span>
+    <span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">trd</span><span class="p">)</span>
+    <span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">trd</span><span class="p">)</span>
+    <span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">trd</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">plg</span><span class="p">)</span>
+    <span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">trd</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">plg</span><span class="p">)</span>
+    <span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">plg</span><span class="p">)</span>
+    
+    <span class="c1"># Perform transformation</span>
+    <span class="k">for</span> <span class="n">nv</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">nvtex</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">):</span>
+            <span class="n">dpbs</span><span class="p">[</span><span class="n">nv</span><span class="p">,</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
+            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">):</span>
+                    <span class="n">dpbs</span><span class="p">[</span><span class="n">nv</span><span class="p">,</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span><span class="o">*</span><span class="n">bs</span><span class="p">[</span><span class="n">nv</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="n">dpbs</span><span class="p">[</span><span class="n">nv</span><span class="p">,</span><span class="n">i</span><span class="p">]</span>
+    
+    <span class="k">return</span> <span class="n">dpbs</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s use this function to draw the down-plunge projection of the Big Elk anticline, southeastern Idaho, USA (<a class="reference internal" href="#ch05-fig07"><span class="std std-numref">Figure 5.7</span></a>; Albee and Cullins, 1975). Text files contain the digitized contacts (<strong>ENU</strong>) of three tops along the fold: the Jurassic Twin Creek Limestone (<a class="reference external" href="https://github.com/nfcd/compGeo/blob/master/source/data/ch5-4/jtc.txt">jtc.txt</a>), the Jurassic Stump Sandstone (<a class="reference external" href="https://github.com/nfcd/compGeo/blob/master/source/data/ch5-4/js.txt">js.txt</a>), and the Cretaceous Peterson Limestone (<a class="reference external" href="https://github.com/nfcd/compGeo/blob/master/source/data/ch5-4/kp.txt">kp.txt</a>). The trend and plunge of the folds axis is 125/26 (in the next chapter we will see how to compute this axis). The notebook <a class="reference external" href="https://github.com/nfcd/compGeo/blob/master/source/notebooks/ch5-4.ipynb">ch5-4</a> shows the solution to this problem:</p>
+<figure class="align-default" id="ch05-fig07">
+<a class="reference internal image-reference" href="_images/ch05_fig07.png"><img alt="_images/ch05_fig07.png" src="_images/ch05_fig07.png" style="width: 500px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 5.7 </span><span class="caption-text">Simplified geologic map of the Big Elk anticline in southeastern Idaho. Modified from Allmendinger et al. (2012).</span><a class="headerlink" href="#ch05-fig07" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import libraries</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="kn">from</span> <span class="nn">compgeo.down_plunge</span> <span class="kn">import</span> <span class="n">down_plunge</span>
+
+
+<span class="c1"># Trend and plunge of the fold axis in radians</span>
+<span class="n">trend</span><span class="p">,</span> <span class="n">plunge</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">([</span><span class="mi">125</span><span class="p">,</span> <span class="mi">26</span><span class="p">])</span> 
+
+<span class="c1"># Read the tops from the text files</span>
+<span class="n">jtc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="s2">&quot;data/ch5-4/jtc.txt&quot;</span><span class="p">))</span>
+<span class="n">js</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="s2">&quot;data/ch5-4/js.txt&quot;</span><span class="p">))</span>
+<span class="n">kp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="s2">&quot;data/ch5-4/kp.txt&quot;</span><span class="p">))</span>
+
+<span class="c1"># Transform the points</span>
+<span class="n">jtcdp</span> <span class="o">=</span> <span class="n">down_plunge</span><span class="p">(</span><span class="n">jtc</span><span class="p">,</span><span class="n">trend</span><span class="p">,</span><span class="n">plunge</span><span class="p">)</span>
+<span class="n">jsdp</span> <span class="o">=</span> <span class="n">down_plunge</span> <span class="p">(</span><span class="n">js</span><span class="p">,</span><span class="n">trend</span><span class="p">,</span><span class="n">plunge</span><span class="p">)</span>
+<span class="n">kpdp</span> <span class="o">=</span> <span class="n">down_plunge</span><span class="p">(</span><span class="n">kp</span><span class="p">,</span><span class="n">trend</span><span class="p">,</span><span class="n">plunge</span><span class="p">)</span>
+
+<span class="c1"># Make a figure</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+
+<span class="c1"># Plot the down plunge section</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">jtcdp</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span><span class="n">jtcdp</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="s2">&quot;k-&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">jsdp</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span><span class="n">jsdp</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="s2">&quot;r-&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kpdp</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span><span class="n">kpdp</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="s2">&quot;b-&quot;</span><span class="p">)</span>
+
+<span class="c1"># Display the section&quot;s orientation</span>
+<span class="c1"># Notice that the fold axis plunges SE</span>
+<span class="c1"># Therefore the left side of the section is NE</span>
+<span class="c1"># and the right side is SW</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="o">-</span><span class="mf">2.1e4</span><span class="p">,</span><span class="mf">12e3</span><span class="p">,</span><span class="s2">&quot;NE&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="o">-</span><span class="mf">0.6e4</span><span class="p">,</span><span class="mf">12e3</span><span class="p">,</span><span class="s2">&quot;SW&quot;</span><span class="p">)</span>
+
+<span class="c1"># Make axes equal</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;equal&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/ch05_transformations_33_0.png" src="_images/ch05_transformations_33_0.png" />
+</div>
+</div>
+<p>The thrust verges to the NE (<a class="reference internal" href="#ch05-fig07"><span class="std std-numref">Figure 5.7</span></a>), yet the fold verges in the opposite direction to the SW. Unit Jp, between Jtc and Js, contains evaporites. Could this explain the observed fold geometry?</p>
+</section>
+<section id="rotations">
+<span id="ch05-2-4"></span><h3><span class="section-number">5.2.4. </span>Rotations<a class="headerlink" href="#rotations" title="Permalink to this headline">#</a></h3>
+<p>Rotations are essential in geology. For example, if from a current lineation on a tilted bed we want to estimate the direction of the current that deposited the bed, we need to rotate the bed (and the lineation) back to their pre-tilting orientation. The stereonet is a convenient device to rotate lines and planes around a horizontal axis or a vertical axis, but it is rather difficult to make rotations around an axis of a different orientation (Marshak and Mitra, 1988).</p>
+<p>A rotation is also a coordinate transformation from an old coordinate system <span class="math notranslate nohighlight">\(\mathbf{X_1}\mathbf{X_2}\mathbf{X_3}\)</span> to a new coordinate system <span class="math notranslate nohighlight">\(\mathbf{X_1\text{'}}\mathbf{X_2\text{'}}\mathbf{X_3\text{'}}\)</span> (<a class="reference internal" href="#ch05-fig08"><span class="std std-numref">Figure 5.8</span></a>). The rotation axis is specified by its trend and plunge, and the magnitude of rotation is given by the angle <span class="math notranslate nohighlight">\(\omega\)</span> which is positive for clockwise rotation and vice versa (<a class="reference internal" href="#ch05-fig08"><span class="std std-numref">Figure 5.8</span></a>). The difficult part is that the rotation axis may not coincide with the axes of either the old or the new coordinate system (unlike the down-plunge projection).</p>
+<p>The components of the transformation matrix <strong>a</strong> defining the rotation, which are the direction cosines of the new coordinate system <span class="math notranslate nohighlight">\(\mathbf{X_1\text{'}}\mathbf{X_2\text{'}}\mathbf{X_3\text{'}}\)</span> with respect to the old coordinate system <span class="math notranslate nohighlight">\(\mathbf{X_1}\mathbf{X_2}\mathbf{X_3}\)</span>, can be found using spherical trigonometry (Allmendinger et al., 2012) or linear algebra as we did before. Here, we give them without proof. If <span class="math notranslate nohighlight">\(\cos\alpha\)</span>, <span class="math notranslate nohighlight">\(\cos\beta\)</span> and <span class="math notranslate nohighlight">\(\cos\gamma\)</span> are the direction cosines of the rotation axis in the <strong>NED</strong> coordinate system (<a class="reference internal" href="ch04_coordinate_systems_vectors.html#ch04-tab01"><span class="std std-numref">Table 4.1</span></a>), and <span class="math notranslate nohighlight">\(\omega\)</span> is the amount of rotation, the elements of matrix <strong>a</strong> are:</p>
+<div class="math notranslate nohighlight" id="equation-ch05-eq21">
+<span class="eqno">(5.21)<a class="headerlink" href="#equation-ch05-eq21" title="Permalink to this equation">#</a></span>\[\begin{split}
+\begin{gathered}
+	a_{11}=\cos\omega+\cos^2\alpha(1-\cos\omega) \\
+	a_{12}=-\cos\gamma\sin\omega+\cos\alpha\cos\beta(1-\cos\omega) \\
+	a_{13}=\cos\beta\sin\omega+\cos\alpha\cos\gamma(1-\cos\omega) \\
+	a_{21}=\cos\gamma\sin\omega+\cos\beta\cos\alpha(1-\cos\omega) \\
+	a_{22}=\cos\omega+\cos^2\beta(1-\cos\omega) \\
+	a_{23}=-\cos\alpha\sin\omega+\cos\beta\cos\gamma(1-\cos\omega) \\
+	a_{31}=-\cos\beta\sin\omega+\cos\gamma\cos\alpha(1-\cos\omega) \\
+	a_{32}=\cos\alpha\sin\omega+\cos\gamma\cos\beta(1-\cos\omega) \\
+	a_{33}=\cos\omega+\cos^2\gamma(1-\cos\omega)
+\end{gathered}
+\end{split}\]</div>
+<p>The function <a class="reference external" href="https://github.com/nfcd/compGeo/blob/master/source/functions/rotate.py">rotate</a> rotates a line (<code class="docutils literal notranslate"><span class="pre">trd</span></code> and <code class="docutils literal notranslate"><span class="pre">plg</span></code>) about a rotation axis (<code class="docutils literal notranslate"><span class="pre">rtrd</span></code> and <code class="docutils literal notranslate"><span class="pre">rplg</span></code>), an amount <span class="math notranslate nohighlight">\(\omega\)</span> (<code class="docutils literal notranslate"><span class="pre">rot</span></code>):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="kn">from</span> <span class="nn">compgeo.sph_to_cart</span> <span class="kn">import</span> <span class="n">sph_to_cart</span>
+<span class="kn">from</span> <span class="nn">compgeo.cart_to_sph</span> <span class="kn">import</span> <span class="n">cart_to_sph</span>
+
+
+<span class="k">def</span> <span class="nf">rotate</span><span class="p">(</span><span class="n">rtrd</span><span class="p">,</span><span class="n">rplg</span><span class="p">,</span><span class="n">rot</span><span class="p">,</span><span class="n">trd</span><span class="p">,</span><span class="n">plg</span><span class="p">,</span><span class="n">ans0</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    rotate rotates a line by performing a coordinate</span>
+<span class="sd">    transformation</span>
+<span class="sd">    </span>
+<span class="sd">    rtrd = trend of rotation axis</span>
+<span class="sd">    rplg = plunge of rotation axis</span>
+<span class="sd">    rot = magnitude of rotation</span>
+<span class="sd">    trd = trend of the line to be rotated</span>
+<span class="sd">    plg = plunge of the line to be rotated</span>
+<span class="sd">    ans0 = A character indicating whether the line </span>
+<span class="sd">        to be rotated is an axis (ans0 = &quot;a&quot;) or a </span>
+<span class="sd">        vector (ans0 = &quot;v&quot;)</span>
+<span class="sd">    trdr and plgr are the trend and plunge of the</span>
+<span class="sd">        rotated line</span>
+<span class="sd">    </span>
+<span class="sd">    NOTE: All angles are in radians</span>
+<span class="sd">    </span>
+<span class="sd">    Python function translated from the Matlab function</span>
+<span class="sd">    Rotate in Allmendinger et al. (2012)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Allocate some arrays</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span> <span class="c1">#Transformation matrix</span>
+    <span class="n">raxis</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="c1">#Dir. cosines of rotation axis</span>
+    <span class="n">line</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>  <span class="c1">#Dir. cosines of line to be rotated</span>
+    <span class="n">liner</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="c1">#Dir. cosines of rotated line</span>
+    
+    <span class="c1"># Convert rotation axis to direction cosines</span>
+    <span class="n">raxis</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="p">,</span> <span class="n">raxis</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">raxis</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">sph_to_cart</span><span class="p">(</span><span class="n">rtrd</span><span class="p">,</span><span class="n">rplg</span><span class="p">)</span>
+    
+    <span class="c1"># Calculate the transformation matrix a for the rotation</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">rot</span><span class="p">)</span>
+    <span class="n">sinrot</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">rot</span><span class="p">)</span>
+    <span class="n">cosrot</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">rot</span><span class="p">)</span>
+    <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">cosrot</span> <span class="o">+</span> <span class="n">raxis</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">raxis</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">x</span>
+    <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="n">raxis</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">*</span><span class="n">sinrot</span> <span class="o">+</span> <span class="n">raxis</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">raxis</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">x</span>
+    <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">raxis</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">sinrot</span> <span class="o">+</span> <span class="n">raxis</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">raxis</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">*</span><span class="n">x</span>
+    <span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">raxis</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">*</span><span class="n">sinrot</span> <span class="o">+</span> <span class="n">raxis</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">raxis</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">x</span>
+    <span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">cosrot</span> <span class="o">+</span> <span class="n">raxis</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">raxis</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">x</span>
+    <span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="n">raxis</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">sinrot</span> <span class="o">+</span> <span class="n">raxis</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">raxis</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">*</span><span class="n">x</span>
+    <span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="n">raxis</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">sinrot</span> <span class="o">+</span> <span class="n">raxis</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">*</span><span class="n">raxis</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">x</span>
+    <span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">raxis</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">sinrot</span> <span class="o">+</span> <span class="n">raxis</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">*</span><span class="n">raxis</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">x</span>
+    <span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">cosrot</span> <span class="o">+</span> <span class="n">raxis</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">*</span><span class="n">raxis</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">*</span><span class="n">x</span>
+    
+    <span class="c1"># Convert trend and plunge of line to be rotated into</span>
+    <span class="c1"># direction cosines</span>
+    <span class="n">line</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="p">,</span> <span class="n">line</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">sph_to_cart</span><span class="p">(</span><span class="n">trd</span><span class="p">,</span><span class="n">plg</span><span class="p">)</span>
+    
+    <span class="c1"># Perform the coordinate transformation</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+            <span class="n">liner</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span><span class="o">*</span><span class="n">line</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="n">liner</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    
+    <span class="c1"># Convert to lower hemisphere projection if axis </span>
+    <span class="k">if</span> <span class="n">liner</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mf">0.0</span> <span class="ow">and</span> <span class="n">ans0</span> <span class="o">==</span> <span class="s1">&#39;a&#39;</span><span class="p">:</span>
+        <span class="n">liner</span> <span class="o">*=</span> <span class="o">-</span><span class="mf">1.0</span>
+        
+    <span class="c1"># Convert from direction cosines back to trend and plunge</span>
+    <span class="n">trdr</span> <span class="p">,</span> <span class="n">plgr</span> <span class="o">=</span> <span class="n">cart_to_sph</span><span class="p">(</span><span class="n">liner</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">liner</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">liner</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+    
+    <span class="k">return</span> <span class="n">trdr</span><span class="p">,</span> <span class="n">plgr</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The notebook <a class="reference external" href="https://github.com/nfcd/compGeo/blob/master/source/notebooks/ch5-5.ipynb">ch5-5</a> illustrates the use of the function <code class="docutils literal notranslate"><span class="pre">rotate</span></code> to solve the following problem from Leyshon and Lisle (1996): An overturned bed oriented 305/60 (RHR) has sedimentary lineations which indicate the palaeocurrent direction. These pitch at 60NW, with the current flowing up the plunge. Calculate the original trend of the palaeocurrents.</p>
+<p>Besides rotating the lineations back to their pre-tilted orientation, there is an additional challenge in this problem. We need to figure out the orientation of the lineations from their pitch on the bed. We will do this as well using a rotation.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">pi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span>
+
+<span class="kn">from</span> <span class="nn">compgeo.pole</span> <span class="kn">import</span> <span class="n">pole_from_plane</span>
+<span class="kn">from</span> <span class="nn">compgeo.rotate</span> <span class="kn">import</span> <span class="n">rotate</span>
+<span class="kn">from</span> <span class="nn">compgeo.zero_twopi</span> <span class="kn">import</span> <span class="n">zero_twopi</span>
+
+
+<span class="c1"># Strike and dip of bed in radians</span>
+<span class="n">strike</span><span class="p">,</span> <span class="n">dip</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">([</span><span class="mi">305</span><span class="p">,</span> <span class="mi">60</span><span class="p">])</span> 
+
+<span class="c1"># Pole of bed</span>
+<span class="n">rtrd</span><span class="p">,</span> <span class="n">rplg</span> <span class="o">=</span> <span class="n">pole_from_plane</span><span class="p">(</span><span class="n">strike</span><span class="p">,</span> <span class="n">dip</span><span class="p">)</span>
+
+<span class="c1"># To find the orientation of the lineations</span>
+<span class="c1"># rotate the strike line clockwise about the </span>
+<span class="c1"># pole an amount equal to the pitch</span>
+
+<span class="c1"># strike line</span>
+<span class="n">trd</span><span class="p">,</span> <span class="n">plg</span> <span class="o">=</span> <span class="n">strike</span><span class="p">,</span> <span class="mi">0</span> 
+
+<span class="c1"># rotation = pitch in radians</span>
+<span class="n">rot</span> <span class="o">=</span> <span class="mi">60</span> <span class="o">*</span> <span class="n">pi</span><span class="o">/</span><span class="mi">180</span> 
+
+<span class="c1"># orientation of lineations</span>
+<span class="n">trdr</span><span class="p">,</span> <span class="n">plgr</span> <span class="o">=</span> <span class="n">rotate</span><span class="p">(</span><span class="n">rtrd</span><span class="p">,</span><span class="n">rplg</span><span class="p">,</span><span class="n">rot</span><span class="p">,</span><span class="n">trd</span><span class="p">,</span><span class="n">plg</span><span class="p">,</span><span class="s2">&quot;a&quot;</span><span class="p">)</span>
+
+<span class="c1"># Now we need to rotate the lineations about</span>
+<span class="c1"># the strike line to their pre-tilted orientation</span>
+
+<span class="c1"># The bed is overturned, so it has been rotated </span>
+<span class="c1"># pass the vertical. The amount of rotation</span>
+<span class="c1"># required to restore the bed to its pre-tilted</span>
+<span class="c1"># orientation is 180- 60 = 120 deg, and it</span>
+<span class="c1"># should be clockwise</span>
+<span class="n">rot</span> <span class="o">=</span> <span class="mi">120</span> <span class="o">*</span> <span class="n">pi</span><span class="o">/</span><span class="mi">180</span> <span class="c1"># rotation in radians</span>
+
+<span class="c1"># rotate lineations to their pre-tilted orientation</span>
+<span class="n">trdl</span><span class="p">,</span> <span class="n">plgl</span> <span class="o">=</span> <span class="n">rotate</span><span class="p">(</span><span class="n">trd</span><span class="p">,</span><span class="n">plg</span><span class="p">,</span><span class="n">rot</span><span class="p">,</span><span class="n">trdr</span><span class="p">,</span><span class="n">plgr</span><span class="p">,</span><span class="s2">&quot;a&quot;</span><span class="p">)</span>
+
+<span class="c1"># The current flows up the plunge, </span>
+<span class="c1"># so the trend of the paleocurrents is:</span>
+<span class="n">trdl</span> <span class="o">=</span> <span class="n">zero_twopi</span><span class="p">(</span><span class="n">trdl</span> <span class="o">+</span> <span class="n">pi</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Original trend of the paleocurrents = </span><span class="si">{:.1f}</span><span class="s2">&quot;</span>
+      <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">trdl</span><span class="o">*</span><span class="mi">180</span><span class="o">/</span><span class="n">pi</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Original trend of the paleocurrents = 65.0
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="plotting-great-and-small-circles-using-rotations">
+<span id="ch05-2-5"></span><h3><span class="section-number">5.2.5. </span>Plotting great and small circles using rotations<a class="headerlink" href="#plotting-great-and-small-circles-using-rotations" title="Permalink to this headline">#</a></h3>
+<p>The transformation matrix <strong>a</strong> that describes the rotation (Eq. <a class="reference internal" href="#equation-ch05-eq21">(5.21)</a>), provides a simple and elegant way to draw great and small circles on a stereonet. As you may suspect from the previous notebook, to draw a great circle, we just need to rotate the strike line of the plane around the pole to the plane in fixed increments (e.g. 1) until completing 180. This is the same as drawing lines on the plane of incrementally larger rake from 0 to 180. To draw a small circle, we just need to rotate a line around the axis of the conic section in fixed increments (e.g. 1) until completing 360. Any line making an angle less than 90with the axis of rotation will trace a cone, which will plot on the stereonet as a small circle. The functions <a class="reference external" href="https://github.com/nfcd/compGeo/blob/master/source/functions/great_circle.py">great_circle</a> and <a class="reference external" href="https://github.com/nfcd/compGeo/blob/master/source/functions/small_circle.py">small_circle</a> return the path of a great or small circle on an equal angle or equal area stereonet:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="kn">from</span> <span class="nn">compgeo.pole</span> <span class="kn">import</span> <span class="n">pole_from_plane</span>
+<span class="kn">from</span> <span class="nn">compgeo.rotate</span> <span class="kn">import</span> <span class="n">rotate</span>
+<span class="kn">from</span> <span class="nn">compgeo.st_coord_line</span> <span class="kn">import</span> <span class="n">st_coord_line</span>
+
+
+<span class="k">def</span> <span class="nf">great_circle</span><span class="p">(</span><span class="n">strike</span><span class="p">,</span><span class="n">dip</span><span class="p">,</span><span class="n">stype</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    great_circle computes the great circle path of a plane</span>
+<span class="sd">    in an equal angle or equal area stereonet of unit radius</span>
+<span class="sd">    </span>
+<span class="sd">    strike = strike of plane</span>
+<span class="sd">    dip = dip of plane</span>
+<span class="sd">    stype = Stereonet type: 0 = equal angle, 1 = equal area</span>
+<span class="sd">    path = x and y coordinates of points in great circle path</span>
+<span class="sd">    </span>
+<span class="sd">    NOTE: strike and dip should be entered in radians.</span>
+<span class="sd">    </span>
+<span class="sd">    Python function translated from the Matlab function</span>
+<span class="sd">    great_circle in Allmendinger et al. (2012)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">pi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span>
+    <span class="c1"># Compute the pole to the plane. This will be the axis of</span>
+    <span class="c1"># rotation to make the great circle</span>
+    <span class="n">trda</span><span class="p">,</span> <span class="n">plga</span> <span class="o">=</span> <span class="n">pole_from_plane</span><span class="p">(</span><span class="n">strike</span><span class="p">,</span><span class="n">dip</span><span class="p">)</span>
+    
+    <span class="c1"># Now pick the strike line at the intersection of the</span>
+    <span class="c1"># great circle with the primitive of the stereonet</span>
+    <span class="n">trd</span><span class="p">,</span> <span class="n">plg</span> <span class="o">=</span> <span class="n">strike</span><span class="p">,</span> <span class="mf">0.0</span>
+    
+    <span class="c1"># To make the great circle, rotate the line 180 degrees</span>
+    <span class="c1"># in increments of 1 degree</span>
+    <span class="n">rot</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">181</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+    <span class="n">path</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">rot</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="mi">2</span><span class="p">))</span>
+    
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">rot</span><span class="o">.</span><span class="n">size</span><span class="p">):</span>
+    <span class="c1"># Avoid joining ends of path</span>
+        <span class="k">if</span> <span class="n">rot</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">pi</span><span class="p">:</span>
+            <span class="n">rot</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">rot</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="mf">0.9999</span>
+        <span class="c1"># Rotate line</span>
+        <span class="n">rtrd</span><span class="p">,</span> <span class="n">rplg</span> <span class="o">=</span> <span class="n">rotate</span><span class="p">(</span><span class="n">trda</span><span class="p">,</span><span class="n">plga</span><span class="p">,</span><span class="n">rot</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">trd</span><span class="p">,</span><span class="n">plg</span><span class="p">,</span><span class="s2">&quot;a&quot;</span><span class="p">)</span>
+        <span class="c1"># Calculate stereonet coordinates of rotated line</span>
+        <span class="c1"># and add to great circle path</span>
+        <span class="n">path</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">path</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">st_coord_line</span><span class="p">(</span><span class="n">rtrd</span><span class="p">,</span><span class="n">rplg</span><span class="p">,</span><span class="n">stype</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">path</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="kn">from</span> <span class="nn">compgeo.rotate</span> <span class="kn">import</span> <span class="n">rotate</span>
+<span class="kn">from</span> <span class="nn">compgeo.st_coord_line</span> <span class="kn">import</span> <span class="n">st_coord_line</span>
+<span class="kn">from</span> <span class="nn">compgeo.zero_twopi</span> <span class="kn">import</span> <span class="n">zero_twopi</span>
+
+
+<span class="k">def</span> <span class="nf">small_circle</span><span class="p">(</span><span class="n">trda</span><span class="p">,</span><span class="n">plga</span><span class="p">,</span><span class="n">cangle</span><span class="p">,</span><span class="n">stype</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    small_circle computes the paths of a small circle defined</span>
+<span class="sd">    by its axis and cone angle, for an equal angle or equal</span>
+<span class="sd">    area stereonet of unit radius</span>
+<span class="sd">    </span>
+<span class="sd">    trda = trend of axis</span>
+<span class="sd">    plga = plunge of axis</span>
+<span class="sd">    cangle = cone angle</span>
+<span class="sd">    stype = Stereonet type: 0 = equal angle, 1 = equal area</span>
+<span class="sd">    path1 and path2 = vectors with the x and y coordinates</span>
+<span class="sd">        of the points in the small circle paths</span>
+<span class="sd">    np1 and np2 = Number of points in path1 and path2</span>
+<span class="sd">    </span>
+<span class="sd">    NOTE: All angles should be in radians</span>
+<span class="sd">    </span>
+<span class="sd">    Python function translated from the Matlab function</span>
+<span class="sd">    SmallCircle in Allmendinger et al. (2012)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">pi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span>
+    <span class="c1"># Find where to start the small circle</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">plga</span> <span class="o">-</span> <span class="n">cangle</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mf">0.0</span><span class="p">:</span>
+        <span class="n">trd</span> <span class="o">=</span> <span class="n">trda</span>
+        <span class="n">plg</span> <span class="o">=</span> <span class="n">plga</span> <span class="o">-</span> <span class="n">cangle</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">plga</span> <span class="o">==</span> <span class="n">pi</span><span class="o">/</span><span class="mf">2.0</span><span class="p">:</span>
+            <span class="n">plga</span> <span class="o">=</span> <span class="n">plga</span> <span class="o">*</span> <span class="mf">0.9999</span>
+        <span class="n">angle</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arccos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">cangle</span><span class="p">)</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">plga</span><span class="p">))</span>
+        <span class="n">trd</span> <span class="o">=</span> <span class="n">zero_twopi</span><span class="p">(</span><span class="n">trda</span><span class="o">+</span><span class="n">angle</span><span class="p">)</span>
+        <span class="n">plg</span> <span class="o">=</span> <span class="mf">0.0</span>
+    
+    <span class="c1"># To make the small circle, rotate the starting line</span>
+    <span class="c1"># 360 degrees in increments of 1 degree</span>
+    <span class="n">rot</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">361</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+    <span class="n">path1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">rot</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="mi">2</span><span class="p">))</span>
+    <span class="n">path2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">rot</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="mi">2</span><span class="p">))</span>
+    <span class="n">np1</span> <span class="o">=</span> <span class="n">np2</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">rot</span><span class="o">.</span><span class="n">size</span><span class="p">):</span>
+        <span class="c1"># Rotate line: The line is considered as a vector</span>
+        <span class="n">rtrd</span> <span class="p">,</span> <span class="n">rplg</span> <span class="o">=</span> <span class="n">rotate</span><span class="p">(</span><span class="n">trda</span><span class="p">,</span><span class="n">plga</span><span class="p">,</span><span class="n">rot</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">trd</span><span class="p">,</span><span class="n">plg</span><span class="p">,</span><span class="s2">&quot;v&quot;</span><span class="p">)</span>
+        <span class="c1"># Calculate stereonet coordinates and add to path</span>
+        <span class="c1"># If rotated plunge is positive add to 1st path</span>
+        <span class="k">if</span> <span class="n">rplg</span> <span class="o">&gt;=</span> <span class="mf">0.0</span><span class="p">:</span>
+            <span class="n">path1</span><span class="p">[</span><span class="n">np1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="p">,</span> <span class="n">path1</span><span class="p">[</span><span class="n">np1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">st_coord_line</span><span class="p">(</span><span class="n">rtrd</span><span class="p">,</span><span class="n">rplg</span><span class="p">,</span>
+                <span class="n">stype</span><span class="p">)</span>
+            <span class="n">np1</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="c1"># Else add to 2nd path</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">path2</span><span class="p">[</span><span class="n">np2</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="p">,</span> <span class="n">path2</span><span class="p">[</span><span class="n">np2</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">st_coord_line</span><span class="p">(</span><span class="n">rtrd</span><span class="p">,</span><span class="n">rplg</span><span class="p">,</span>
+                <span class="n">stype</span><span class="p">)</span>
+            <span class="n">np2</span> <span class="o">+=</span> <span class="mi">1</span>
+    
+    <span class="k">return</span> <span class="n">path1</span><span class="p">,</span> <span class="n">path2</span><span class="p">,</span> <span class="n">np1</span><span class="p">,</span> <span class="n">np2</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Normally, stereonets are displayed looking straight down, with the primitive equal to the horizontal. However, sometimes it is convenient to look at the stereonet in another orientation. For example, one may want to plot data in the plane of a cross section with the view direction perpendicular to the section, or in a down-plunge projection with the view direction parallel to the fold axis. The function <a class="reference external" href="https://github.com/nfcd/compGeo/blob/master/source/functions/geogr_to_view.py">geogr_to_view</a> enables to plot great and small circles on a stereonet of any view direction, by transforming the poles of rotation from <strong>NED</strong> coordinates to the view direction coordinates:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="kn">from</span> <span class="nn">compgeo.sph_to_cart</span> <span class="kn">import</span> <span class="n">sph_to_cart</span>
+<span class="kn">from</span> <span class="nn">compgeo.cart_to_sph</span> <span class="kn">import</span> <span class="n">cart_to_sph</span>
+<span class="kn">from</span> <span class="nn">compgeo.zero_twopi</span> <span class="kn">import</span> <span class="n">zero_twopi</span>
+
+
+<span class="k">def</span> <span class="nf">geogr_to_view</span><span class="p">(</span><span class="n">trd</span><span class="p">,</span><span class="n">plg</span><span class="p">,</span><span class="n">trdv</span><span class="p">,</span><span class="n">plgv</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    geogr_to_view transforms a line from NED to View </span>
+<span class="sd">    direction coordinates</span>
+<span class="sd">    trd = trend of line</span>
+<span class="sd">    plg = plunge of line </span>
+<span class="sd">    trdv = trend of view direction </span>
+<span class="sd">    plgv = plunge of view direction </span>
+<span class="sd">    rtrd and rplg are the new trend and plunge of the line</span>
+<span class="sd">    in the view direction.</span>
+<span class="sd">    </span>
+<span class="sd">    NOTE: Input/Output angles are in radians</span>
+<span class="sd">    </span>
+<span class="sd">    Python function translated from the Matlab function</span>
+<span class="sd">    GeogrToView in Allmendinger et al. (2012)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1">#some constants </span>
+    <span class="n">east</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mf">2.0</span>
+    
+    <span class="c1">#Make transformation matrix between NED and View Direction</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+    <span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">sph_to_cart</span><span class="p">(</span><span class="n">trdv</span><span class="p">,</span><span class="n">plgv</span><span class="p">)</span>
+    <span class="n">temp1</span> <span class="o">=</span> <span class="n">trdv</span> <span class="o">+</span> <span class="n">east</span>
+    <span class="n">temp2</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">sph_to_cart</span><span class="p">(</span><span class="n">temp1</span><span class="p">,</span><span class="n">temp2</span><span class="p">)</span>
+    <span class="n">temp1</span> <span class="o">=</span> <span class="n">trdv</span>
+    <span class="n">temp2</span> <span class="o">=</span> <span class="n">plgv</span> <span class="o">-</span> <span class="n">east</span>
+    <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">sph_to_cart</span><span class="p">(</span><span class="n">temp1</span><span class="p">,</span><span class="n">temp2</span><span class="p">)</span>
+    
+    <span class="c1">#Direction cosines of line</span>
+    <span class="n">dc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+    <span class="n">dc</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">dc</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">dc</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">sph_to_cart</span><span class="p">(</span><span class="n">trd</span><span class="p">,</span><span class="n">plg</span><span class="p">)</span>
+    
+    <span class="c1"># Transform line</span>
+    <span class="n">ndc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+        <span class="n">ndc</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">dc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">dc</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span><span class="o">*</span><span class="n">dc</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+    
+    <span class="c1"># Compute line from new direction cosines</span>
+    <span class="n">rtrd</span><span class="p">,</span> <span class="n">rplg</span> <span class="o">=</span> <span class="n">cart_to_sph</span><span class="p">(</span><span class="n">ndc</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">ndc</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">ndc</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+    
+    <span class="c1"># Take care of negative plunges</span>
+    <span class="k">if</span> <span class="n">rplg</span> <span class="o">&lt;</span> <span class="mf">0.0</span> <span class="p">:</span>
+        <span class="n">rtrd</span> <span class="o">=</span> <span class="n">zero_twopi</span><span class="p">(</span><span class="n">rtrd</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
+        <span class="n">rplg</span> <span class="o">=</span> <span class="o">-</span><span class="n">rplg</span>
+    
+    <span class="k">return</span> <span class="n">rtrd</span><span class="p">,</span> <span class="n">rplg</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can now put these three functions together in a function called <a class="reference external" href="https://github.com/nfcd/compGeo/blob/master/source/functions/stereonet.py">stereonet</a>, which plots an equal angle or equal area stereonet in any view direction:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="kn">from</span> <span class="nn">compgeo.pole</span> <span class="kn">import</span> <span class="n">plane_from_pole</span>
+<span class="kn">from</span> <span class="nn">compgeo.geogr_to_view</span> <span class="kn">import</span> <span class="n">geogr_to_view</span>
+<span class="kn">from</span> <span class="nn">compgeo.small_circle</span> <span class="kn">import</span> <span class="n">small_circle</span>
+<span class="kn">from</span> <span class="nn">compgeo.great_circle</span> <span class="kn">import</span> <span class="n">great_circle</span>
+
+
+<span class="k">def</span> <span class="nf">stereonet</span><span class="p">(</span><span class="n">trdv</span><span class="p">,</span><span class="n">plgv</span><span class="p">,</span><span class="n">intrad</span><span class="p">,</span><span class="n">stype</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    stereonet plots an equal angle or equal area stereonet</span>
+<span class="sd">    of unit radius in any view direction</span>
+<span class="sd">    </span>
+<span class="sd">    USE: fig, ax = stereonet(trdv,plgv,intrad,stype)</span>
+<span class="sd">    </span>
+<span class="sd">    trdv = trend of view direction</span>
+<span class="sd">    plgv = plunge of view direction</span>
+<span class="sd">    intrad = interval in radians between great or small circles</span>
+<span class="sd">    stype = Stereonet type: 0 = equal angle, 1 = equal area</span>
+<span class="sd">    </span>
+<span class="sd">    fig and ax are handles to the figure and axes</span>
+<span class="sd">    </span>
+<span class="sd">    NOTE: All angles should be entered in radians</span>
+<span class="sd">    </span>
+<span class="sd">    Python function translated from the Matlab function</span>
+<span class="sd">    Stereonet in Allmendinger et al. (2012)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">pi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span>
+    <span class="c1"># some constants</span>
+    <span class="n">east</span> <span class="o">=</span> <span class="n">pi</span><span class="o">/</span><span class="mf">2.0</span>
+    <span class="n">west</span> <span class="o">=</span> <span class="mf">3.0</span><span class="o">*</span><span class="n">east</span>
+    
+    <span class="c1"># Make a figure</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mf">7.5</span><span class="p">))</span>
+    
+    <span class="c1"># Stereonet reference circle</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="c1"># radius of stereonet</span>
+    <span class="n">th</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">361</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">r</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">th</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">r</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">th</span><span class="p">)</span>
+    <span class="c1"># Plot stereonet reference circle</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span> <span class="s2">&quot;k&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">axis</span> <span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">axis</span> <span class="p">(</span><span class="s2">&quot;equal&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;off&quot;</span><span class="p">)</span>
+    
+    <span class="c1"># Number of small circles</span>
+    <span class="n">ncircles</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">pi</span><span class="o">/</span><span class="p">(</span><span class="n">intrad</span><span class="o">*</span><span class="mf">2.0</span><span class="p">))</span>
+    
+    <span class="c1"># small circles, start at North</span>
+    <span class="n">trd</span> <span class="o">=</span> <span class="n">plg</span> <span class="o">=</span> <span class="mf">0.0</span>
+    
+    <span class="c1"># If view direction is not the default</span>
+    <span class="c1"># transform line to view direction</span>
+    <span class="k">if</span> <span class="n">trdv</span> <span class="o">!=</span> <span class="mf">0.0</span> <span class="ow">or</span> <span class="n">plgv</span> <span class="o">!=</span> <span class="n">east</span><span class="p">:</span>
+        <span class="n">trd</span><span class="p">,</span> <span class="n">plg</span> <span class="o">=</span> <span class="n">geogr_to_view</span><span class="p">(</span><span class="n">trd</span><span class="p">,</span><span class="n">plg</span><span class="p">,</span><span class="n">trdv</span><span class="p">,</span><span class="n">plgv</span><span class="p">)</span>
+    
+    <span class="c1"># Plot small circles</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">ncircles</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">cangle</span> <span class="o">=</span> <span class="n">i</span> <span class="o">*</span> <span class="n">intrad</span>
+        <span class="n">path1</span><span class="p">,</span> <span class="n">path2</span><span class="p">,</span> <span class="n">np1</span><span class="p">,</span> <span class="n">np2</span> <span class="o">=</span> <span class="n">small_circle</span><span class="p">(</span><span class="n">trd</span><span class="p">,</span><span class="n">plg</span><span class="p">,</span><span class="n">cangle</span><span class="p">,</span>
+            <span class="n">stype</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">path1</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">np1</span><span class="p">),</span><span class="mi">0</span><span class="p">],</span> 
+            <span class="n">path1</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">np1</span><span class="p">),</span><span class="mi">1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">,</span>
+            <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">np2</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">path2</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">np2</span><span class="p">),</span><span class="mi">0</span><span class="p">],</span> 
+                <span class="n">path2</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">np2</span><span class="p">),</span><span class="mi">1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">,</span> 
+                <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+    
+    <span class="c1"># Great circles</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">ncircles</span><span class="o">*</span><span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+        <span class="c1"># Western half</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">ncircles</span><span class="p">:</span>
+            <span class="c1"># Pole of great circle</span>
+            <span class="n">trd</span> <span class="o">=</span> <span class="n">west</span>
+            <span class="n">plg</span> <span class="o">=</span> <span class="n">i</span> <span class="o">*</span> <span class="n">intrad</span>
+        <span class="c1"># Eastern half</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># Pole of great circle</span>
+            <span class="n">trd</span> <span class="o">=</span> <span class="n">east</span>
+            <span class="n">plg</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span><span class="o">-</span><span class="n">ncircles</span><span class="p">)</span> <span class="o">*</span> <span class="n">intrad</span>
+        <span class="c1"># If pole is vertical shift it a little bit</span>
+        <span class="k">if</span> <span class="n">plg</span> <span class="o">==</span> <span class="n">east</span><span class="p">:</span>
+            <span class="n">plg</span> <span class="o">=</span> <span class="n">plg</span> <span class="o">*</span> <span class="mf">0.9999</span>
+        <span class="c1"># If view direction is not the default </span>
+        <span class="c1"># transform line to view direction</span>
+        <span class="k">if</span> <span class="n">trdv</span> <span class="o">!=</span> <span class="mf">0.0</span> <span class="ow">or</span> <span class="n">plgv</span> <span class="o">!=</span> <span class="n">east</span><span class="p">:</span>
+            <span class="n">trd</span><span class="p">,</span> <span class="n">plg</span> <span class="o">=</span> <span class="n">geogr_to_view</span><span class="p">(</span><span class="n">trd</span><span class="p">,</span><span class="n">plg</span><span class="p">,</span><span class="n">trdv</span><span class="p">,</span><span class="n">plgv</span><span class="p">)</span>
+        <span class="c1"># Compute plane from pole</span>
+        <span class="n">strike</span><span class="p">,</span> <span class="n">dip</span> <span class="o">=</span> <span class="n">plane_from_pole</span><span class="p">(</span><span class="n">trd</span><span class="p">,</span><span class="n">plg</span><span class="p">)</span>
+        <span class="c1"># Plot great circle</span>
+        <span class="n">path</span> <span class="o">=</span> <span class="n">great_circle</span><span class="p">(</span><span class="n">strike</span><span class="p">,</span><span class="n">dip</span><span class="p">,</span><span class="n">stype</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">path</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">path</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+        
+    <span class="c1"># return figure and axes handles</span>
+    <span class="k">return</span> <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, let’s use all these functions to plot the bedding data of the Big Elk anticline (<a class="reference internal" href="#ch05-fig07"><span class="std std-numref">Figure 5.7</span></a>) in an equal angle stereonet, looking down and also along the fold axis. The notebook <a class="reference external" href="https://github.com/nfcd/compGeo/blob/master/source/notebooks/ch5-6.ipynb">ch5-6</a> illustrates this. Notice that we read the strike and dips from the file <a class="reference external" href="https://github.com/nfcd/compGeo/blob/master/source/data/ch5-6/beasd.txt">beasd.txt</a>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import libraries</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">pi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span>
+
+<span class="c1"># Import Stereonet and related functions</span>
+<span class="kn">from</span> <span class="nn">compgeo.pole</span> <span class="kn">import</span> <span class="n">pole_from_plane</span><span class="p">,</span> <span class="n">plane_from_pole</span>
+<span class="kn">from</span> <span class="nn">compgeo.great_circle</span> <span class="kn">import</span> <span class="n">great_circle</span>
+<span class="kn">from</span> <span class="nn">compgeo.geogr_to_view</span> <span class="kn">import</span> <span class="n">geogr_to_view</span>
+<span class="kn">from</span> <span class="nn">compgeo.stereonet</span> <span class="kn">import</span> <span class="n">stereonet</span>
+
+
+<span class="c1"># Draw a lower hemisphere equal angle stereonet, </span>
+<span class="c1"># 10 deg interval grid</span>
+<span class="n">trdv</span><span class="p">,</span> <span class="n">plgv</span><span class="p">,</span> <span class="n">intrad</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">10</span><span class="p">])</span> 
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">stereonet</span><span class="p">(</span><span class="n">trdv</span><span class="p">,</span><span class="n">plgv</span><span class="p">,</span><span class="n">intrad</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># Read the strike-dip data from the Big Elk anticline</span>
+<span class="n">beasd</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="s2">&quot;data/ch5-6/beasd.txt&quot;</span><span class="p">))</span>
+
+<span class="c1"># Plot the great circles</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">beasd</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+    <span class="n">path</span> <span class="o">=</span> <span class="n">great_circle</span><span class="p">(</span><span class="n">beasd</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">pi</span><span class="o">/</span><span class="mi">180</span><span class="p">,</span>
+                        <span class="n">beasd</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">pi</span><span class="o">/</span><span class="mi">180</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">path</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">path</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/ch05_transformations_47_0.png" src="_images/ch05_transformations_47_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Draw the same data in an equal angle stereonet,</span>
+<span class="c1"># but make the view direction = fold axis</span>
+<span class="n">trdv</span><span class="p">,</span> <span class="n">plgv</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">([</span><span class="mi">125</span><span class="p">,</span> <span class="mi">26</span><span class="p">])</span> 
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">stereonet</span><span class="p">(</span><span class="n">trdv</span><span class="p">,</span><span class="n">plgv</span><span class="p">,</span><span class="n">intrad</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># Plot the great circles</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">beasd</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+    <span class="c1"># pole to bed</span>
+    <span class="n">trdp</span><span class="p">,</span> <span class="n">plgp</span> <span class="o">=</span>  <span class="n">pole_from_plane</span><span class="p">(</span><span class="n">beasd</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">pi</span><span class="o">/</span><span class="mi">180</span><span class="p">,</span>
+                                  <span class="n">beasd</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">pi</span><span class="o">/</span><span class="mi">180</span><span class="p">)</span>
+    <span class="c1"># transform pole</span>
+    <span class="n">trdpt</span><span class="p">,</span> <span class="n">plgpt</span> <span class="o">=</span> <span class="n">geogr_to_view</span><span class="p">(</span><span class="n">trdp</span><span class="p">,</span><span class="n">plgp</span><span class="p">,</span><span class="n">trdv</span><span class="p">,</span><span class="n">plgv</span><span class="p">)</span>
+    <span class="c1"># bed from transformed pole</span>
+    <span class="n">striket</span><span class="p">,</span> <span class="n">dipt</span> <span class="o">=</span> <span class="n">plane_from_pole</span><span class="p">(</span><span class="n">trdpt</span><span class="p">,</span><span class="n">plgpt</span><span class="p">)</span>
+    <span class="c1"># plot great circle</span>
+    <span class="n">path</span> <span class="o">=</span> <span class="n">great_circle</span><span class="p">(</span><span class="n">striket</span><span class="p">,</span><span class="n">dipt</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">path</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">path</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/ch05_transformations_48_0.png" src="_images/ch05_transformations_48_0.png" />
+</div>
+</div>
+<p>What do these stereonets tell us about the geometry of the fold?</p>
+</section>
+</section>
+<section id="exercises">
+<span id="ch05-3"></span><h2><span class="section-number">5.3. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">#</a></h2>
+<ol>
+<li><p><a class="reference internal" href="#ch05-fig08"><span class="std std-numref">Figure 5.8</span></a> is a satellite image of the Sheep Mountain anticline, Wyoming, USA (Rioux, 1994). At 75 localities along the anticline in the Jurassic Sundance Formation (gray-green sandstone, siltstone and shale), the <strong>ENU</strong> coordinates of points on the base and top of the unit (<a class="reference internal" href="#ch05-fig08"><span class="std std-numref">Figure 5.8</span></a>a, green and red points), and three points on a bed inside the unit (<a class="reference internal" href="#ch05-fig08"><span class="std std-numref">Figure 5.8</span></a>b, blue points), were recorded. You can visualize these points in Google Earth using the file <a class="reference external" href="https://github.com/nfcd/compGeo/blob/master/source/data/ch5-exercise1/sdtp.kml">sdtp.kml</a>.</p>
+<figure class="align-default" id="ch05-fig08">
+<a class="reference internal image-reference" href="_images/ch05_fig08.png"><img alt="_images/ch05_fig08.png" src="_images/ch05_fig08.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 5.8 </span><span class="caption-text"><strong>a.</strong> Base (green) and top (red) locations of the Jurassic Sundance Formation along the Sheep Mountain anticline, Wyoming. <strong>b.</strong> Closeup of one of the localities (red rectangle in <strong>a</strong>) showing as well three points (blue) on one bed.</span><a class="headerlink" href="#ch05-fig08" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The file <a class="reference external" href="https://github.com/nfcd/compGeo/blob/master/source/data/ch5-exercise1/sdtp.txt">sdtp.txt</a> contains the <strong>ENU</strong> coordinates (UTM in meters) of the points. Each row is one locality, and it contains 15 columns corresponding to the coordinates of points 1 to 5. Points 1 to 3 are on a bed inside the unit, and points 4 and 5 are on the base and top of the unit, respectively. Columns 1 to 3 are the <strong>ENU</strong> coordinates of point 1, columns 4 to 6 those of point 2, etc.</p>
+<ol class="simple">
+<li><p>Compute the thickness of the Sundance Formation at the 75 localities. Notice that at each locality you will need to compute the strike and dip using points 1-3 and the <code class="docutils literal notranslate"><span class="pre">three_points</span></code> function, and the thickness using points 4 and 5 and the <code class="docutils literal notranslate"><span class="pre">true_thickness</span></code> function.</p></li>
+<li><p>Plot the bedding data along the anticline in and equal area, lower hemisphere stereonet. Plot these data as great circles.</p></li>
+<li><p>Suppose that the error in the horizontal (<strong>EN</strong>) coordinates is <span class="math notranslate nohighlight">\(\pm\)</span> 3 m and in the vertical (<strong>U</strong>) is <span class="math notranslate nohighlight">\(\pm\)</span> 1.5 m. These are conservative error estimates. What are the errors in strike and dip and thickness at the 75 localities?</p></li>
+</ol>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>Use functions <code class="docutils literal notranslate"><span class="pre">three_points_u</span></code> and <code class="docutils literal notranslate"><span class="pre">true_thickness_u</span></code>.</p>
+</div>
+<ol class="simple">
+<li><p>Make a graph of computed thickness versus computed dip, and another graph of computed thickness versus north (<strong>N</strong>) for the 75 localities. Include the thickness and dip error bars. Do you see any correlation between thickness and bedding dip? Is there a systematic variation of thickness along the anticline?</p></li>
+<li><p>The axis of the anticline is oriented 306/11. This is approximately the location where the bedding planes on the stereonet intersect. In the next chapter we will see how to compute this axis. Make a down-plunge projection of the base and top of the Jurassic Sundance Formation.</p></li>
+</ol>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>Project the 75 base and top localities using the function <code class="docutils literal notranslate"><span class="pre">down_plunge</span></code>.</p>
+</div>
+</li>
+<li><p>Allmendinger and Judge (2013) discuss the uncertainty in thickness measurements and its implication for estimating the shortening of fold and thrust belts. <a class="reference internal" href="#ch05-fig09"><span class="std std-numref">Figure 5.9</span></a> is a geologic map of the Canmore east half area in Alberta, Canada (Price, 1970). The yellow dots are the points used by these authors to estimate the thickness of the Devonian Palliser (Dpa) and Mississippian Livingstone (Mlv) formations. These are in a homoclinal dip package in a thrust sheet.</p>
+<p>The files <a class="reference external" href="https://github.com/nfcd/compGeo/blob/master/source/data/ch5-exercise2/dpa.txt">dpa.txt</a> and <a class="reference external" href="https://github.com/nfcd/compGeo/blob/master/source/data/ch5-exercise2/mlv.txt">mlv.txt</a> contain the <strong>ENU</strong> coordinates (UTM in meters) of the points in the Palliser (Dpa) and Livingstone (Mlv) formations. Each row in the files is one locality, and it contains 12 columns corresponding to the coordinates of points 1 to 4. Points 1-3 are either on the top or the base of the unit, and point 4 is on the other contact. Columns 1 to 3 are the <strong>ENU</strong> coordinates of point 1, columns 4 to 6 those of point 2, etc.</p>
+<ol class="simple">
+<li><p>Compute the thickness of the Palliser and Livingstone formations at the localities shown in <a class="reference internal" href="#ch05-fig09"><span class="std std-numref">Figure 5.9</span></a>. What is the mean value of thickness of these two units? What is the standard deviation?</p></li>
+</ol>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>Use the functions <code class="docutils literal notranslate"><span class="pre">three_points</span></code> and <code class="docutils literal notranslate"><span class="pre">true_thickness</span></code>. The NumPy functions <code class="docutils literal notranslate"><span class="pre">mean</span></code> and <code class="docutils literal notranslate"><span class="pre">std</span></code> compute the mean and standard deviation of an array.</p>
+</div>
+<ol class="simple">
+<li><p>Consider that the uncertainty in horizontal and vertical coordinates is <span class="math notranslate nohighlight">\(\pm\)</span><!-- -->15.24 m. Compute again the mean value and standard deviation of the thickness of the units. This time these values will have uncertainties.</p></li>
+</ol>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>Use the functions <code class="docutils literal notranslate"><span class="pre">three_points_u</span></code> and <code class="docutils literal notranslate"><span class="pre">true_thickness_u</span></code>. Notice that you can also use the NumPy functions <code class="docutils literal notranslate"><span class="pre">mean</span></code> and <code class="docutils literal notranslate"><span class="pre">std</span></code> on arrays of numbers with uncertainties.</p>
+</div>
+<ol class="simple">
+<li><p>How do your results compare to those of Allmendinger and Judge (2013, their Table 1)?</p></li>
+</ol>
+<figure class="align-default" id="ch05-fig09">
+<a class="reference internal image-reference" href="_images/ch05_fig09.png"><img alt="_images/ch05_fig09.png" src="_images/ch05_fig09.png" style="width: 500px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 5.9 </span><span class="caption-text">Geologic map of the Canmore east half area, Alberta, Canada (Price, 1970) for exercise 2. The yellow dots are points used to determine the thickness of the Devonian Palliser (Dpa) and Mississippian Livingstone (Mlv) formations.</span><a class="headerlink" href="#ch05-fig09" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>The following exercise is from Ragan (2009): With the following information and the topographic map of <a class="reference internal" href="#ch05-fig10"><span class="std std-numref">Figure 5.10</span></a>, construct a geologic map. The base of a 100 m thick sandstone unit of early Triassic age is exposed at point A; its attitude is 110/25 (RHR). Point B is on the east boundary of a 50 m thick, vertical diabase dike of Jurassic age; its trend is 020. At point C the base of a horizontal Cretaceous sequence is exposed, and at point D the base of a conformable sequence of Tertiary rocks is present.</p>
+<figure class="align-default" id="ch05-fig10">
+<a class="reference internal image-reference" href="_images/ch05_fig10.png"><img alt="_images/ch05_fig10.png" src="_images/ch05_fig10.png" style="width: 500px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 5.10 </span><span class="caption-text">Topographic map for exercise 3. Notice that the origin is at the lower left corner of the map. This is exercise 2 in chapter 4 of Ragan (2009).</span><a class="headerlink" href="#ch05-fig10" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>This exercise is normally solved graphically (<a class="reference internal" href="ch03_geological_features.html#ch03-fig09"><span class="std std-numref">Figure 3.9</span></a>. Here, we’ll use computation. The files <a class="reference external" href="https://github.com/nfcd/compGeo/blob/master/source/data/ch5-exercise3/XGE.txt">XGE.txt</a>, <a class="reference external" href="https://github.com/nfcd/compGeo/blob/master/source/data/ch5-exercise3/YGE.txt">YGE.txt</a>, and <a class="reference external" href="https://github.com/nfcd/compGeo/blob/master/source/data/ch5-exercise3/ZGE.txt">ZGE.txt</a> are the <strong>ENU</strong> coordinates of the points of the DEM grid (these arrays follow the format of the NumPy <code class="docutils literal notranslate"><span class="pre">meshgrid</span></code> function). Points A, B, C and D have the following <strong>ENU</strong> coordinates:</p>
+<p>A = [232, 428, 370]
+B = [612, 322, 355]
+C = [281.5, 239, 395]
+D = [537, 183, 410]</p>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>Use the function <code class="docutils literal notranslate"><span class="pre">outcrop_trace</span></code> to compute the contacts. Follow a procedure similar to notebook <a class="reference external" href="https://github.com/nfcd/compGeo/blob/master/source/notebooks/ch5-3.ipynb">ch5-3</a>. In this case though, some contacts will intersect. At contacts intersections you will need to determine which contact cuts the other: e.g. the Jurassic dyke will cut the Triassic sequence, but it will be covered by the Cretaceous and Tertiary sequences.</p>
+</div>
+</li>
+<li><p>This exercise is from Marshak and Mitra (1988). It is hard to solve using a stereonet. Here, you will use the function <code class="docutils literal notranslate"><span class="pre">rotate</span></code> to solve it:</p>
+<p>In eastern New York, there is an important unconformity called the Taconic unconformity. It separates Mid-Ordovician flysch from Devonian limestone. At a locality near the town of Catskill, the limestone (and the unconformity) is oriented 195/44 (RHR). An anticline occurs in the underlying flysch. One limb is presently oriented 240/73 (limb 1), and the other limb is presently oriented 020/41 (limb 2) (RHR). Flute casts occur in the Ordovician strata on limb 1 (NW dipping limb) and they have an orientation of 037/52.</p>
+<ol>
+<li><p>What was the orientation of each of the two fold limbs before tilting of the unconformity?</p>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>Rotate the pole of the unconformity about the strike line of the unconformity to make it vertical. Apply the same rotation to the poles of the limbs and the flute casts. Find the orientation of the limbs from their rotated poles.</p>
+</div>
+</li>
+<li><p>What was the orientation of the fold axis prior to tilting?</p>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>The fold axis is the intersection of the limbs before tilting of the unconformity. Use the module <code class="docutils literal notranslate"><span class="pre">angles</span></code> to solve this.</p>
+</div>
+</li>
+<li><p>What was the trend of the current direction responsible for the formation of the flute casts in Ordovician time? <em>Hint</em>: Rotate the fold axis computed in (b) about a horizontal line perpendicular to it, to bring it to the horizontal. Apply the same rotation to the poles of the limbs and the flute casts. Then, rotate the poles of the limbs about the horizontal fold axis to make them vertical. Apply the same rotation to the flute casts. If the rotations are correct, the flute casts should be horizontal and their trend is the orientation of the current in the Ordovician.</p></li>
+<li><p>What is the present orientation of the flute casts on limb 2 (SE dipping limb)?</p>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>The trend of the flute casts on limb 2 in the Ordovician is the trend you got in (c) minus 180. The plunge of the flute casts is of course zero. Apply to the flute casts on limb 2, the inverse of the rotations you applied to the pole of limb 2 to bring them back to their present orientation.</p>
+</div>
+</li>
+<li><p>Plot the results of (a), (b), (c) and (d) as poles and lines on a stereonet. Use colors to indicate the different stages of rotation, and markers to indicate the different elements: unconformity, limbs, fold axis, and flute casts.</p></li>
+</ol>
+</li>
+</ol>
+</section>
+<section id="references">
+<span id="ch05-4"></span><h2><span class="section-number">5.4. </span>References<a class="headerlink" href="#references" title="Permalink to this headline">#</a></h2>
+<p>Albee, H.F. and Cullins, H.L. 1975. Geologic Map of the Poker Peak
+Quadrangle, Bonneville County, Idaho. U.S. Geological Survey, Geologic
+Quadrangle Map GQ 1260.</p>
+<p>Allmendinger, R.W., Cardozo, N. and Fisher, D.W. 2012. Structural
+Geology Algorithms: Vectors and Tensors. Cambridge University Press.</p>
+<p>Ammendinger, R.W. and Judge, P. 2013. Stratigraphic uncertainty and
+errors in shortening from balanced sections in the North American
+Cordillera. GSA Bulletin 125, 1569-1579.</p>
+<p>Allmendinger, R.W. 2020a. Modern Structural Practice: A structural
+geology laboratory manual for the 21st century.
+[<a class="reference external" href="https://www.rickallmendinger.net/download">Online</a>]. [Accessed
+March, 2021].</p>
+<p>Allmendinger, R.W., 2020b. GMDE: Extracting quantitative information
+from geologic maps. Geosphere 16, X, 1– 13.</p>
+<p>Bennison, G.M., Olver, P.A. and Moseley, K.A. 2011. An Introduction to
+Geological Structures and Maps, 8th edition. Hodder Education.</p>
+<p>Leyshon, P.R. and Lisle, R.J. 1996. Stereographic Projection Techniques
+in Structural Geology. Butterworth Heinemann.</p>
+<p>Marshak, S. and Mitra, G. 1988. Basic Methods of Structural Geology.
+Prentice Hall.</p>
+<p>Price, R.A. 1970. Geology, Canmore (east half), west of Fifth Meridian,
+Alberta: Geological Survey of Canada “A” Series Map 1265A, scale
+1:50,000.</p>
+<p>Ragan, D.M. 2009. Structural Geology: An Introduction to Geometrical
+Techniques. Cambridge University Press.</p>
+<p>Rioux, R. L. 1994. Geologic Map of the Sheep Mountain‐Little Sheep
+Mountain Area, Big Horn County, Wyoming, U.S. Geol. Surv. Open File
+Rep., 94‐191.</p>
+<p>Suppe, J. 1985. Principles of Structural Geology. Prentice-Hall.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="ch04_coordinate_systems_vectors.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">4. </span>Coordinate systems and vectors</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="ch06_tensors.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">6. </span>Tensors</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Nestor Cardozo & Alex F. Antunes<br/>
+  
+      &copy; Copyright 2023.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

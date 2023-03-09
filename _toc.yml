@@ -1,0 +1,62 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+parts:
+- caption: GET STARTED
+  chapters:
+  - file: preface
+  - file: changelog
+  - file: todo
+- caption: CONTENTS
+  numbered: true
+  chapters:
+  - file: ch01_computation_geosciences
+  - file: ch02_understanding_location
+  - file: ch03_geological_features
+  - file: ch04_coordinate_systems_vectors
+  - file: ch05_transformations
+  - file: ch06_tensors
+  - file: ch07_stress
+  - file: ch08_strain
+  - file: ch09_elasticity
+- caption: THE COMPANION NOTEBOOKS
+  chapters:
+  - file: notebooks/ch01/ch01_nb01
+  # - file: notebooks/ch02/ch02_nb01
+  # - file: notebooks/ch02/ch02_nb02
+  # - file: notebooks/ch02/ch02_nb03
+  # - file: notebooks/ch02/ch02_nb04
+  # - file: notebooks/ch02/ch02_nb05
+  # - file: notebooks/ch03/ch03_nb01
+  # - file: notebooks/ch03/ch03_nb02
+  # - file: notebooks/ch03/ch03_nb03
+  # - file: notebooks/ch03/ch03_nb04
+  # - file: notebooks/ch04/ch04_nb01
+  # - file: notebooks/ch04/ch04_nb02
+  # - file: notebooks/ch04/ch04_nb03
+  # - file: notebooks/ch04/ch04_nb04
+  # - file: notebooks/ch04/ch04_nb05
+  # - file: notebooks/ch04/ch04_nb06
+  # - file: notebooks/ch05/ch05_nb01
+  # - file: notebooks/ch05/ch05_nb02
+  # - file: notebooks/ch05/ch05_nb03
+  # - file: notebooks/ch05/ch05_nb04
+  # - file: notebooks/ch05/ch05_nb05
+  # - file: notebooks/ch05/ch05_nb06
+  # - file: notebooks/ch06/ch06_nb01
+  # - file: notebooks/ch06/ch06_nb02
+  # - file: notebooks/ch07/ch07_nb01
+  # - file: notebooks/ch07/ch07_nb02
+  # - file: notebooks/ch07/ch07_nb03
+  # - file: notebooks/ch08/ch08_nb01
+  # - file: notebooks/ch08/ch08_nb02
+  # - file: notebooks/ch08/ch08_nb03
+  # - file: notebooks/ch08/ch08_nb04
+  # - file: notebooks/ch08/ch08_nb05
+  # - file: notebooks/ch08/ch08_nb06
+  # - file: notebooks/ch09/ch09_nb01
+  # - file: notebooks/ch09/ch09_nb02
+  # - file: notebooks/ch09/ch09_nb03
+  # - file: notebooks/ch09/ch09_nb04

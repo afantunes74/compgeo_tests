@@ -1,0 +1,1351 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>6. Tensors &#8212; Computational Geosciences</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="7. Stress" href="ch07_stress.html" />
+    <link rel="prev" title="5. Transformations" href="ch05_transformations.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Computational Geosciences</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to the Computational Geosciences resource
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  GET STARTED
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="preface.html">
+   Preface
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="changelog.html">
+   Changelog
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="todo.html">
+   TODOs
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  CONTENTS
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="ch01_computation_geosciences.html">
+   1. Computation in Geosciences
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ch02_understanding_location.html">
+   2. Understanding location
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ch03_geological_features.html">
+   3. Geological features
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ch04_coordinate_systems_vectors.html">
+   4. Coordinate systems and vectors
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ch05_transformations.html">
+   5. Transformations
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   6. Tensors
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ch07_stress.html">
+   7. Stress
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ch08_strain.html">
+   8. Strain
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ch09_elasticity.html">
+   9. Elasticity
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  THE COMPANION NOTEBOOKS
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="notebooks/ch01/ch01_nb01.html">
+   Introduction to Python and Jupyter Notebooks
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=lab/tree/docs/ch06_tensors.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fch06_tensors.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/ch06_tensors.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#basic-characteristics-of-a-tensor">
+   6.1. Basic characteristics of a tensor
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#principal-axes-of-a-tensor">
+   6.2. Principal axes of a tensor
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tensors-as-vector-operators">
+   6.3. Tensors as vector operators
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tensor-transformations">
+   6.4. Tensor transformations
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-mohr-circle">
+     6.4.1. The Mohr circle
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-orientation-tensor">
+   6.5. The orientation tensor
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#best-fit-fold-axis">
+     6.5.1. Best-fit fold axis
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#line-distributions">
+     6.5.2. Line distributions
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#best-fit-plane">
+     6.5.3. Best-fit plane
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercises">
+   6.6. Exercises
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#references">
+   6.7. References
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Tensors</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#basic-characteristics-of-a-tensor">
+   6.1. Basic characteristics of a tensor
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#principal-axes-of-a-tensor">
+   6.2. Principal axes of a tensor
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tensors-as-vector-operators">
+   6.3. Tensors as vector operators
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tensor-transformations">
+   6.4. Tensor transformations
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-mohr-circle">
+     6.4.1. The Mohr circle
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-orientation-tensor">
+   6.5. The orientation tensor
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#best-fit-fold-axis">
+     6.5.1. Best-fit fold axis
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#line-distributions">
+     6.5.2. Line distributions
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#best-fit-plane">
+     6.5.3. Best-fit plane
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercises">
+   6.6. Exercises
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#references">
+   6.7. References
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="tensors">
+<span id="ch06"></span><h1><span class="section-number">6. </span>Tensors<a class="headerlink" href="#tensors" title="Permalink to this headline">#</a></h1>
+<p>A tensor is a physical entity that can be transformed from one coordinate system to another, changing its components in a predictable way, but without changing its fundamental nature, such that the tensor is independent of the coordinate system. Thus, scalars (e.g. mass, temperature and density), and vectors (e.g. velocity, force and lines) are tensors. More specifically, scalars are zero order and vectors are first order tensors. In this chapter, we will look at second order tensors which are commonly referred to as <em>tensors</em>. This is a short chapter but is fundamental to understand important concepts such as the Mohr circle, the orientation tensor, and the mathematical background for important tensors in geology such as stress and strain.</p>
+<section id="basic-characteristics-of-a-tensor">
+<span id="ch06-1"></span><h2><span class="section-number">6.1. </span>Basic characteristics of a tensor<a class="headerlink" href="#basic-characteristics-of-a-tensor" title="Permalink to this headline">#</a></h2>
+<p>In three dimensions, a <em>tensor</em> is characterized by nine components:</p>
+<div class="math notranslate nohighlight" id="equation-ch06-eq01">
+<span class="eqno">(6.1)<a class="headerlink" href="#equation-ch06-eq01" title="Permalink to this equation">#</a></span>\[\begin{split}
+\mathbf{T}=T_{ij}=\begin{bmatrix}T_{11}&amp;T_{12}&amp;T_{13}\\T_{21}&amp;T_{22}&amp;T_{23}\\T_{31}&amp;T_{32}&amp;T_{33}\end{bmatrix}
+\end{split}\]</div>
+<p>Notice that tensors are represented by capital bold letters, and we use brackets to differentiate them from matrices such as the transformation matrix <strong>a</strong> in <a class="reference internal" href="ch05_transformations.html#ch05"><span class="std std-ref">Chapter 5</span></a>. The nine components of the tensor <span class="math notranslate nohighlight">\(T_{ij}\)</span> give the values of the tensor with reference to the three axes of the specific coordinate system <span class="math notranslate nohighlight">\(\mathbf{X_1X_2X_3}\)</span>. If we change the axes orientations, then the nine components will change but, similar to a vector, the tensor itself will not change.</p>
+<p>Like matrices, tensors can be symmetric, asymmetric, or antisymmetric. If the nine components <span class="math notranslate nohighlight">\(T_{ij}\)</span> have different values, the tensor is asymmetric. If <span class="math notranslate nohighlight">\(T_{ij}=T_{ji}\)</span>, the tensor is symmetric. In this case the components above the principal diagonal are the same as those below the diagonal, and only six components are required to define the tensor. Finally, if <span class="math notranslate nohighlight">\(T_{ij}=-T_{ji}\)</span>, the tensor is antisymmetric. In this case the components along the diagonal are zero, and only three components are required to define the tensor.</p>
+<p>Any asymmetric tensor <strong>T</strong> can be decomposed into a symmetric tensor <strong>S</strong> plus an antisymmetric tensor <strong>A</strong>:</p>
+<div class="math notranslate nohighlight" id="equation-ch06-eq02">
+<span class="eqno">(6.2)<a class="headerlink" href="#equation-ch06-eq02" title="Permalink to this equation">#</a></span>\[
+T_{ij}=S_{ij}+A_{ij}\quad where\quad S_{ij}=\frac{T_{ij}+T_{ji}}{2}\quad and\quad A_{ij}=\frac{T_{ij}-T_{ji}}{2}
+\]</div>
+<p>We will use this property when dealing with infinitesimal strain (<a class="reference internal" href="ch08_strain.html#ch08"><span class="std std-ref">Chapter 8</span></a>).</p>
+<p>For all symmetric tensors, there is one orientation of the coordinate axes for which all the components except those along the principal diagonal, are zero:</p>
+<div class="math notranslate nohighlight" id="equation-ch06-eq03">
+<span class="eqno">(6.3)<a class="headerlink" href="#equation-ch06-eq03" title="Permalink to this equation">#</a></span>\[\begin{split}
+\mathbf{T}=T_{ij}=\begin{bmatrix}T_{11}&amp;0&amp;0\\0&amp;T_{22}&amp;0\\0&amp;0&amp;T_{33}\end{bmatrix}=\begin{bmatrix}T_2&amp;0&amp;0\\0&amp;T_1&amp;0\\0&amp;0&amp;T_3\end{bmatrix}
+\end{split}\]</div>
+<p>Under this condition, the values along the diagonal are the principal axes of the tensor. Based on their magnitude, these axes are ranked as the maximum (<span class="math notranslate nohighlight">\(T_1\)</span>), intermediate (<span class="math notranslate nohighlight">\(T_2\)</span>), and minimum (<span class="math notranslate nohighlight">\(T_3\)</span>) principal axes. Notice that the indices of the principal axes do not have to coincide with the indices of the coordinate system, for example in Eq. <a class="reference internal" href="#equation-ch06-eq03">(6.3)</a> <span class="math notranslate nohighlight">\(T_1\)</span> is parallel to the coordinate axis <span class="math notranslate nohighlight">\(\mathbf{X_2}\)</span>. The principal axes define the major, intermediate and minor axes of a three-dimensional surface known as the magnitude ellipsoid (<a class="reference internal" href="#ch06-fig01"><span class="std std-numref">Figure 6.1</span></a>). You have probably heard about this ellipsoid before in relation to stress or strain.</p>
+<figure class="align-default" id="ch06-fig01">
+<a class="reference internal image-reference" href="_images/ch06_fig01.png"><img alt="_images/ch06_fig01.png" src="_images/ch06_fig01.png" style="width: 400px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 6.1 </span><span class="caption-text">The magnitude ellipsoid and principal axes of a symmetric tensor <span class="math notranslate nohighlight">\(\textbf{T}\)</span> for the case described by Eq. <a class="reference internal" href="#equation-ch06-eq03">(6.3)</a>. Notice that <span class="math notranslate nohighlight">\(T_1\)</span>, <span class="math notranslate nohighlight">\(T_2\)</span> and <span class="math notranslate nohighlight">\(T_3\)</span> define the major, intermediate and minor axes of the ellipsoid. Modified from Allmendinger et al. (2012).</span><a class="headerlink" href="#ch06-fig01" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="principal-axes-of-a-tensor">
+<span id="ch06-2"></span><h2><span class="section-number">6.2. </span>Principal axes of a tensor<a class="headerlink" href="#principal-axes-of-a-tensor" title="Permalink to this headline">#</a></h2>
+<p>Determining the orientation of the coordinate system whose axes are parallel to the principal axes of a symmetric tensor involves solving the <em>eigenvalue</em> problem (Allmendinger et al., 2012). The mathematical solution to this problem gives a cubic polynomial:</p>
+<div class="math notranslate nohighlight" id="equation-ch06-eq04">
+<span class="eqno">(6.4)<a class="headerlink" href="#equation-ch06-eq04" title="Permalink to this equation">#</a></span>\[
+\lambda^3-I\lambda^2-II\lambda-III=0
+\]</div>
+<p>The three roots of <span class="math notranslate nohighlight">\(\lambda\)</span> are the three eigenvalues and they correspond to the magnitudes of the three principal axes. Once we know the eigenvalues, we can calculate the eigenvectors, which give the orientation of the three principal axes. Thus, we can find the principal axes of any symmetric tensor by finding its eigenvectors and eigenvalues. In Python, the NumPy <code class="docutils literal notranslate"><span class="pre">linalg.eigh</span></code> function computes the eigenvalues and eigenvectors of a symmetric array. We will use this function later in the chapter when finding the principal axes of a tensor.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="docutils literal notranslate"><span class="pre">linalg.eigh</span></code> also sorts the eigenvalues in ascending order.</p>
+</div>
+<p>The three coefficients <span class="math notranslate nohighlight">\(I\)</span>, <span class="math notranslate nohighlight">\(II\)</span> and <span class="math notranslate nohighlight">\(III\)</span> in Eq. <a class="reference internal" href="#equation-ch06-eq04">(6.4)</a> are known as the invariants of the tensor. They have the same values regardless of the coordinate system we choose. As we will see later (e.g. stress invariants in <a class="reference internal" href="ch07_stress.html#ch07"><span class="std std-ref">Chapter 7</span></a>), these invariants are very important. Their values are given by:</p>
+<div class="math notranslate nohighlight" id="equation-ch06-eq05">
+<span class="eqno">(6.5)<a class="headerlink" href="#equation-ch06-eq05" title="Permalink to this equation">#</a></span>\[\begin{split}
+\begin{gathered}
+    I=T_{11}+T_{22}+T_{33}=T_1+T_2+T_3 \\
+    II=\frac{(T_{ij}T_{ij}-I^2)}{2}=-(T_1T_2+T_2T_3+T_3T_1) \\
+    III=\det\mathbf{T}=\vert T_{ij}\vert = T_1T_2T_3 
+\end{gathered}
+\end{split}\]</div>
+</section>
+<section id="tensors-as-vector-operators">
+<span id="ch06-3"></span><h2><span class="section-number">6.3. </span>Tensors as vector operators<a class="headerlink" href="#tensors-as-vector-operators" title="Permalink to this headline">#</a></h2>
+<p>A tensor commonly relates two vectors, or more formally we can say that a tensor is a linear vector operator because the components of the tensor are the coefficients of a set of linear equations that relate two vectors:</p>
+<div class="math notranslate nohighlight" id="equation-ch06-eq06">
+<span class="eqno">(6.6)<a class="headerlink" href="#equation-ch06-eq06" title="Permalink to this equation">#</a></span>\[
+\mathbf{u}=\mathbf{T}\mathbf{v}\quad or\quad u_i=T_{ij}v_j
+\]</div>
+<p>A nice example of this relation is Cauchy’s law (<a class="reference internal" href="ch07_stress.html#ch07"><span class="std std-ref">Chapter 7</span></a>), which says that the traction on a plane (a vector) is equal to the stress (a tensor) times the pole to the plane (another vector). Since in three dimensions the indices <span class="math notranslate nohighlight">\(i\)</span> and <span class="math notranslate nohighlight">\(j\)</span> change from 1 to 3, Eq. <a class="reference internal" href="#equation-ch06-eq06">(6.6)</a> corresponds to three equations, one for each of the components of <strong>u</strong> in terms of the components of <strong>v</strong>. In Python this looks like:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># v (1 x 3 vector) and T (3 x 3 tensor) are declared before</span>
+<span class="n">u</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="c1"># initialize u (1 x 3 vector)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span> <span class="c1"># free index</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span> <span class="c1"># dummy index</span>
+        <span class="n">u</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">T</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span><span class="o">*</span><span class="n">v</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="n">u</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>An implication of Eq. <a class="reference internal" href="#equation-ch06-eq06">(6.6)</a> is that one can produce a tensor from a type of product of two vectors. This operation is known as the dyad product and it involves multiplying a column vector times a row vector, which gives a 3 x 3 matrix:</p>
+<div class="math notranslate nohighlight" id="equation-ch06-eq07">
+<span class="eqno">(6.7)<a class="headerlink" href="#equation-ch06-eq07" title="Permalink to this equation">#</a></span>\[
+\mathbf{T}=\mathbf{u}\otimes\mathbf{v}\quad or\quad T_{ij}=u_iv_j
+\]</div>
+<p>This gives nine equations (one for each component of the tensor) in terms of the components of <strong>u</strong> and <strong>v</strong>. In Python this looks like:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># u (1 x 3 vector) and v (1 x 3 vector) are declared before</span>
+<span class="n">T</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span> <span class="c1"># initialize T (3 x 3 tensor)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span> <span class="c1"># free index</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span> <span class="c1"># free index</span>
+        <span class="n">T</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">u</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">v</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>In <a class="reference internal" href="#ch06-5"><span class="std std-ref">Section 6.5</span></a>, we will use the dyad product to derive the orientation tensor.</p>
+</section>
+<section id="tensor-transformations">
+<span id="ch06-4"></span><h2><span class="section-number">6.4. </span>Tensor transformations<a class="headerlink" href="#tensor-transformations" title="Permalink to this headline">#</a></h2>
+<p>If we know the components of a tensor in one coordinate system, we can determine what the components are in any other coordinate system, just as we did with vectors in <a class="reference internal" href="ch05_transformations.html#ch05-1-2"><span class="std std-ref">Section 5.1.2</span></a>. All we need to know is the transformation matrix <strong>a</strong>. The procedure, however, is more difficult because a second order tensor is more complicated than a vector. The new components of the tensor in terms of the old are given by (Allmendinger et al., 2012):</p>
+<div class="math notranslate nohighlight" id="equation-ch06-eq08">
+<span class="eqno">(6.8)<a class="headerlink" href="#equation-ch06-eq08" title="Permalink to this equation">#</a></span>\[
+\mathbf{T'}=\mathbf{a}^{\mathbf{T}}\mathbf{T}\mathbf{a}\quad or\quad T'_{ij}=a_{ik}a_{jl}T_{kl}
+\]</div>
+<p>This equation represent nine equations (since there are two fixed indices <span class="math notranslate nohighlight">\(i\)</span> and <span class="math notranslate nohighlight">\(j\)</span>) with nine terms each (since there are two dummy indices <span class="math notranslate nohighlight">\(k\)</span> and <span class="math notranslate nohighlight">\(l\)</span>). It is tedious to expand and solve Eq. <a class="reference internal" href="#equation-ch06-eq08">(6.8)</a> by hand. Fortunately, we can solve this equation in Python using loops:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># T_old (3 x 3 tensor) and a (3 x 3 transf. matrix) </span>
+<span class="c1"># are declared before</span>
+<span class="n">T_new</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span> <span class="c1"># initialize T_new (3 x 3 tensor)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span> <span class="c1"># free index</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span> <span class="c1"># free index</span>
+        <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span> <span class="c1"># dummy index</span>
+            <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span> <span class="c1"># dummy index</span>
+                <span class="n">T_new</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">k</span><span class="p">]</span><span class="o">*</span><span class="n">a</span><span class="p">[</span><span class="n">j</span><span class="p">,</span><span class="n">l</span><span class="p">]</span><span class="o">*</span><span class="n">T_old</span><span class="p">[</span><span class="n">k</span><span class="p">,</span><span class="n">l</span><span class="p">]</span> \
+                    <span class="o">+</span> <span class="n">T_new</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Likewise, we can compute the old coordinates of a tensor in terms of the new coordinates:</p>
+<div class="math notranslate nohighlight" id="equation-ch06-eq09">
+<span class="eqno">(6.9)<a class="headerlink" href="#equation-ch06-eq09" title="Permalink to this equation">#</a></span>\[
+\mathbf{T}=\mathbf{a}\mathbf{T'}\mathbf{a}^{\mathbf{T}}\quad or\quad T_{ij}=a_{ki}a_{lj}T'_{kl}
+\]</div>
+<p>In Python this looks like:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># T_new (3 x 3 tensor) and a (3 x 3 transf. matrix) </span>
+<span class="c1"># are declared before</span>
+<span class="n">T_old</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span> <span class="c1"># initialize T_old (3 x 3 tensor)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span> <span class="c1"># free index</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span> <span class="c1"># free index</span>
+        <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span> <span class="c1"># dummy index</span>
+            <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span> <span class="c1"># dummy index</span>
+                <span class="n">T_old</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">k</span><span class="p">,</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">a</span><span class="p">[</span><span class="n">l</span><span class="p">,</span><span class="n">j</span><span class="p">]</span><span class="o">*</span><span class="n">T_new</span><span class="p">[</span><span class="n">k</span><span class="p">,</span><span class="n">l</span><span class="p">]</span> \
+                    <span class="o">+</span> <span class="n">T_old</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span>
+</pre></div>
+</div>
+<section id="the-mohr-circle">
+<span id="ch06-4-1"></span><h3><span class="section-number">6.4.1. </span>The Mohr circle<a class="headerlink" href="#the-mohr-circle" title="Permalink to this headline">#</a></h3>
+<p>Let’s consider the case where the axes of the old coordinate system are parallel to the principal axes of the tensor <strong>T</strong>. Now, let’s change the coordinate system to a different orientation by rotating it an angle <span class="math notranslate nohighlight">\(\theta\)</span> about one of the principal axes, for example the intermediate axis <span class="math notranslate nohighlight">\(T_2\)</span> (<a class="reference internal" href="#ch06-fig02"><span class="std std-numref">Figure 6.2</span></a>). The transformation matrix <strong>a</strong> for this problem is:</p>
+<figure class="align-default" id="ch06-fig02">
+<a class="reference internal image-reference" href="_images/ch06_fig02.png"><img alt="_images/ch06_fig02.png" src="_images/ch06_fig02.png" style="width: 350px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 6.2 </span><span class="caption-text">Rotation of principal coordinate system <span class="math notranslate nohighlight">\(\textbf{X_{1}X_{2}X_{3}}\)</span> about the principal axis <span class="math notranslate nohighlight">\(T_2\)</span> an amount <span class="math notranslate nohighlight">\(\theta\)</span>. Modified from Allmendinger (2020a).</span><a class="headerlink" href="#ch06-fig02" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<div class="math notranslate nohighlight" id="equation-ch06-eq10">
+<span class="eqno">(6.10)<a class="headerlink" href="#equation-ch06-eq10" title="Permalink to this equation">#</a></span>\[\begin{split}
+\mathbf{a}=\begin{pmatrix}\cos\theta&amp;\cos90&amp;\cos(90-\theta)\\\cos90&amp;\cos0&amp;\cos90\\\cos(90+\theta)&amp;\cos90&amp;\cos\theta\end{pmatrix}=\begin{pmatrix}\cos\theta&amp;0&amp;\sin\theta\\0&amp;1&amp;0\\-\sin\theta&amp;0&amp;\cos\theta\end{pmatrix}
+\end{split}\]</div>
+<p>The tensor <strong>T</strong> in the old coordinate system is:</p>
+<div class="math notranslate nohighlight" id="equation-ch06-eq11">
+<span class="eqno">(6.11)<a class="headerlink" href="#equation-ch06-eq11" title="Permalink to this equation">#</a></span>\[\begin{split}
+\mathbf{T}=T_{ij}=\begin{bmatrix}T_1&amp;0&amp;0\\0&amp;T_2&amp;0\\0&amp;0&amp;T_3\end{bmatrix}
+\end{split}\]</div>
+<p>Now, we can use Eq. <a class="reference internal" href="#equation-ch06-eq08">(6.8)</a> to calculate the components of the tensor in the new coordinate system. Substituting Eqs. <a class="reference internal" href="#equation-ch06-eq10">(6.10)</a> and <a class="reference internal" href="#equation-ch06-eq11">(6.11)</a> into Eq. <a class="reference internal" href="#equation-ch06-eq08">(6.8)</a> and carrying out the summation, we obtain:</p>
+<div class="math notranslate nohighlight" id="equation-ch06-eq12">
+<span class="eqno">(6.12)<a class="headerlink" href="#equation-ch06-eq12" title="Permalink to this equation">#</a></span>\[\begin{split}
+\mathbf{T'}=T'_{ij}=\begin{bmatrix}T_1\cos^2\theta+T_3\sin^2\theta&amp;0&amp;-(T_1-T_3)\sin\theta\cos\theta\\0&amp;T_2&amp;0\\-(T_1-T_3)\sin\theta\cos\theta&amp;0&amp;T_1\sin^2\theta+T_3\cos^2\theta\end{bmatrix}
+\end{split}\]</div>
+<p>The components of <span class="math notranslate nohighlight">\(\mathbf{T'}\)</span> can be expressed in a nicer way using the following trigonometric identities for double angles:</p>
+<div class="math notranslate nohighlight" id="equation-ch06-eq13">
+<span class="eqno">(6.13)<a class="headerlink" href="#equation-ch06-eq13" title="Permalink to this equation">#</a></span>\[
+\sin 2\theta=2\sin\theta\cos\theta,\quad \sin^2\theta=\frac{1-\cos 2\theta}{2},\quad \cos^2\theta=\frac{1+\cos 2\theta}{2}
+\]</div>
+<p>Substituting these equations into Eq. <a class="reference internal" href="#equation-ch06-eq12">(6.12)</a> and rearranging, we get the following equations for the components of the tensor in the new coordinate system:</p>
+<div class="math notranslate nohighlight" id="equation-ch06-eq14">
+<span class="eqno">(6.14)<a class="headerlink" href="#equation-ch06-eq14" title="Permalink to this equation">#</a></span>\[\begin{split}
+\begin{gathered}
+    T_{11}'=\frac{T_1+T_3}{2}+\frac{T_1-T_3}{2}\cos 2\theta  \\
+    T_{33}'=\frac{T_1+T_3}{2}-\frac{T_1-T_3}{2}\cos 2\theta \\
+    T_{13}'=T_{31}'=-\frac{T_1-T_3}{2}\sin 2\theta
+\end{gathered}
+\end{split}\]</div>
+<p>If you recall, the equation of a circle of center <span class="math notranslate nohighlight">\((c,0)\)</span> and radius <span class="math notranslate nohighlight">\(r\)</span> is:</p>
+<div class="math notranslate nohighlight" id="equation-ch06-eq15">
+<span class="eqno">(6.15)<a class="headerlink" href="#equation-ch06-eq15" title="Permalink to this equation">#</a></span>\[\begin{split}
+\begin{gathered}
+    x=c-r\cos\alpha \\
+    y=r\sin\alpha
+\end{gathered}
+\end{split}\]</div>
+<p>We can see that these equations are similar to Eq. <a class="reference internal" href="#equation-ch06-eq14">(6.14)</a>. In fact, Eq. <a class="reference internal" href="#equation-ch06-eq14">(6.14)</a> describes a circle with center <span class="math notranslate nohighlight">\(c\)</span> and radius <span class="math notranslate nohighlight">\(r\)</span> (<a class="reference internal" href="#ch06-fig03"><span class="std std-numref">Figure 6.3</span></a>):</p>
+<div class="math notranslate nohighlight" id="equation-ch06-eq16">
+<span class="eqno">(6.16)<a class="headerlink" href="#equation-ch06-eq16" title="Permalink to this equation">#</a></span>\[
+c = \left(\frac{T_1+T_3}{2},0\right)\qquad r = \left(\frac{T_1-T_3}{2}\right)
+\]</div>
+<figure class="align-default" id="ch06-fig03">
+<a class="reference internal image-reference" href="_images/ch06_fig03.png"><img alt="_images/ch06_fig03.png" src="_images/ch06_fig03.png" style="width: 450px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 6.3 </span><span class="caption-text">The Mohr circle is the graphical representation of the rotation of a symmetric tensor about one of its principal axes. Modified from Allmendinger et al. (2012).</span><a class="headerlink" href="#ch06-fig03" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>This circle is known as the <em>Mohr circle</em>, because it was devised by the German engineer Otto Mohr in the late 1800s. The Mohr circle is basically a graphical device to rotate a symmetric tensor about one of its principal axes. It is commonly associated with stress, but it can be applied to any symmetric tensor (strain and permeability for example). We will see the application of the Mohr circle in <a class="reference internal" href="ch07_stress.html#ch07"><span class="std std-ref">Chapter 7</span></a> and <a class="reference internal" href="ch08_strain.html#ch08"><span class="std std-ref">Chapter 8</span></a>.</p>
+</section>
+</section>
+<section id="the-orientation-tensor">
+<span id="ch06-5"></span><h2><span class="section-number">6.5. </span>The orientation tensor<a class="headerlink" href="#the-orientation-tensor" title="Permalink to this headline">#</a></h2>
+<p>The concepts discussed so far in this chapter are the mathematical basis for the following two chapters on stress and strain. We will now focus on a relatively simple yet important problem that relies on the concept of eigenvalues and eigenvectors: How do we find the best-fit fold axis to a group of bedding poles? And similarly, how do we find the best-fit plane to a group of lines?</p>
+<section id="best-fit-fold-axis">
+<span id="ch06-5-1"></span><h3><span class="section-number">6.5.1. </span>Best-fit fold axis<a class="headerlink" href="#best-fit-fold-axis" title="Permalink to this headline">#</a></h3>
+<p>The solution to this problem is based on the least squares method (Charlesworth et al., 1976; Allmendinger et al., 2012). Suppose we are trying to calculate the axis <span class="math notranslate nohighlight">\(\mathbf{f}\)</span> of a fold. If the fold is truly cylindrical, then all the bedding poles <span class="math notranslate nohighlight">\(\mathbf{p}_{[n]}\)</span> should be perpendicular to <span class="math notranslate nohighlight">\(\mathbf{f}\)</span>, i.e. the angle <span class="math notranslate nohighlight">\(\theta_i\)</span> between any pole <span class="math notranslate nohighlight">\(\mathbf{p}_{[i]}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{f}\)</span> should be 90, and <span class="math notranslate nohighlight">\(\cos\theta_i\)</span> should be zero (<a class="reference internal" href="#ch06-fig04"><span class="std std-numref">Figure 6.4</span></a>). <span class="math notranslate nohighlight">\(\cos\theta_i\)</span> is equal to the dot product between <span class="math notranslate nohighlight">\(\mathbf{f}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{p}_{[i]}\)</span>. Treating these lines as row vectors, the dot product can be written as:</p>
+<figure class="align-default" id="ch06-fig04">
+<a class="reference internal image-reference" href="_images/ch06_fig04.png"><img alt="_images/ch06_fig04.png" src="_images/ch06_fig04.png" style="width: 400px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 6.4 </span><span class="caption-text">Best-fit fold axis to a group of bedding poles. A perfectly oriented pole <span class="math notranslate nohighlight">\(\textbf{p}_{[i]}\)</span> should be perpendicular to the fold axis <span class="math notranslate nohighlight">\(\textbf{f}\)</span>, and <span class="math notranslate nohighlight">\(\theta{_i}\)</span> should be 90<span class="math notranslate nohighlight">\(^o\)</span> (<span class="math notranslate nohighlight">\(cos \theta_{i} = 0\)</span>). Modified from Allmendinger (2020a).</span><a class="headerlink" href="#ch06-fig04" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<div class="math notranslate nohighlight" id="equation-ch06-eq17">
+<span class="eqno">(6.17)<a class="headerlink" href="#equation-ch06-eq17" title="Permalink to this equation">#</a></span>\[
+\cos\theta_i=\mathbf{p}_{[i]}\mathbf{f^T}
+\]</div>
+<p>We can use the value of <span class="math notranslate nohighlight">\(\cos\theta_i\)</span> to represent the deviation of a pole <span class="math notranslate nohighlight">\(\mathbf{p}_{[i]}\)</span> from <span class="math notranslate nohighlight">\(\mathbf{f}\)</span>. The sum of the squares of the deviations of all the poles is:</p>
+<div class="math notranslate nohighlight" id="equation-ch06-eq18">
+<span class="eqno">(6.18)<a class="headerlink" href="#equation-ch06-eq18" title="Permalink to this equation">#</a></span>\[
+S=\sum_{i=1}^{n}\cos^2\theta_i=\sum_{i=1}^{n}\left(\mathbf{p}_{[i]}\mathbf{f^T}\right)^2
+\]</div>
+<p>Since the dot product is commutative (<span class="math notranslate nohighlight">\(\mathbf{p}_{[i]}\mathbf{f^T}=\mathbf{f}\mathbf{p}_{[i]}^{\mathbf{T}}\)</span>), we can write Eq. <a class="reference internal" href="#equation-ch06-eq18">(6.18)</a> as:</p>
+<div class="math notranslate nohighlight" id="equation-ch06-eq19">
+<span class="eqno">(6.19)<a class="headerlink" href="#equation-ch06-eq19" title="Permalink to this equation">#</a></span>\[
+S=\sum_{i=1}^{n}\mathbf{f}\mathbf{p}_{[i]}^{\mathbf{T}}\mathbf{p}_{[i]}\mathbf{f^T}=\mathbf{f}\mathbf{T}\mathbf{f^T}
+\]</div>
+<p><strong>T</strong> is a symmetric tensor known as the <em>orientation tensor</em> and is composed of the sum of the dyad products of each pole <span class="math notranslate nohighlight">\(\mathbf{p}_{[i]}\)</span> (<span class="math notranslate nohighlight">\([\cos\alpha_i\,\cos\beta_i\,\cos\gamma_i]\)</span>) with itself (Eq. <a class="reference internal" href="#equation-ch06-eq20">(6.20)</a>):</p>
+<div class="math notranslate nohighlight" id="equation-ch06-eq20">
+<span class="eqno">(6.20)<a class="headerlink" href="#equation-ch06-eq20" title="Permalink to this equation">#</a></span>\[\begin{split}
+\begin{aligned}
+\mathbf{T} &amp;=\sum_{i=1}^{n} \mathbf{p}_{[i]}^{\mathbf{T}}\mathbf{p}_{[i]}=\sum_{i=1}^{n}\left(p_{i}p_{j}\right)_{[i]} \\ 
+    &amp;=\left[\begin{array}{ccc}\sum \cos ^{2} \alpha_{[i]} &amp; \sum \cos \alpha_{[i]} \cos \beta_{[i]} &amp; \sum \cos \alpha_{[i]} \cos \gamma_{[i]} \\ \sum \cos \beta_{[i]} \cos \alpha_{[i]} &amp; \sum \cos ^{2} \beta_{[i]} &amp; \sum \cos \beta_{[i]} \cos \gamma_{[i]} \\ \sum \cos \gamma_{[i]} \cos \alpha_{[i]} &amp; \sum \cos \gamma_{[i]} \cos \beta_{[i]} &amp; \left.\sum \cos ^{2} \gamma_{[i]}\right]\end{array}\right]
+\end{aligned}
+\end{split}\]</div>
+<p>You can think of <span class="math notranslate nohighlight">\(\mathbf{T}\)</span> as describing an ellipsoid in three-dimensions. To find the principal axes of this ellipsoid, we need to calculate the eigenvalues and eigenvectors of <span class="math notranslate nohighlight">\(\mathbf{T}\)</span>. The smallest eigenvalue of <span class="math notranslate nohighlight">\(\mathbf{T}\)</span> is the minimization of the deviations <span class="math notranslate nohighlight">\(S\)</span> in Eq. <a class="reference internal" href="#equation-ch06-eq19">(6.19)</a>. If the fold were perfectly cylindrical, the lowest eigenvalue would be zero. Thus, the eigenvector corresponding to the lowest eigenvalue is the best-fit fold axis <span class="math notranslate nohighlight">\(\mathbf{f}\)</span>.</p>
+<p>The function <a class="reference external" href="https://github.com/nfcd/compGeo/blob/master/source/functions/bingham.py">bingham</a> computes and plots a cylindrical best-fit to a distribution of bedding poles. It returns the eigenvalues and eigenvectors of <span class="math notranslate nohighlight">\(\mathbf{T}\)</span>, the uncertainty cones for the Bingham statistics, and the best-fit plane to the bedding poles. For more information on the Bingham statistics, please check Fisher et al. (1987):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="kn">from</span> <span class="nn">compgeo.sph_to_cart</span> <span class="kn">import</span> <span class="n">sph_to_cart</span>
+<span class="kn">from</span> <span class="nn">compgeo.cart_to_sph</span> <span class="kn">import</span> <span class="n">cart_to_sph</span>
+<span class="kn">from</span> <span class="nn">compgeo.zero_twopi</span> <span class="kn">import</span> <span class="n">zero_twopi</span>
+<span class="kn">from</span> <span class="nn">compgeo.stereonet</span> <span class="kn">import</span> <span class="n">stereonet</span>
+<span class="kn">from</span> <span class="nn">compgeo.great_circle</span> <span class="kn">import</span> <span class="n">great_circle</span>
+<span class="kn">from</span> <span class="nn">compgeo.st_coord_line</span> <span class="kn">import</span> <span class="n">st_coord_line</span>
+
+
+<span class="k">def</span> <span class="nf">bingham</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="n">P</span><span class="p">,</span><span class="n">stype</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    bingham calculates and plots a cylindrical best fit to</span>
+<span class="sd">    a distribution of poles to bedding. The statistical</span>
+<span class="sd">    routine is based on algorithms in Fisher et al. (1988)</span>
+<span class="sd">    </span>
+<span class="sd">    USE: eigvec, confcone, bestfit, fig, ax = bingham(T,P)</span>
+<span class="sd">        </span>
+<span class="sd">    T and P = Vectors of lines trends and plunges</span>
+<span class="sd">            respectively</span>
+<span class="sd">    stype = Stereonet type: 0 = equal angle, 1 = equal area</span>
+<span class="sd">        </span>
+<span class="sd">    eigvec = 3 x 3 matrix with eigenvalues (column 1), trends</span>
+<span class="sd">    (column 2) and plunges (column 3) of the eigenvectors.</span>
+<span class="sd">    Maximum eigenvalue and corresponding eigenvector are</span>
+<span class="sd">    in row 1, intermediate in row 2, and minimum in row 3.</span>
+<span class="sd">    </span>
+<span class="sd">    confcone = 2 x 2 matrix with the maximum (column 1) and</span>
+<span class="sd">    minimum (column 2) radius of the 95% elliptical</span>
+<span class="sd">    confidence cone around the eigenvector corresponding</span>
+<span class="sd">    to the largest (row 1), and lowest (row 2) eigenvalue</span>
+<span class="sd">    </span>
+<span class="sd">    besFit = 1 x 2 vector containing the strike and dip</span>
+<span class="sd">    (right hand rule) of the best fit great circle to</span>
+<span class="sd">    the distribution of lines</span>
+<span class="sd">    </span>
+<span class="sd">    fig and ax are handles to the figure and axes</span>
+<span class="sd">    </span>
+<span class="sd">    NOTE: Input/Output trends and plunges, as well as</span>
+<span class="sd">    confidence cones are in radians. bingham plots the</span>
+<span class="sd">    input poles, eigenvectors and best fit great circle</span>
+<span class="sd">    in an equal area stereonet.</span>
+<span class="sd">    </span>
+<span class="sd">    Python function translated from the Matlab function</span>
+<span class="sd">    Bingham in Allmendinger et al. (2012)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Some constants</span>
+    <span class="n">pi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span>
+    <span class="n">east</span> <span class="o">=</span> <span class="n">pi</span><span class="o">/</span><span class="mi">2</span>
+    <span class="n">twopi</span> <span class="o">=</span> <span class="n">pi</span><span class="o">*</span><span class="mi">2</span>
+    
+    <span class="c1"># Number of lines</span>
+    <span class="n">nlines</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
+    
+    <span class="c1"># Initialize the orientation matrix</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+    
+    <span class="c1"># Fill the orientation matrix with the sums of the</span>
+    <span class="c1"># squares (for the principal diagonal) and the products</span>
+    <span class="c1"># of the direction cosines of each line. cn, ce and cd</span>
+    <span class="c1"># are the north, east and down direction cosines</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">nlines</span><span class="p">):</span> 
+        
+        <span class="n">cn</span><span class="p">,</span><span class="n">ce</span><span class="p">,</span><span class="n">cd</span> <span class="o">=</span> <span class="n">sph_to_cart</span><span class="p">(</span><span class="n">T</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">P</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+        <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">cn</span><span class="o">*</span><span class="n">cn</span>
+        <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">cn</span><span class="o">*</span><span class="n">ce</span>
+        <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="n">cn</span><span class="o">*</span><span class="n">cd</span>
+        <span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">ce</span><span class="o">*</span><span class="n">ce</span>
+        <span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="n">ce</span><span class="o">*</span><span class="n">cd</span>
+        <span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="n">cd</span><span class="o">*</span><span class="n">cd</span>
+    
+    <span class="c1"># The orientation matrix is symmetric so the off-diagonal</span>
+    <span class="c1"># components can be equated</span>
+    <span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span>
+    <span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span>
+    
+    <span class="c1"># Calculate the eigenvalues and eigenvectors of the</span>
+    <span class="c1"># orientation matrix using function eigh.</span>
+    <span class="c1"># D is a vector of eigenvalues and V is a full matrix</span>
+    <span class="c1"># whose columns are the corresponding eigenvectors</span>
+    <span class="n">D</span><span class="p">,</span> <span class="n">V</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eigh</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+    
+    <span class="c1"># Normalize the eigenvalues by the number of lines and</span>
+    <span class="c1"># convert the corresponding eigenvectors to the lower</span>
+    <span class="c1"># hemisphere</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">):</span> 
+        
+        <span class="n">D</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">D</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">/</span><span class="n">nlines</span>
+        
+        <span class="k">if</span> <span class="n">V</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">V</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="n">V</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="n">i</span><span class="p">]</span>
+            <span class="n">V</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="n">V</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="n">i</span><span class="p">]</span>
+            <span class="n">V</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="n">V</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="n">i</span><span class="p">]</span>
+    
+    <span class="c1"># Initialize eigvec</span>
+    <span class="n">eigvec</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+    
+    <span class="c1">#Fill eigvec</span>
+    <span class="n">eigvec</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">D</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>    <span class="c1"># Maximum eigenvalue</span>
+    <span class="n">eigvec</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">D</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>    <span class="c1"># Intermediate eigenvalue</span>
+    <span class="n">eigvec</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">D</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>    <span class="c1"># Minimum eigenvalue</span>
+    
+    <span class="c1"># Trend and plunge of largest eigenvalue: column 3 of V</span>
+    <span class="n">eigvec</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="n">eigvec</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">cart_to_sph</span><span class="p">(</span><span class="n">V</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span> <span class="n">V</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span> 
+        <span class="n">V</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span>
+    
+    <span class="c1"># Trend and plunge of interm. eigenvalue: column 2 of V</span>
+    <span class="n">eigvec</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="n">eigvec</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">cart_to_sph</span><span class="p">(</span><span class="n">V</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="n">V</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> 
+        <span class="n">V</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+    
+    <span class="c1"># Trend and plunge of minimum eigenvalue: column 1 of V</span>
+    <span class="n">eigvec</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="n">eigvec</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">cart_to_sph</span><span class="p">(</span><span class="n">V</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">V</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> 
+        <span class="n">V</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
+    
+    <span class="c1"># Initialize confcone</span>
+    <span class="n">confcone</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+    
+    <span class="c1"># If there are more than 25 lines, calculate confidence</span>
+    <span class="c1"># cones at the 95% confidence level. The algorithm is</span>
+    <span class="c1"># explained in Fisher et al. (1987)</span>
+    <span class="k">if</span> <span class="n">nlines</span> <span class="o">&gt;=</span> <span class="mi">25</span><span class="p">:</span>
+        
+        <span class="n">e11</span> <span class="o">=</span> <span class="n">e22</span> <span class="o">=</span> <span class="n">e12</span> <span class="o">=</span> <span class="n">d11</span> <span class="o">=</span> <span class="n">d22</span> <span class="o">=</span> <span class="n">d12</span> <span class="o">=</span> <span class="mi">0</span>
+        
+        <span class="n">en11</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">nlines</span><span class="o">*</span><span class="p">(</span><span class="n">eigvec</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="n">eigvec</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+        <span class="n">en22</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">nlines</span><span class="o">*</span><span class="p">(</span><span class="n">eigvec</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="n">eigvec</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+        <span class="n">en12</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">nlines</span><span class="o">*</span><span class="p">(</span><span class="n">eigvec</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="n">eigvec</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span><span class="o">*</span><span class="p">(</span><span class="n">eigvec</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span>
+            <span class="n">eigvec</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]))</span>
+        
+        <span class="n">dn11</span> <span class="o">=</span> <span class="n">en11</span>
+        <span class="n">dn22</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">nlines</span><span class="o">*</span><span class="p">(</span><span class="n">eigvec</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="n">eigvec</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+        <span class="n">dn12</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">nlines</span><span class="o">*</span><span class="p">(</span><span class="n">eigvec</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="n">eigvec</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span><span class="o">*</span><span class="p">(</span><span class="n">eigvec</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span>
+            <span class="n">eigvec</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]))</span>
+        
+        <span class="n">vec</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+        
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">):</span>
+            <span class="n">vec</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">eigvec</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span><span class="o">+</span><span class="n">east</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">twopi</span><span class="o">-</span>
+                <span class="n">eigvec</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+            <span class="n">vec</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">eigvec</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span><span class="o">+</span><span class="n">east</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">twopi</span><span class="o">-</span>
+                <span class="n">eigvec</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+            <span class="n">vec</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">eigvec</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span><span class="o">+</span><span class="n">east</span><span class="p">)</span>
+        
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">nlines</span><span class="p">):</span>
+            <span class="n">c1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">P</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">+</span><span class="n">east</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">twopi</span><span class="o">-</span><span class="n">T</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+            <span class="n">c2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">P</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">+</span><span class="n">east</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">twopi</span><span class="o">-</span><span class="n">T</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+            <span class="n">c3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">P</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">+</span><span class="n">east</span><span class="p">)</span>
+            
+            <span class="n">u1x</span> <span class="o">=</span> <span class="n">vec</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">c1</span> <span class="o">+</span> <span class="n">vec</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">c2</span> <span class="o">+</span> <span class="n">vec</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span><span class="o">*</span><span class="n">c3</span>
+            <span class="n">u2x</span> <span class="o">=</span> <span class="n">vec</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">c1</span> <span class="o">+</span> <span class="n">vec</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">c2</span> <span class="o">+</span> <span class="n">vec</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span><span class="o">*</span><span class="n">c3</span>
+            <span class="n">u3x</span> <span class="o">=</span> <span class="n">vec</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">c1</span> <span class="o">+</span> <span class="n">vec</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">c2</span> <span class="o">+</span> <span class="n">vec</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span><span class="o">*</span><span class="n">c3</span>
+            
+            <span class="n">e11</span> <span class="o">=</span> <span class="n">u1x</span><span class="o">*</span><span class="n">u1x</span> <span class="o">*</span> <span class="n">u3x</span><span class="o">*</span><span class="n">u3x</span> <span class="o">+</span> <span class="n">e11</span>
+            <span class="n">e22</span> <span class="o">=</span> <span class="n">u2x</span><span class="o">*</span><span class="n">u2x</span> <span class="o">*</span> <span class="n">u3x</span><span class="o">*</span><span class="n">u3x</span> <span class="o">+</span> <span class="n">e22</span>
+            <span class="n">e12</span> <span class="o">=</span> <span class="n">u1x</span><span class="o">*</span><span class="n">u2x</span> <span class="o">*</span> <span class="n">u3x</span><span class="o">*</span><span class="n">u3x</span> <span class="o">+</span> <span class="n">e12</span>
+            
+            <span class="n">d11</span> <span class="o">=</span> <span class="n">e11</span>
+            <span class="n">d22</span> <span class="o">=</span> <span class="n">u1x</span><span class="o">*</span><span class="n">u1x</span> <span class="o">*</span> <span class="n">u2x</span><span class="o">*</span><span class="n">u2x</span> <span class="o">+</span> <span class="n">d22</span>
+            <span class="n">d12</span> <span class="o">=</span> <span class="n">u2x</span><span class="o">*</span><span class="n">u3x</span> <span class="o">*</span> <span class="n">u1x</span><span class="o">*</span><span class="n">u1x</span> <span class="o">+</span> <span class="n">d12</span>
+        
+        <span class="n">e22</span> <span class="o">=</span> <span class="n">en22</span><span class="o">*</span><span class="n">e22</span>
+        <span class="n">e11</span> <span class="o">=</span> <span class="n">en11</span><span class="o">*</span><span class="n">e11</span>
+        <span class="n">e12</span> <span class="o">=</span> <span class="n">en12</span><span class="o">*</span><span class="n">e12</span>
+        
+        <span class="n">d22</span> <span class="o">=</span> <span class="n">dn22</span><span class="o">*</span><span class="n">d22</span>
+        <span class="n">d11</span> <span class="o">=</span> <span class="n">dn11</span><span class="o">*</span><span class="n">d11</span>
+        <span class="n">d12</span> <span class="o">=</span> <span class="n">dn12</span><span class="o">*</span><span class="n">d12</span>
+        
+        <span class="n">d</span> <span class="o">=</span> <span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mf">.05</span><span class="p">)</span><span class="o">/</span><span class="n">nlines</span>
+        
+        <span class="c1"># initialize f</span>
+        <span class="n">f</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+        
+        <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">e11</span><span class="o">*</span><span class="n">e22</span><span class="o">-</span><span class="n">e12</span><span class="o">*</span><span class="n">e12</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mf">0.000001</span><span class="p">:</span>
+            
+            <span class="n">f</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">e11</span><span class="o">*</span><span class="n">e22</span><span class="o">-</span><span class="n">e12</span><span class="o">*</span><span class="n">e12</span><span class="p">))</span> <span class="o">*</span> <span class="n">e22</span>
+            <span class="n">f</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">e11</span><span class="o">*</span><span class="n">e22</span><span class="o">-</span><span class="n">e12</span><span class="o">*</span><span class="n">e12</span><span class="p">))</span> <span class="o">*</span> <span class="n">e11</span>
+            <span class="n">f</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">e11</span><span class="o">*</span><span class="n">e22</span><span class="o">-</span><span class="n">e12</span><span class="o">*</span><span class="n">e12</span><span class="p">))</span> <span class="o">*</span> <span class="n">e12</span>
+            <span class="n">f</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">f</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+            
+            <span class="c1"># Calculate the eigenvalues and eigenvectors</span>
+            <span class="c1"># of the matrix f using function eigh</span>
+            <span class="c1"># The next lines follow steps 1-4 outlined</span>
+            <span class="c1"># on pp. 34-35 of Fisher et al. (1987)</span>
+            <span class="n">DD</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eigh</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+            
+            <span class="k">if</span> <span class="n">DD</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">DD</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                
+                <span class="k">if</span> <span class="n">d</span><span class="o">/</span><span class="n">DD</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">d</span><span class="o">/</span><span class="n">DD</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
+                    
+                    <span class="n">confcone</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arcsin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">d</span><span class="o">/</span><span class="n">DD</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+                    <span class="n">confcone</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arcsin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">d</span><span class="o">/</span><span class="n">DD</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+        
+        <span class="c1"># Repeat the process for the eigenvector</span>
+        <span class="c1"># corresponding to the smallest eigenvalue</span>
+        <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">d11</span><span class="o">*</span><span class="n">d22</span><span class="o">-</span><span class="n">d12</span><span class="o">*</span><span class="n">d12</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mf">0.000001</span><span class="p">:</span>
+            
+            <span class="n">f</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">d11</span><span class="o">*</span><span class="n">d22</span><span class="o">-</span><span class="n">d12</span><span class="o">*</span><span class="n">d12</span><span class="p">))</span> <span class="o">*</span> <span class="n">d22</span>
+            <span class="n">f</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">d11</span><span class="o">*</span><span class="n">d22</span><span class="o">-</span><span class="n">d12</span><span class="o">*</span><span class="n">d12</span><span class="p">))</span> <span class="o">*</span> <span class="n">d11</span>
+            <span class="n">f</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">d11</span><span class="o">*</span><span class="n">d22</span><span class="o">-</span><span class="n">d12</span><span class="o">*</span><span class="n">d12</span><span class="p">))</span> <span class="o">*</span> <span class="n">d12</span>
+            <span class="n">f</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">f</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+            
+            <span class="n">DD</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eigh</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+            
+            <span class="k">if</span> <span class="n">DD</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mf">0.0</span> <span class="ow">and</span> <span class="n">DD</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mf">0.0</span><span class="p">:</span>
+                
+                <span class="k">if</span> <span class="n">d</span><span class="o">/</span><span class="n">DD</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">d</span><span class="o">/</span><span class="n">DD</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
+                    
+                    <span class="n">confcone</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arcsin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">d</span><span class="o">/</span><span class="n">DD</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+                    <span class="n">confcone</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arcsin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">d</span><span class="o">/</span><span class="n">DD</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+    
+    <span class="c1"># Calculate the best fit great circle</span>
+    <span class="c1"># to the distribution of points</span>
+    <span class="n">bestfit</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">bestfit</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">zero_twopi</span><span class="p">(</span><span class="n">eigvec</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">east</span><span class="p">)</span>
+    <span class="n">bestfit</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">east</span> <span class="o">-</span> <span class="n">eigvec</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span>
+    
+    <span class="c1"># Plot stereonet</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">stereonet</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">90</span><span class="o">*</span><span class="n">pi</span><span class="o">/</span><span class="mi">180</span><span class="p">,</span> <span class="mi">10</span><span class="o">*</span><span class="n">pi</span><span class="o">/</span><span class="mi">180</span><span class="p">,</span> <span class="n">stype</span><span class="p">)</span>
+    
+    <span class="c1"># Plot lines</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">nlines</span><span class="p">):</span>
+        <span class="n">xp</span><span class="p">,</span><span class="n">yp</span> <span class="o">=</span> <span class="n">st_coord_line</span><span class="p">(</span><span class="n">T</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">P</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">stype</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xp</span><span class="p">,</span><span class="n">yp</span><span class="p">,</span><span class="s2">&quot;k.&quot;</span><span class="p">)</span>
+    
+    <span class="c1"># Plot eigenvectors</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">):</span>
+        <span class="n">xp</span><span class="p">,</span><span class="n">yp</span> <span class="o">=</span> <span class="n">st_coord_line</span><span class="p">(</span><span class="n">eigvec</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span><span class="n">eigvec</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span><span class="n">stype</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xp</span><span class="p">,</span><span class="n">yp</span><span class="p">,</span><span class="s2">&quot;rs&quot;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">xp</span><span class="o">-</span><span class="mf">0.03</span><span class="p">,</span><span class="n">yp</span><span class="o">+</span><span class="mf">0.03</span><span class="p">,</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span><span class="n">c</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">)</span>
+    
+    <span class="c1"># Plot best fit great circle</span>
+    <span class="n">path</span> <span class="o">=</span> <span class="n">great_circle</span><span class="p">(</span><span class="n">bestfit</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">bestfit</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">stype</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">path</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">path</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span><span class="s2">&quot;r&quot;</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">eigvec</span><span class="p">,</span> <span class="n">confcone</span><span class="p">,</span> <span class="n">bestfit</span><span class="p">,</span> <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s use this function to compute the best-fit fold axis for the Big Elk anticline (southeastern Idaho), using the bedding data in <a class="reference internal" href="ch05_transformations.html#ch05-fig07"><span class="std std-numref">Figure 5.7</span></a>. The notebook <a class="reference external" href="https://github.com/nfcd/compGeo/blob/master/source/notebooks/ch6-1.ipynb">ch6-1</a> illustrates this. Notice that the bedding data (strike and dips) are read from the file <a class="reference external" href="https://github.com/nfcd/compGeo/blob/master/source/data/ch6-1/beasd.txt">beasd.txt</a>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import libraries</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">pi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span>
+
+<span class="c1"># Import functions </span>
+<span class="kn">from</span> <span class="nn">compgeo.pole</span> <span class="kn">import</span> <span class="n">pole_from_plane</span>
+<span class="kn">from</span> <span class="nn">compgeo.bingham</span> <span class="kn">import</span> <span class="n">bingham</span>
+
+
+<span class="c1"># Read the bedding data from the Big Elk anticline</span>
+<span class="n">beasd</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="s2">&quot;data/ch6-1/beasd.txt&quot;</span><span class="p">))</span>
+
+<span class="c1"># Convert from degrees to radians</span>
+<span class="n">beasd</span> <span class="o">=</span> <span class="n">beasd</span><span class="o">*</span><span class="n">pi</span><span class="o">/</span><span class="mi">180</span>
+
+<span class="c1"># Initialize poles</span>
+<span class="n">T</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">beasd</span><span class="p">))</span>
+<span class="n">P</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">beasd</span><span class="p">))</span>
+
+<span class="c1"># Compute poles to bedding</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">T</span><span class="p">)):</span>
+     <span class="n">T</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">P</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">pole_from_plane</span><span class="p">(</span><span class="n">beasd</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span><span class="n">beasd</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+
+<span class="c1"># Compute cylindrical best fit</span>
+<span class="c1"># and plot in equal area stereonet</span>
+<span class="n">eigvec</span><span class="p">,</span><span class="n">confcone</span><span class="p">,</span><span class="n">bestfit</span><span class="p">,</span> <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">bingham</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="n">P</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Convert from radians to degrees</span>
+<span class="n">eigvec</span> <span class="o">=</span> <span class="n">eigvec</span> <span class="o">*</span> <span class="mi">180</span><span class="o">/</span><span class="n">pi</span>
+<span class="n">confcone</span> <span class="o">=</span> <span class="n">confcone</span> <span class="o">*</span> <span class="mi">180</span><span class="o">/</span><span class="n">pi</span>
+<span class="n">bestfit</span> <span class="o">=</span> <span class="n">bestfit</span> <span class="o">*</span> <span class="mi">180</span><span class="o">/</span><span class="n">pi</span>
+
+<span class="c1"># Print best-fit fold axis</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Best-fit fold axis: trend = </span><span class="si">{:.1f}</span><span class="s2">, plunge = </span><span class="si">{:.1f}</span><span class="s2">&quot;</span>
+      <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">eigvec</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span><span class="n">eigvec</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">]))</span>
+
+<span class="c1"># Print best-fit plane </span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Best-fit plane: strike = </span><span class="si">{:.1f}</span><span class="s2">, dip = </span><span class="si">{:.1f}</span><span class="se">\n</span><span class="s2">&quot;</span>
+      <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">bestfit</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">bestfit</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+
+<span class="c1"># Print confidence cone</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;95</span><span class="si">% e</span><span class="s2">lliptical confidence cones:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Around axis 1: Max = </span><span class="si">{:.1f}</span><span class="s2">, Min = </span><span class="si">{:.1f}</span><span class="s2">&quot;</span>
+      <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">confcone</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span><span class="n">confcone</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Around axis 3: Max = </span><span class="si">{:.1f}</span><span class="s2">, Min = </span><span class="si">{:.1f}</span><span class="s2">&quot;</span>
+      <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">confcone</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span><span class="n">confcone</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Best-fit fold axis: trend = 125.3, plunge = 26.1
+Best-fit plane: strike = 215.3, dip = 63.9
+
+95% elliptical confidence cones:
+Around axis 1: Max = 16.9, Min = 5.9
+Around axis 3: Max = 8.2, Min = 5.8
+</pre></div>
+</div>
+<img alt="_images/ch06_tensors_61_1.png" src="_images/ch06_tensors_61_1.png" />
+</div>
+</div>
+</section>
+<section id="line-distributions">
+<span id="ch06-5-2"></span><h3><span class="section-number">6.5.2. </span>Line distributions<a class="headerlink" href="#line-distributions" title="Permalink to this headline">#</a></h3>
+<p>The orientation tensor <span class="math notranslate nohighlight">\(\mathbf{T}\)</span> (Eq. <a class="reference internal" href="#equation-ch06-eq20">(6.20)</a>) is also useful for characterizing line distributions. <a class="reference internal" href="#ch06-fig05"><span class="std std-numref">Figure 6.5</span></a> shows three end-members of line distributions. The bipolar distribution (<a class="reference internal" href="#ch06-fig05"><span class="std std-numref">Figure 6.5</span></a>a) consists of a group of lines that are parallel or sub-parallel to each other and plunge in opposite directions, with some limited scatter. In this case, the lines define an elongate ellipsoid (a cigar), with a large (near 1.0) eigenvalue (long axis of the ellipsoid) and two small (near zero) eigenvalues (short axes of the ellipsoid). Also, the eigenvector of the largest eigenvalue describes well the preferred orientation of the lines (<a class="reference internal" href="#ch06-fig05"><span class="std std-numref">Figure 6.5</span></a>a). Notice that in this case, the mean vector calculation (<a class="reference internal" href="ch04_coordinate_systems_vectors.html#ch04-4-1"><span class="std std-ref">Section 4.4.1</span></a>) will fail since the lines plunging in opposite directions will cancel each other out.</p>
+<figure class="align-default" id="ch06-fig05">
+<a class="reference internal image-reference" href="_images/ch06_fig05.png"><img alt="_images/ch06_fig05.png" src="_images/ch06_fig05.png" style="width: 650px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 6.5 </span><span class="caption-text">Three end members of line distributions. <strong>a.</strong> Bipolar, <strong>b.</strong> Girdle, and <strong>c.</strong> random. Each diagram has 30 lines. Modified from Allmendinger (2020a).</span><a class="headerlink" href="#ch06-fig05" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>In the girdle distribution (<a class="reference internal" href="#ch06-fig05"><span class="std std-numref">Figure 6.5</span></a>b), all the lines are close to being coplanar, and they define a flattened ellipsoid (or pancake), with one small (near zero) eigenvalue corresponding to the pole of the best-fit plane through the lines, and two large relatively equal eigenvalues (near 0.5) whose eigenvectors lie within the best-fit plane. Finally, in the random distribution (<a class="reference internal" href="#ch06-fig05"><span class="std std-numref">Figure 6.5</span></a>c), the lines define a sphere and the eigenvalues are relatively equal. Thus, in general, the eigenvalues of <span class="math notranslate nohighlight">\(\mathbf{T}\)</span> are a good way to characterize line distributions.</p>
+</section>
+<section id="best-fit-plane">
+<span id="id1"></span><h3><span class="section-number">6.5.3. </span>Best-fit plane<a class="headerlink" href="#best-fit-plane" title="Permalink to this headline">#</a></h3>
+<p>In <a class="reference internal" href="ch04_coordinate_systems_vectors.html#ch04-4-3"><span class="std std-ref">Section 4.4.3</span></a> we look at the problem of calculating the orientation of a plane from three points on the plane. But what if we have more than three points on the plane? We can use the least squares approach above to solve this problem (Allmendinger, 2020b). This will also allow us to evaluate the goodness of fit of the plane to the data points. Let’s assume the points are defined by position vectors <span class="math notranslate nohighlight">\(\mathbf{p}_{[i]}\)</span> in an east-north-up (<strong>ENU</strong>) coordinate system. First, the centroid <span class="math notranslate nohighlight">\(\mathbf{c}\)</span> of the position vectors <span class="math notranslate nohighlight">\(\mathbf{p}_{[i]}\)</span> is calculated:</p>
+<div class="math notranslate nohighlight" id="equation-ch06-eq21">
+<span class="eqno">(6.21)<a class="headerlink" href="#equation-ch06-eq21" title="Permalink to this equation">#</a></span>\[
+\mathbf{c}=\frac{\sum_{i=1}^{n}\mathbf{p}_{[i]}}{n}
+\]</div>
+<p>Then, the centroid <span class="math notranslate nohighlight">\(\mathbf{c}\)</span> is subtracted from the position vectors <span class="math notranslate nohighlight">\(\mathbf{p}_{[i]}\)</span>:</p>
+<div class="math notranslate nohighlight" id="equation-ch06-eq22">
+<span class="eqno">(6.22)<a class="headerlink" href="#equation-ch06-eq22" title="Permalink to this equation">#</a></span>\[
+\mathbf{s}_{[i]}=\mathbf{p}_{[i]}-\mathbf{c}
+\]</div>
+<p>And we use the vectors <span class="math notranslate nohighlight">\(\mathbf{s}_{[i]}\)</span> to construct a covariance matrix <span class="math notranslate nohighlight">\(\mathbf{C}\)</span> (which looks very similar to the orientation matrix <span class="math notranslate nohighlight">\(\mathbf{T}\)</span>):</p>
+<div class="math notranslate nohighlight" id="equation-ch06-eq23">
+<span class="eqno">(6.23)<a class="headerlink" href="#equation-ch06-eq23" title="Permalink to this equation">#</a></span>\[\begin{split}
+\mathbf{C}=\left[\begin{array}{ccc}\sum (s_E)_{[i]}^{2}  &amp; \sum (s_E)_{[i]} (s_N)_{[i]} &amp; \sum (s_E)_{[i]} (s_U)_{[i]} \\ \sum (s_N)_{[i]} (s_E)_{[i]} &amp; \sum (s_N)_{[i]}^{2} &amp; \sum (s_N)_{[i]} (s_U)_{[i]} \\ \sum (s_U)_{[i]} (s_E)_{[i]} &amp; \sum (s_U)_{[i]} (s_N)_{[i]} &amp; \sum (s_U)_{[i]}^{2}\end{array}\right]
+\end{split}\]</div>
+<p>Finally, the eigenvalues and eigenvectors of the covariance matrix <span class="math notranslate nohighlight">\(\mathbf{C}\)</span> are determined. The eigenvector corresponding to the smallest eigenvalue is the pole to the best-fit plane, and the square root of the smallest eigenvalue is the standard deviation of the distance of each point from the best-fit plane.</p>
+<p>The function <a class="reference external" href="https://github.com/nfcd/compGeo/blob/master/source/functions/fit_plane.py">fit_plane</a> calculates the best-fit plane to a group of lines:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="kn">from</span> <span class="nn">compgeo.pole</span> <span class="kn">import</span> <span class="n">plane_from_pole</span>
+<span class="kn">from</span> <span class="nn">compgeo.cart_to_sph</span> <span class="kn">import</span> <span class="n">cart_to_sph</span>
+
+<span class="k">def</span> <span class="nf">fit_plane</span><span class="p">(</span><span class="n">pts</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    fit_plane computes the best-fit plane for a group of</span>
+<span class="sd">    points (position vectors) on the plane</span>
+<span class="sd">    </span>
+<span class="sd">    USE: strike, dip, stdev = fit_plane(pts)</span>
+<span class="sd">    </span>
+<span class="sd">    pts is a n x 3 matrix containing the East (column 1),</span>
+<span class="sd">    North (column 2), and Up (column 3) coordinates</span>
+<span class="sd">    of n points on the plane</span>
+<span class="sd">    </span>
+<span class="sd">    strike and dip are returned in radians</span>
+<span class="sd">    </span>
+<span class="sd">    stdev is the standard deviation of the distance of</span>
+<span class="sd">    each point from the best-fit plane</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Compute the centroid of the selected points</span>
+    <span class="n">avge</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">pts</span><span class="p">[:,</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">avgn</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">pts</span><span class="p">[:,</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">avgu</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">pts</span><span class="p">[:,</span><span class="mi">2</span><span class="p">])</span>
+    
+    <span class="c1"># Compute the points vectors minus the centroid</span>
+    <span class="n">pts</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">pts</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">avge</span>
+    <span class="n">pts</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">pts</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">avgn</span>
+    <span class="n">pts</span><span class="p">[:,</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">pts</span><span class="p">[:,</span><span class="mi">2</span><span class="p">]</span> <span class="o">-</span> <span class="n">avgu</span>
+    
+    <span class="c1"># Compute the covariance/orientation matrix</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">pts</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+        <span class="n">ce</span> <span class="o">=</span> <span class="n">pts</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">cn</span> <span class="o">=</span> <span class="n">pts</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">cu</span> <span class="o">=</span> <span class="n">pts</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span>
+        
+        <span class="c1"># compute orientation matrix</span>
+        <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">ce</span><span class="o">*</span><span class="n">ce</span>
+        <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">ce</span><span class="o">*</span><span class="n">cn</span>
+        <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="n">ce</span><span class="o">*</span><span class="n">cu</span>
+        <span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">cn</span><span class="o">*</span><span class="n">cn</span>
+        <span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="n">cn</span><span class="o">*</span><span class="n">cu</span>
+        <span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="n">cu</span><span class="o">*</span><span class="n">cu</span>
+    
+    <span class="c1"># The orientation matrix is symmetric so the </span>
+    <span class="c1"># off-diagonal components are equal</span>
+    <span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span>
+    <span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span>
+    
+    <span class="c1"># calculate the eigenvalues and eigenvectors of the</span>
+    <span class="c1"># orientation matrix: use function eigh</span>
+    <span class="n">D</span><span class="p">,</span> <span class="n">V</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eigh</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+    
+    <span class="c1"># Calculate pole to best-fit plane = lowest eigenvalue</span>
+    <span class="c1"># vector in N, E, D coordinates</span>
+    <span class="n">cn</span> <span class="o">=</span> <span class="n">V</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">ce</span> <span class="o">=</span> <span class="n">V</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">cd</span> <span class="o">=</span> <span class="o">-</span><span class="n">V</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+    
+    <span class="c1"># Find trend and plunge of pole to best fit plane</span>
+    <span class="n">trd</span><span class="p">,</span> <span class="n">plg</span> <span class="o">=</span><span class="n">cart_to_sph</span><span class="p">(</span><span class="n">cn</span><span class="p">,</span><span class="n">ce</span><span class="p">,</span><span class="n">cd</span><span class="p">)</span>
+    
+    <span class="c1"># Find Best fit plane</span>
+    <span class="n">strike</span><span class="p">,</span> <span class="n">dip</span> <span class="o">=</span> <span class="n">plane_from_pole</span><span class="p">(</span><span class="n">trd</span><span class="p">,</span><span class="n">plg</span><span class="p">)</span>
+    
+    <span class="c1"># Calculate standard deviation = square root of</span>
+    <span class="c1"># minimum eigenvalue</span>
+    <span class="n">stdev</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">D</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    
+    <span class="k">return</span> <span class="n">strike</span><span class="p">,</span> <span class="n">dip</span><span class="p">,</span> <span class="n">stdev</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s use this function to compute the orientation of the contact between the Jurassic Js and Cretaceous Ke in the northeastern part of the Poker Peak Quadrangle, Idaho (Albee et al., 1975) (yellow contact in <a class="reference internal" href="#ch06-fig06"><span class="std std-numref">Figure 6.6</span></a>). The notebook <a class="reference external" href="https://github.com/nfcd/compGeo/blob/master/source/notebooks/ch6-2.ipynb">ch6-2</a> shows the solution to this problem. Notice that the UTM <strong>ENU</strong> coordinates of the points on the Js-Ke contact are read from the file <a class="reference external" href="https://github.com/nfcd/compGeo/blob/master/source/data/ch6-2/jske.txt">jske.txt</a>:</p>
+<embed src="attachment:ch6f7.pdf" style="width:55.0%" /><figure class="align-default" id="ch06-fig06">
+<a class="reference internal image-reference" href="_images/ch06_fig06.png"><img alt="_images/ch06_fig06.png" src="_images/ch06_fig06.png" style="width: 500px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 6.6 </span><span class="caption-text">Northeastern portion of the Poker Peak Quadrangle, Idaho (Albee et al., 1975). The yellow dots are points on the JsKe contact.</span><a class="headerlink" href="#ch06-fig06" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import libraries</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">pi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span>
+
+<span class="c1"># Import function fit_plane</span>
+<span class="kn">from</span> <span class="nn">compgeo.fit_plane</span> <span class="kn">import</span> <span class="n">fit_plane</span>
+
+<span class="c1"># Read the points on the contact</span>
+<span class="c1"># Coordinates are UTM (ENU) in meters</span>
+<span class="n">jske</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="s1">&#39;data/ch6-2/jske.txt&#39;</span><span class="p">))</span>
+
+<span class="c1"># Compute best-fit plane</span>
+<span class="n">strike</span><span class="p">,</span> <span class="n">dip</span><span class="p">,</span> <span class="n">stdev</span> <span class="o">=</span> <span class="n">fit_plane</span><span class="p">(</span><span class="n">jske</span><span class="p">)</span>
+
+<span class="c1"># Print strike and dip of plane</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Strike = </span><span class="si">{:.1f}</span><span class="s1">, Dip = </span><span class="si">{:.1f}</span><span class="s1">&#39;</span>
+      <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">strike</span><span class="o">*</span><span class="mi">180</span><span class="o">/</span><span class="n">pi</span><span class="p">,</span><span class="n">dip</span><span class="o">*</span><span class="mi">180</span><span class="o">/</span><span class="n">pi</span><span class="p">))</span>
+
+<span class="c1"># Print standard deviation of the distance of each point</span>
+<span class="c1"># from the best-fit plane</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Standard deviation = </span><span class="si">{:.1f}</span><span class="s1"> m&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">stdev</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Strike = 153.3, Dip = 29.9
+Standard deviation = 246.8 m
+</pre></div>
+</div>
+</div>
+</div>
+<p>This orientation is not far from the strikes and dips close to the Js-Ke contact in <a class="reference internal" href="#ch06-fig06"><span class="std std-numref">Figure 6.6</span></a>. To learn more about fitting a plane to a distribution of lines, you can read Fernandez (2005).</p>
+</section>
+</section>
+<section id="exercises">
+<span id="ch06-6"></span><h2><span class="section-number">6.6. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">#</a></h2>
+<ol>
+<li><p>The file <a class="reference external" href="https://github.com/nfcd/compGeo/blob/master/source/data/ch6-exercise1/csdtp.txt">csdtp.txt</a> contains the strikes and dips (RHR) of the Jurassic Sundance Formation around the Sheep Mountain Anticline, Wyoming (<a class="reference internal" href="ch05_transformations.html#ch05-fig08"><span class="std std-numref">Figure 5.8</span></a>). You can visualize these bedding orientations in Google Earth using the file <a class="reference external" href="https://github.com/nfcd/compGeo/blob/master/source/data/ch6-exercise1/csdtp.kml">csdtp.kml</a>. Compute the anticline’s best-fit fold axis using the function <code class="docutils literal notranslate"><span class="pre">bingham</span></code>.</p></li>
+<li><p>The file <a class="reference external" href="https://github.com/nfcd/compGeo/blob/master/source/data/ch6-exercise2/biaxial.txt">biaxial.txt</a>, <a class="reference external" href="https://github.com/nfcd/compGeo/blob/master/source/data/ch6-exercise2/girdle.txt">girdle.txt</a>, and <a class="reference external" href="https://github.com/nfcd/compGeo/blob/master/source/data/ch6-exercise2/random.txt">random.txt</a> contain the lines (trend and plunge) of the distributions shown in <a class="reference internal" href="#ch06-fig05"><span class="std std-numref">Figure 6.5</span></a>. Compute the eigenvalues and eigenvectors, and the 95<span class="math notranslate nohighlight">\(\%\)</span> confidence cones of these line distributions using the function <code class="docutils literal notranslate"><span class="pre">bingham</span></code>.</p></li>
+<li><p>Trede et al. (2019) published an interesting article about the appropriate sample size for strike and dip measurements. <a class="reference internal" href="#ch06-fig07"><span class="std std-numref">Figure 6.7</span></a> shows the Lidar scan of one of their test surfaces, a two meters-size foliation in Cambro-Ordovician mica schists of the Svarthola Cave, SW Norway. The file <a class="reference external" href="https://github.com/nfcd/compGeo/blob/master/source/data/ch6-exercise3/fol.txt">fol.txt</a> contains the <strong>ENU</strong> coordinates of the scanned points (grey points, <a class="reference internal" href="#ch06-fig07"><span class="std std-numref">Figure 6.7</span></a>), and the file <a class="reference external" href="https://github.com/nfcd/compGeo/blob/master/source/data/ch6-exercise3/kfol.txt">kfol.txt</a> contains the <strong>ENU</strong> coordinates of regularly spaced points on the foliation (red circles, <a class="reference internal" href="#ch06-fig07"><span class="std std-numref">Figure 6.7</span></a>).</p>
+<figure class="align-default" id="ch06-fig07">
+<a class="reference internal image-reference" href="_images/ch06_fig07.png"><img alt="_images/ch06_fig07.png" src="_images/ch06_fig07.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 6.7 </span><span class="caption-text">Two-meters size foliation plane in Cambro-Ordovician mica schists of the Svarthole Cave, SW Norway. The grey points are Lidar scanned points on the foliation. The red circles are points on a regular grid covering the foliation. The Lidar scan frequency is 300 kHz, and vertical and horizontal point spacing are 0.013 and 0.022 m, respectively. From Trede et al. (2019).</span><a class="headerlink" href="#ch06-fig07" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<ol class="simple">
+<li><p>On each of the points of the regularly spaced grid (red points, <a class="reference internal" href="#ch06-fig07"><span class="std std-numref">Figure 6.7</span></a>), compute the strike and dip of the foliation using the Lidar scanned points (grey points, <a class="reference internal" href="#ch06-fig07"><span class="std std-numref">Figure 6.7</span></a>) within a radius <span class="math notranslate nohighlight">\(r\)</span> of 0.1 m from the grid point. Do this only if there are more than 3 points within the radius <span class="math notranslate nohighlight">\(r\)</span>.</p></li>
+<li><p>Repeat the procedure in (a) for larger radii <span class="math notranslate nohighlight">\(r\)</span> of 0.3, 0.5, 0.7 and 0.9 m.</p></li>
+<li><p>Plot histograms of the strike, and of the dip, for each value of  <span class="math notranslate nohighlight">\(r\)</span>. Vertically stack the histograms starting with <span class="math notranslate nohighlight">\(r\)</span> = 0.1 at the base. Use different colors to denote the different <span class="math notranslate nohighlight">\(r\)</span>  values (see Fig. 8 of Trede et al., 2019).</p></li>
+<li><p>At what radius <span class="math notranslate nohighlight">\(r\)</span>, does the orientation of the foliation stabilize? What is the best sample size to measure the foliation?</p></li>
+</ol>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>Use function <code class="docutils literal notranslate"><span class="pre">fit_plane</span></code>.</p>
+</div>
+</li>
+</ol>
+</section>
+<section id="references">
+<span id="ch06-7"></span><h2><span class="section-number">6.7. </span>References<a class="headerlink" href="#references" title="Permalink to this headline">#</a></h2>
+<p>Albee, H.F. and Cullins, H.L. 1975. Geologic Map of the Poker Peak
+Quadrangle, Bonneville County, Idaho. U.S. Geological Survey, Geologic
+Quadrangle Map GQ 1260.</p>
+<p>Allmendinger, R.W., Cardozo, N. and Fisher, D.M. 2012. Structural
+Geology Algorithms: Vectors and Tensors. Cambridge University Press.</p>
+<p>Allmendinger, R.W. 2020a. Modern Structural Practice: A structural
+geology laboratory manual for the 21st century.
+[<a class="reference external" href="https://www.rickallmendinger.net/download">Online</a>]. [Accessed
+March, 2021].</p>
+<p>Allmendinger, R.W., 2020b. GMDE: Extracting quantitative information
+from geologic maps. Geosphere 16, X, 1– 13.</p>
+<p>Charlesworth, H.A.K., Langenberg, C.W. and Ramsden, J. 1976. Determining
+axes, axial planes, and sections of macroscopic folds using
+computer-based methods. Canadian Journal of Earth Science 13, 54-65.</p>
+<p>Fernandez, O. 2005. Obtaining a best fitting plane through 3D
+georeferenced data. Journal of Structural Geology 27, 855–858.</p>
+<p>Fisher, N.I., Lewis, T. and Embleton, B.J.J. 1987. Statistical analysis
+of spherical data. Cambridge University Press.</p>
+<p>Trede, C., Cardozo, N. and Watson, L. 2019. What is the appropriate
+sample size for strike and dip measurements? An evaluation from compass,
+smartphone and LIDAR measurements. Norwegian Journal of Geology 99,
+1-14.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="ch05_transformations.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">5. </span>Transformations</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="ch07_stress.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">7. </span>Stress</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Nestor Cardozo & Alex F. Antunes<br/>
+  
+      &copy; Copyright 2023.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

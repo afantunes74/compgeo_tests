@@ -1,0 +1,117 @@
+\babel@toc {english}{}\relax 
+\contentsline {chapter}{\numberline {1}Computation in Geosciences}{9}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Solving problems by computation}{9}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Why Python?}{10}{section.1.2}%
+\contentsline {section}{\numberline {1.3}Installing Python}{11}{section.1.3}%
+\contentsline {section}{\numberline {1.4}A first introduction to Python}{11}{section.1.4}%
+\contentsline {subsection}{\numberline {1.4.1}Basics}{12}{subsection.1.4.1}%
+\contentsline {subsection}{\numberline {1.4.2}Conditionals}{12}{subsection.1.4.2}%
+\contentsline {subsection}{\numberline {1.4.3}Loops}{13}{subsection.1.4.3}%
+\contentsline {subsection}{\numberline {1.4.4}Functions and modules}{14}{subsection.1.4.4}%
+\contentsline {subsection}{\numberline {1.4.5}Mathematics}{15}{subsection.1.4.5}%
+\contentsline {subsection}{\numberline {1.4.6}Plotting}{19}{subsection.1.4.6}%
+\contentsline {section}{\numberline {1.5}Exercises}{21}{section.1.5}%
+\contentsline {section}{References}{22}{figure.1.1}%
+\contentsline {chapter}{\numberline {2}Understanding location}{25}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Location}{25}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Geodesy basics}{25}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Scales}{26}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.2}Authalic Sphere}{27}{subsection.2.2.2}%
+\contentsline {subsection}{\numberline {2.2.3}Ellipsoidal Earth}{28}{subsection.2.2.3}%
+\contentsline {subsection}{\numberline {2.2.4}Geoid}{29}{subsection.2.2.4}%
+\contentsline {section}{\numberline {2.3}Projections}{29}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}Distortions}{30}{subsection.2.3.1}%
+\contentsline {section}{\numberline {2.4}Reference systems and datums}{34}{section.2.4}%
+\contentsline {section}{\numberline {2.5}Conversion vs. transformation}{39}{section.2.5}%
+\contentsline {section}{\numberline {2.6}Exercises}{47}{section.2.6}%
+\contentsline {section}{References}{47}{Item.67}%
+\contentsline {chapter}{\numberline {3}Geological features}{49}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Primitive objects: Lines and planes}{49}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Lines and planes orientations}{49}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Planes: Strike and dip}{50}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}Lines: Trend and plunge or rake}{51}{subsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.2.3}The pole to the plane}{52}{subsection.3.2.3}%
+\contentsline {subsection}{\numberline {3.2.4}Instruments used in the field}{53}{subsection.3.2.4}%
+\contentsline {subsection}{\numberline {3.2.5}Uncertainties in orientations}{55}{subsection.3.2.5}%
+\contentsline {section}{\numberline {3.3}Displaying geological features}{58}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Maps}{59}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}Stereonets}{61}{subsection.3.3.2}%
+\contentsline {subsection}{\numberline {3.3.3}Plotting lines and poles in a stereonet}{65}{subsection.3.3.3}%
+\contentsline {section}{\numberline {3.4}Exercises}{68}{section.3.4}%
+\contentsline {section}{References}{69}{Item.72}%
+\contentsline {chapter}{\numberline {4}Coordinate systems and vectors}{71}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Coordinate systems}{71}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Vectors}{72}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Vector components, magnitude, and unit vectors}{72}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Vector operations}{74}{subsection.4.2.2}%
+\contentsline {section}{\numberline {4.3}Geological features as vectors}{77}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}From spherical to Cartesian coordinates}{77}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}From Cartesian to spherical coordinates}{80}{subsection.4.3.2}%
+\contentsline {section}{\numberline {4.4}Applications}{82}{section.4.4}%
+\contentsline {subsection}{\numberline {4.4.1}Mean vector}{82}{subsection.4.4.1}%
+\contentsline {subsection}{\numberline {4.4.2}Angles, intersections, and poles}{86}{subsection.4.4.2}%
+\contentsline {subsection}{\numberline {4.4.3}Three points problem}{90}{subsection.4.4.3}%
+\contentsline {section}{\numberline {4.5}Uncertainties}{93}{section.4.5}%
+\contentsline {section}{\numberline {4.6}Exercises}{96}{section.4.6}%
+\contentsline {section}{References}{99}{Item.93}%
+\contentsline {chapter}{\numberline {5}Transformations}{101}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Transforming coordinates and vectors}{101}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}Coordinate transformations}{101}{subsection.5.1.1}%
+\contentsline {subsection}{\numberline {5.1.2}Transformation of vectors}{103}{subsection.5.1.2}%
+\contentsline {subsection}{\numberline {5.1.3}A simple transformation: From \textbf {ENU} to \textbf {NED}}{104}{subsection.5.1.3}%
+\contentsline {section}{\numberline {5.2}Applications}{105}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}Stratigraphic thickness}{105}{subsection.5.2.1}%
+\contentsline {subsection}{\numberline {5.2.2}Outcrop trace of a plane}{112}{subsection.5.2.2}%
+\contentsline {subsection}{\numberline {5.2.3}Down-plunge projection}{115}{subsection.5.2.3}%
+\contentsline {subsection}{\numberline {5.2.4}Rotations}{121}{subsection.5.2.4}%
+\contentsline {subsection}{\numberline {5.2.5}Plotting great and small circles using rotations}{124}{subsection.5.2.5}%
+\contentsline {section}{\numberline {5.3}Exercises}{132}{section.5.3}%
+\contentsline {section}{References}{137}{Item.110}%
+\contentsline {chapter}{\numberline {6}Tensors}{139}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Basic characteristics of a tensor}{139}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Principal axes of a tensor}{141}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Tensors as vector operators}{142}{section.6.3}%
+\contentsline {section}{\numberline {6.4}Tensor transformations}{143}{section.6.4}%
+\contentsline {subsection}{\numberline {6.4.1}The Mohr circle}{144}{subsection.6.4.1}%
+\contentsline {section}{\numberline {6.5}The orientation tensor}{147}{section.6.5}%
+\contentsline {subsection}{\numberline {6.5.1}Best-fit fold axis}{147}{subsection.6.5.1}%
+\contentsline {subsection}{\numberline {6.5.2}Line distributions}{155}{subsection.6.5.2}%
+\contentsline {subsection}{\numberline {6.5.3}Best-fit plane}{156}{subsection.6.5.3}%
+\contentsline {section}{\numberline {6.6}Exercises}{159}{section.6.6}%
+\contentsline {chapter}{\numberline {7}Stress}{163}{chapter.7}%
+\contentsline {section}{\numberline {7.1}The stress tensor}{163}{section.7.1}%
+\contentsline {subsection}{\numberline {7.1.1}Cauchy's law}{165}{subsection.7.1.1}%
+\contentsline {subsection}{\numberline {7.1.2}Stress transformation}{168}{subsection.7.1.2}%
+\contentsline {subsection}{\numberline {7.1.3}Principal axes of stress}{170}{subsection.7.1.3}%
+\contentsline {section}{\numberline {7.2}Mohr circle for stress}{174}{section.7.2}%
+\contentsline {subsection}{\numberline {7.2.1}Special states of stress}{176}{subsection.7.2.1}%
+\contentsline {section}{\numberline {7.3}Mean and deviatoric stress}{178}{section.7.3}%
+\contentsline {section}{\numberline {7.4}Applications}{178}{section.7.4}%
+\contentsline {subsection}{\numberline {7.4.1}Normal and shear tractions on a plane}{179}{subsection.7.4.1}%
+\contentsline {subsection}{\numberline {7.4.2}The Mohr circle for stress in 3D}{185}{subsection.7.4.2}%
+\contentsline {section}{\numberline {7.5}Exercises}{191}{section.7.5}%
+\contentsline {chapter}{\numberline {8}Strain}{195}{chapter.8}%
+\contentsline {section}{\numberline {8.1}Deformation and strain}{195}{section.8.1}%
+\contentsline {section}{\numberline {8.2}Deformation and displacement gradients}{198}{section.8.2}%
+\contentsline {section}{\numberline {8.3}Infinitesimal strain}{202}{section.8.3}%
+\contentsline {subsection}{\numberline {8.3.1}Mohr circle for infinitesimal strain}{205}{subsection.8.3.1}%
+\contentsline {subsection}{\numberline {8.3.2}Applications of Infinitesimal Strain}{207}{subsection.8.3.2}%
+\contentsline {subsubsection}{\textbf {P} and \textbf {T} axes}{207}{section*.38}%
+\contentsline {subsubsection}{2D strain from GPS data}{212}{section*.39}%
+\contentsline {section}{\numberline {8.4}Finite strain}{222}{section.8.4}%
+\contentsline {subsection}{\numberline {8.4.1}Mohr circle for finite strain}{227}{subsection.8.4.1}%
+\contentsline {subsection}{\numberline {8.4.2}2D finite strain from displacement data}{229}{subsection.8.4.2}%
+\contentsline {section}{\numberline {8.5}Progressive strain}{232}{section.8.5}%
+\contentsline {subsection}{\numberline {8.5.1}Pure shear}{233}{subsection.8.5.1}%
+\contentsline {subsection}{\numberline {8.5.2}Simple shear}{236}{subsection.8.5.2}%
+\contentsline {subsection}{\numberline {8.5.3}General shear}{240}{subsection.8.5.3}%
+\contentsline {section}{\numberline {8.6}Exercises}{244}{section.8.6}%
+\contentsline {chapter}{\numberline {9}Elasticity}{249}{chapter.9}%
+\contentsline {section}{\numberline {9.1}Theory}{249}{section.9.1}%
+\contentsline {subsection}{\numberline {9.1.1}Horizontal stress in the crust}{253}{subsection.9.1.1}%
+\contentsline {section}{\numberline {9.2}Applications}{254}{section.9.2}%
+\contentsline {subsection}{\numberline {9.2.1}Stresses around a circular hole}{255}{subsection.9.2.1}%
+\contentsline {subsection}{\numberline {9.2.2}Lithospheric flexure}{261}{subsection.9.2.2}%
+\contentsline {subsection}{\numberline {9.2.3}Faults as elastic dislocations}{267}{subsection.9.2.3}%
+\contentsline {subsection}{\numberline {9.2.4}Wave propagation}{275}{subsection.9.2.4}%
+\contentsline {section}{\numberline {9.3}Exercises}{283}{section.9.3}%

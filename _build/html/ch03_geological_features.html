@@ -1,0 +1,1098 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>3. Geological features &#8212; Computational Geosciences</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="4. Coordinate systems and vectors" href="ch04_coordinate_systems_vectors.html" />
+    <link rel="prev" title="2. Understanding location" href="ch02_understanding_location.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Computational Geosciences</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to the Computational Geosciences resource
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  GET STARTED
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="preface.html">
+   Preface
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="changelog.html">
+   Changelog
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="todo.html">
+   TODOs
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  CONTENTS
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="ch01_computation_geosciences.html">
+   1. Computation in Geosciences
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ch02_understanding_location.html">
+   2. Understanding location
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   3. Geological features
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ch04_coordinate_systems_vectors.html">
+   4. Coordinate systems and vectors
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ch05_transformations.html">
+   5. Transformations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ch06_tensors.html">
+   6. Tensors
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ch07_stress.html">
+   7. Stress
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ch08_strain.html">
+   8. Strain
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ch09_elasticity.html">
+   9. Elasticity
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  THE COMPANION NOTEBOOKS
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="notebooks/ch01/ch01_nb01.html">
+   Introduction to Python and Jupyter Notebooks
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=lab/tree/docs/ch03_geological_features.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fch03_geological_features.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/ch03_geological_features.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#primitive-objects-lines-and-planes">
+   3.1. Primitive objects: Lines and planes
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#lines-and-planes-orientations">
+   3.2. Lines and planes orientations
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#planes-strike-and-dip">
+     3.2.1. Planes: Strike and dip
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#lines-trend-and-plunge-or-rake">
+     3.2.2. Lines: Trend and plunge or rake
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-pole-to-the-plane">
+     3.2.3. The pole to the plane
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#instruments-used-in-the-field">
+     3.2.4. Instruments used in the field
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#uncertainties-in-orientations">
+     3.2.5. Uncertainties in orientations
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#displaying-geological-features">
+   3.3. Displaying geological features
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#maps">
+     3.3.1. Maps
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#stereonets">
+     3.3.2. Stereonets
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#plotting-lines-and-poles-in-a-stereonet">
+     3.3.3. Plotting lines and poles in a stereonet
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercises">
+   3.4. Exercises
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#references">
+   3.5. References
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Geological features</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#primitive-objects-lines-and-planes">
+   3.1. Primitive objects: Lines and planes
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#lines-and-planes-orientations">
+   3.2. Lines and planes orientations
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#planes-strike-and-dip">
+     3.2.1. Planes: Strike and dip
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#lines-trend-and-plunge-or-rake">
+     3.2.2. Lines: Trend and plunge or rake
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-pole-to-the-plane">
+     3.2.3. The pole to the plane
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#instruments-used-in-the-field">
+     3.2.4. Instruments used in the field
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#uncertainties-in-orientations">
+     3.2.5. Uncertainties in orientations
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#displaying-geological-features">
+   3.3. Displaying geological features
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#maps">
+     3.3.1. Maps
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#stereonets">
+     3.3.2. Stereonets
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#plotting-lines-and-poles-in-a-stereonet">
+     3.3.3. Plotting lines and poles in a stereonet
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercises">
+   3.4. Exercises
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#references">
+   3.5. References
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="geological-features">
+<span id="ch03"></span><h1><span class="section-number">3. </span>Geological features<a class="headerlink" href="#geological-features" title="Permalink to this headline">#</a></h1>
+<section id="primitive-objects-lines-and-planes">
+<span id="ch03-1"></span><h2><span class="section-number">3.1. </span>Primitive objects: Lines and planes<a class="headerlink" href="#primitive-objects-lines-and-planes" title="Permalink to this headline">#</a></h2>
+<p>The fundamental geometric features of geology are lines (e.g. a lineation, a fold axis) and planes (e.g. bedding, a foliation). A <em>line</em> is the element generated by a moving point. It can be straight or curved. We will treat straight lines here. A <em>plane</em> is a flat surface; a line joining two points on the plane lies wholly on its surface, and two intersecting lines on the plane define the plane. This is equivalent to say that three non-collinear points on the plane define the plane (this is the basis for the well-known three-points problem). Obviously, linear features can be curved (e.g. the intersection of bedding with irregular topography), and surfaces can be non-planar (e.g. bedding in a fold). However, even these more complex cases can be expressed as a collection of lines and planes.</p>
+</section>
+<section id="lines-and-planes-orientations">
+<span id="ch03-2"></span><h2><span class="section-number">3.2. </span>Lines and planes orientations<a class="headerlink" href="#lines-and-planes-orientations" title="Permalink to this headline">#</a></h2>
+<p>Two important properties of lines and planes are location (<a class="reference internal" href="ch02_understanding_location.html#ch02"><span class="std std-ref">Chapter 2</span></a>) and orientation (this chapter). Lines and planes orientations are measured with respect to the geographic north and the angle downward or upward from the horizontal. We refer to this coordinate system as the spherical coordinate system, and the measurements defining the lines and planes orientations as the spherical coordinates.</p>
+<section id="planes-strike-and-dip">
+<span id="ch03-2-1"></span><h3><span class="section-number">3.2.1. </span>Planes: Strike and dip<a class="headerlink" href="#planes-strike-and-dip" title="Permalink to this headline">#</a></h3>
+<p>A plane orientation can be defined by the angle a horizontal line on the plane makes with the geographic north, known as the <em>strike</em>, and the maximum angle measured downward from the horizontal to the plane, known as the <em>dip</em> (<a class="reference internal" href="#ch03-fig01"><span class="std std-numref">Figure 3.1</span></a>a). The strike is measured as an azimuth, an angle between 0 and 360 (0 = north, 90 = east, 180 = south, 270 = west). The dip is an angle between 0 (horizontal plane) and 90(vertical plane). The projection of the dip onto the horizontal is known as the <em>dip direction</em> and is always 90from the strike. However, is the dip direction plus or minus 90the given strike? Which end of the strike line should we use? To avoid ambiguities, we will use a format known as the <em>right hand rule</em> (RHR). In the RHR format, one gives the strike such that the dip direction is always the strike plus 90, i.e. the dip direction is to the right of the strike (<a class="reference internal" href="#ch03-fig01"><span class="std std-numref">Figure 3.1</span></a>a).</p>
+<figure class="align-default" id="ch03-fig01">
+<a class="reference internal image-reference" href="_images/ch03_fig01.png"><img alt="_images/ch03_fig01.png" src="_images/ch03_fig01.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 3.1 </span><span class="caption-text"><strong>a.</strong> Strike and dip of a plane, <strong>b.</strong> Apparent dip of a plane. Modified from Allmendinger et al. (2012).</span><a class="headerlink" href="#ch03-fig01" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>It is only along the dip direction that the true dip can be measured, any other direction will give a lower apparent dip (<a class="reference internal" href="#ch03-fig01"><span class="std std-numref">Figure 3.1</span></a>b). The relation between the dip (<span class="math notranslate nohighlight">\(\delta\)</span>) and the apparent dip (<span class="math notranslate nohighlight">\(\alpha\)</span>) is given by the equation:</p>
+<div class="math notranslate nohighlight" id="equation-ch03-eq01">
+<span class="eqno">(3.1)<a class="headerlink" href="#equation-ch03-eq01" title="Permalink to this equation">#</a></span>\[
+\tan\alpha = \tan\delta \sin\beta
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(\beta\)</span> is the angle between the strike (horizontal) line on the plane and the vertical section on which the apparent dip is measured (<a class="reference internal" href="#ch03-fig01"><span class="std std-numref">Figure 3.1</span></a>b). This is also Eq. <a class="reference internal" href="#equation-ch03-eq01">(3.1)</a>, which we plotted in problem 4 of <a class="reference internal" href="ch01_computation_geosciences.html#ch01"><span class="std std-ref">Chapter 1</span></a> (<a class="reference internal" href="ch01_computation_geosciences.html#ch01-fig01"><span class="std std-numref">Figure 1.1</span></a>). You can verify that it works by setting <span class="math notranslate nohighlight">\(\beta\)</span> = 0 (a cross section parallel to strike) which gives <span class="math notranslate nohighlight">\(\alpha\)</span> = 0 (since <span class="math notranslate nohighlight">\(\sin(0)\)</span> is 0), and <span class="math notranslate nohighlight">\(\beta\)</span> = 90( a cross section perpendicular to strike) which gives <span class="math notranslate nohighlight">\(\alpha\)</span> = <span class="math notranslate nohighlight">\(\delta\)</span> (since <span class="math notranslate nohighlight">\(\sin (90)\)</span> is 1). This leads to an important observation: <em>A dipping plane shows horizontal in a cross section parallel to strike, and the true dip of the plane can only be observed in a cross section perpendicular to strike</em>. This is why we should always visualize planes (bedding, faults, etc.) in cross sections perpendicular to strike.</p>
+</section>
+<section id="lines-trend-and-plunge-or-rake">
+<span id="ch03-2-2"></span><h3><span class="section-number">3.2.2. </span>Lines: Trend and plunge or rake<a class="headerlink" href="#lines-trend-and-plunge-or-rake" title="Permalink to this headline">#</a></h3>
+<p>The orientation of a line is specified by the azimuth of the horizontal projection of the line, or <em>trend</em>, and the vertical angle measured downward from the horizontal to the line, or <em>plunge</em> (<a class="reference internal" href="#ch03-fig02"><span class="std std-numref">Figure 3.2</span></a>a). The plunge has a range between -90 and 90. Positive plunge indicates lines pointing downwards, and negative plunge lines pointing upwards. To measure the trend and plunge one must determine the vertical plane containing the line. This is quite difficult and often results in errors (<a class="reference internal" href="#ch03-2-5"><span class="std std-ref">Section 3.2.5</span></a>). For this reason, and if the line is on a plane, it is more accurate (and convenient) to measure the angle on the plane between the strike line and the line. This angle is known as the rake or pitch (<a class="reference internal" href="#ch03-fig02"><span class="std std-numref">Figure 3.2</span></a>b). To avoid any confusion, the rake should be always measured from the given strike and thus it varies between 0 and 180.</p>
+<figure class="align-default" id="ch03-fig02">
+<a class="reference internal image-reference" href="_images/ch03_fig02.png"><img alt="_images/ch03_fig02.png" src="_images/ch03_fig02.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 3.2 </span><span class="caption-text"><strong>a.</strong> Trend and plunge of a line, <strong>b.</strong> Rake of a line and pole to a plane. Modified from Allmendinger et al. (2012).</span><a class="headerlink" href="#ch03-fig02" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="the-pole-to-the-plane">
+<span id="ch03-2-3"></span><h3><span class="section-number">3.2.3. </span>The pole to the plane<a class="headerlink" href="#the-pole-to-the-plane" title="Permalink to this headline">#</a></h3>
+<p>Any plane can be uniquely represented by its downward normal. This line is known as the pole to the plane (<a class="reference internal" href="#ch03-fig02"><span class="std std-numref">Figure 3.2</span></a>b). If we use the RHR format, the orientation of the pole is given by:</p>
+<div class="math notranslate nohighlight" id="equation-ch03-eq02">
+<span class="eqno">(3.2)<a class="headerlink" href="#equation-ch03-eq02" title="Permalink to this equation">#</a></span>\[\begin{split}
+\textit{trend_of_pole} = \textit{strike_of_plane} - 90^o \\
+\textit{plunge_of_pole} = 90^o - \textit{dip_of_plane}
+\end{split}\]</div>
+<p>The pole facilitates analyzing planes graphically and by computation. The module <a class="reference external" href="https://github.com/nfcd/compGeo/blob/master/source/functions/pole.py">pole</a> contains two functions to compute the pole from a plane(<code class="docutils literal notranslate"><span class="pre">pole_from_plane</span></code>), or the plane from its pole (<code class="docutils literal notranslate"><span class="pre">plane_from_pole</span></code>). These two functions use the function <a class="reference external" href="https://github.com/nfcd/compGeo/blob/master/source/functions/zero_twopi.py">zero_twopi</a> which makes sure azimuths are always between 0 and 360. Notice that angles should be entered in radians, and the plane must follow the RHR format.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+
+<span class="kn">from</span> <span class="nn">compgeo.zero_twopi</span> <span class="kn">import</span> <span class="n">zero_twopi</span>
+
+
+<span class="k">def</span> <span class="nf">pole_from_plane</span><span class="p">(</span><span class="n">strike</span><span class="p">,</span><span class="n">dip</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    pole_from_plane returns the trend (trd) and </span>
+<span class="sd">    plunge (plg) of a pole, given the strike and </span>
+<span class="sd">    dip of the plane</span>
+<span class="sd">    </span>
+<span class="sd">    NOTE: Input/Output angles are in radians.</span>
+<span class="sd">    Input strike and dip is in RHR format</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="c1"># Some constants</span>
+    <span class="n">east</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span>
+    
+    <span class="c1"># Pole from plane</span>
+    <span class="n">trd</span> <span class="o">=</span> <span class="n">zero_twopi</span> <span class="p">(</span><span class="n">strike</span> <span class="o">-</span> <span class="n">east</span><span class="p">)</span>
+    <span class="n">plg</span> <span class="o">=</span> <span class="n">east</span> <span class="o">-</span> <span class="n">dip</span>
+    
+    <span class="k">return</span> <span class="n">trd</span><span class="p">,</span> <span class="n">plg</span>
+
+
+<span class="k">def</span> <span class="nf">plane_from_pole</span><span class="p">(</span><span class="n">trd</span><span class="p">,</span><span class="n">plg</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    plane_from_pole returns the strike and dip</span>
+<span class="sd">    of a plane, given the trend (trd) and </span>
+<span class="sd">    plunge (plg) of its pole</span>
+<span class="sd">    </span>
+<span class="sd">    NOTE: Input/Output angles are in radians.</span>
+<span class="sd">    Output strike and dip is in RHR format</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="c1"># Some constants</span>
+    <span class="n">pi</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span>
+    <span class="n">east</span> <span class="o">=</span> <span class="n">pi</span><span class="o">/</span><span class="mi">2</span>
+    
+    <span class="c1"># Unusual case of pole pointing upwards</span>
+    <span class="k">if</span> <span class="n">plg</span> <span class="o">&lt;</span> <span class="mf">0.0</span><span class="p">:</span>
+        <span class="n">trd</span> <span class="o">+=</span> <span class="n">pi</span>
+        <span class="n">plg</span> <span class="o">*=</span> <span class="o">-</span><span class="mf">1.0</span>
+        
+    <span class="c1"># Calculate plane given its pole</span>
+    <span class="n">strike</span> <span class="o">=</span> <span class="n">zero_twopi</span><span class="p">(</span><span class="n">trd</span> <span class="o">+</span> <span class="n">east</span><span class="p">)</span>
+    <span class="n">dip</span> <span class="o">=</span> <span class="n">east</span> <span class="o">-</span> <span class="n">plg</span>
+        
+    <span class="k">return</span> <span class="n">strike</span><span class="p">,</span> <span class="n">dip</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">zero_twopi</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This function makes sure input azimuth (a)</span>
+<span class="sd">    is within 0 and 2*pi</span>
+<span class="sd">    </span>
+<span class="sd">    NOTE: Azimuth a is input/output in radians</span>
+<span class="sd">    </span>
+<span class="sd">    Python function translated from the Matlab function</span>
+<span class="sd">    ZeroTwoPi in Allmendinger et al. (2012)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">twopi</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span>
+    <span class="k">if</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">a</span> <span class="o">+=</span> <span class="n">twopi</span>
+    <span class="k">elif</span> <span class="n">a</span> <span class="o">&gt;=</span> <span class="n">twopi</span><span class="p">:</span>
+        <span class="n">a</span> <span class="o">-=</span> <span class="n">twopi</span>
+    
+    <span class="k">return</span> <span class="n">a</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="instruments-used-in-the-field">
+<span id="ch03-2-4"></span><h3><span class="section-number">3.2.4. </span>Instruments used in the field<a class="headerlink" href="#instruments-used-in-the-field" title="Permalink to this headline">#</a></h3>
+<p>Traditionally, geologists use a geological compass/clinometer to measure the orientation of planes and lines in the field. <a class="reference internal" href="#ch03-fig03"><span class="std std-numref">Figure 3.3</span></a> shows four of the most common compasses used in geology: the Silva compass (<a class="reference internal" href="#ch03-fig03"><span class="std std-numref">Figure 3.3</span></a>a), the Brunton compass (<a class="reference internal" href="#ch03-fig03"><span class="std std-numref">Figure 3.3</span></a>b), the Krantz compass (<a class="reference internal" href="#ch03-fig03"><span class="std std-numref">Figure 3.3</span></a>c, a less expensive variant of the Freiberg compass), and the Brunton Geo compass (<a class="reference internal" href="#ch03-fig03"><span class="std std-numref">Figure 3.3</span></a>d). All these compasses have a magnetic needle that points to the magnetic north (N or white end of the needle), a horizontal level, and a clinometer (an instrument to measure vertical angles). The Silva compass has an azimuth scale that can be rotated to follow the magnetic needle, while in the other three compasses the azimuth scale is fixed. This is why east-west (E-W) are in the right place in the Silva compass, while they are flipped in the other three compasses (<a class="reference internal" href="#ch03-fig03"><span class="std std-numref">Figure 3.3</span></a>a-d).</p>
+<figure class="align-default" id="ch03-fig03">
+<a class="reference internal image-reference" href="_images/ch03_fig03.png"><img alt="_images/ch03_fig03.png" src="_images/ch03_fig03.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 3.3 </span><span class="caption-text"><strong>a.</strong> Silva, <strong>b.</strong> Brunton, <strong>c.</strong> Krantz, <strong>d.</strong> Brunton Geo, and <strong>e.</strong> Smartphone with Stereonet Mobile.</span><a class="headerlink" href="#ch03-fig03" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The Silva and Brunton compasses are designed to measure strike and dip through two measurements, while the Krantz compass measures dip direction and dip at once. The Brunton Geo compass works either as a Brunton or Krantz compass and is more precise than the other compasses (is also more expensive).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>There is even a better compass called the <a class="reference external" href="http://www.realscienceinnovations.com/brunton-axis.html">Brunton axis transit</a>.</p>
+</div>
+<p>The use of these compasses is explained in field geology books such as Compton (1985) and Coe (2010). <a class="reference internal" href="#ch03-fig04"><span class="std std-numref">Figure 3.4</span></a> shows how strike and dip are measured with the Brunton compass. Notice that in this measurement, it is crucial to determine when the compass is horizontal (<a class="reference internal" href="#ch03-fig04"><span class="std std-numref">Figure 3.4</span></a>a). This can be a source of error (<a class="reference internal" href="#ch03-2-5"><span class="std std-ref">Section 3.2.5</span></a>).</p>
+<figure class="align-default" id="ch03-fig04">
+<a class="reference internal image-reference" href="_images/ch03_fig04.png"><img alt="_images/ch03_fig04.png" src="_images/ch03_fig04.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 3.4 </span><span class="caption-text">Measuring the <strong>a.</strong> strike and <strong>b.</strong> dip of a plane. Modified from Compton (1985).</span><a class="headerlink" href="#ch03-fig04" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>These days, digital devices in the form of smartphone programs or apps (<a class="reference internal" href="#ch03-fig03"><span class="std std-numref">Figure 3.3</span></a>e) are slowly replacing the analog compasses. Smartphones contain instruments such as accelerometers, gyroscopes, and magnetometers, which enable apps such as <a class="reference external" href="http://www.geo.cornell.edu/geology/faculty/RWA/programs/stereonet-mobile.html">Stereonet Mobile</a> (Richard Allmendinger) or <a class="reference external" href="https://www.petex.com/products/move-suite/digital-field-mapping/">Fieldmove Clino</a> (Petroleum Experts) to determine the exact orientation of the device in space. Measuring a plane or a line just requires placing the phone on the plane or along the line. Thus, one can capture a large number of measurements quickly. However, smartphones are very sensitive to nearby magnetic fields and one can easily get spurious results (Novakova and Plavlis, 2017; Allmendinger et al., 2017; Whitmeyer et al., 2019; Wang et al., 2020). Smartphones also have access to accurate geographic location (GPS, cell and wireless networks) as well as satellite imagery and raster data such as elevation. They can greatly facilitate mapping in the field (Allmendinger et al., 2017).</p>
+</section>
+<section id="uncertainties-in-orientations">
+<span id="ch03-2-5"></span><h3><span class="section-number">3.2.5. </span>Uncertainties in orientations<a class="headerlink" href="#uncertainties-in-orientations" title="Permalink to this headline">#</a></h3>
+<p>Geological planes and lines are irregular and therefore it is difficult to take exact measurements of them. Every plane or line measurement has an uncertainty (an error). There are different ways to try to reduce this error, either by placing a smooth planar object (e.g. a field notebook) on the plane or along the line, or by sighting the plane or line from the distance (Compton, 1985). <a class="reference internal" href="#ch03-fig05"><span class="std std-numref">Figure 3.5</span></a> illustrates the error associated to the strike and dip measurement of a plane. If the compass is not exactly horizontal then a direction other than the strike will be measured. The departure of the compass from the horizontal or operator error (<span class="math notranslate nohighlight">\(\varepsilon_o\)</span>) will give a strike error (<span class="math notranslate nohighlight">\(\varepsilon_s\)</span>).</p>
+<figure class="align-default" id="ch03-fig05">
+<a class="reference internal image-reference" href="_images/ch03_fig05.png"><img alt="_images/ch03_fig05.png" src="_images/ch03_fig05.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 3.5 </span><span class="caption-text">Geometrical relations for estimating the strike error <span class="math notranslate nohighlight">\(\epsilon_s\)</span> from the operator error (or departure of the compass from the horizontal) <span class="math notranslate nohighlight">\(\epsilon_o\)</span>. Modified from Ragan (2009).</span><a class="headerlink" href="#ch03-fig05" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>From the three right-triangles and their corresponding equations in <a class="reference internal" href="#ch03-fig05"><span class="std std-numref">Figure 3.5</span></a>, and by substituting the first two equations for <span class="math notranslate nohighlight">\(w\)</span> and <span class="math notranslate nohighlight">\(l\)</span> into the third equation for <span class="math notranslate nohighlight">\(\sin\varepsilon_s\)</span>, one gets the following relation (Woodcock, 1976):</p>
+<div class="math notranslate nohighlight" id="equation-ch03-eq03">
+<span class="eqno">(3.3)<a class="headerlink" href="#equation-ch03-eq03" title="Permalink to this equation">#</a></span>\[
+\sin\varepsilon_s = \frac{\tan\varepsilon_o}{\tan\delta}
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(\delta\)</span> is the dip angle of the plane. This equation is plotted in <a class="reference internal" href="#ch03-fig06"><span class="std std-numref">Figure 3.6</span></a> for dip angles <span class="math notranslate nohighlight">\(\delta\)</span> of 0 to 40and operator errors <span class="math notranslate nohighlight">\(\varepsilon_o\)</span> of 1 to 5. It is clear that the strike error <span class="math notranslate nohighlight">\(\varepsilon_s\)</span> increases with decreasing dip. For a gentle 5dipping plane, an operator error <span class="math notranslate nohighlight">\(\varepsilon_o\)</span> of 2(a compass just 2off the horizontal) results in a strike error <span class="math notranslate nohighlight">\(\varepsilon_s\)</span> of about 24! Thus, one should always be suspicious about the accuracy of strike and dip measurements, particularly if they are from gently dipping planes.</p>
+<embed src="attachment:ch3f6.pdf" style="width:12cm" />
+<p>For line measurements, the situation is not better. When measuring the orientation of a line, it is common practice to align the compass in the direction of the horizontal projection of the line, which as anyone who has tried this in the field knows, it is quite difficult. There will be an operator error and the measured trend <span class="math notranslate nohighlight">\(\beta\text{'}\)</span> will differ from the true trend <span class="math notranslate nohighlight">\(\beta\)</span> (<a class="reference internal" href="#ch03-fig07"><span class="std std-numref">Figure 3.7</span></a>a). The trend error <span class="math notranslate nohighlight">\(\varepsilon_t\)</span> (<span class="math notranslate nohighlight">\(|\beta\text{'}- \beta|\)</span>) in terms of the angle the measured line makes with the true line on the plane <span class="math notranslate nohighlight">\(\varepsilon_o\)</span>, is given by the following equations (Woodcock, 1976):</p>
+<figure class="align-default" id="ch03-fig06">
+<a class="reference internal image-reference" href="_images/ch03_fig06.png"><img alt="_images/ch03_fig06.png" src="_images/ch03_fig06.png" style="width: 450px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 3.6 </span><span class="caption-text">Strike error <span class="math notranslate nohighlight">\(\epsilon_s\)</span> as a function of dip <span class="math notranslate nohighlight">\(\delta\)</span> for values of operator error <span class="math notranslate nohighlight">\(\epsilon_o\)</span> of 1-5<span class="math notranslate nohighlight">\(^o\)</span>. The <code class="docutils literal notranslate"><span class="pre">notebook</span></code> that produced this graph is available from the resource git repository.</span><a class="headerlink" href="#ch03-fig06" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<div class="math notranslate nohighlight" id="equation-ch03-eq04">
+<span class="eqno">(3.4)<a class="headerlink" href="#equation-ch03-eq04" title="Permalink to this equation">#</a></span>\[\begin{split}
+\tan\varepsilon_t = \frac{[\tan(r+\varepsilon_o)-\tan(r)]\cos\delta}{1+[\tan(r+\varepsilon_o)\tan(r)]\cos^2\delta} \hspace{0.5cm} if \beta\text{$'$}&gt;\beta\\ \\
+\tan\varepsilon_t = \frac{[\tan(r)-\tan(r-\varepsilon_o)]\cos\delta}{1+[\tan(r)\tan(r-\varepsilon_o)]\cos^2\delta} \hspace{0.5cm} if \beta\text{$'$}&lt;\beta
+\end{split}\]</div>
+<p>where <span class="math notranslate nohighlight">\(r\)</span> is the rake of the line, and <span class="math notranslate nohighlight">\(\delta\)</span> is the dip of the plane (<a class="reference internal" href="#ch03-fig07"><span class="std std-numref">Figure 3.7</span></a>a). These equations are plotted in <a class="reference internal" href="#ch03-fig07"><span class="std std-numref">Figure 3.7</span></a>b-c for an <span class="math notranslate nohighlight">\(\varepsilon_o\)</span> of 3. The trend error is greater for a measured line on the down-dip side of the line (<span class="math notranslate nohighlight">\(\beta\text{'} &gt; \beta\)</span>, <a class="reference internal" href="#ch03-fig07"><span class="std std-numref">Figure 3.7</span></a>b), than for a measured line on the up-dip side of the line (<span class="math notranslate nohighlight">\(\beta\text{'} &lt; \beta\)</span>, <a class="reference internal" href="#ch03-fig07"><span class="std std-numref">Figure 3.7</span></a>c). This means that repeated measurements will not be symmetrically distributed around the true trend <span class="math notranslate nohighlight">\(\beta\)</span>. Also for a given <span class="math notranslate nohighlight">\(\varepsilon_o\)</span>, the trend error <span class="math notranslate nohighlight">\(\varepsilon_t\)</span> increases with the dip <span class="math notranslate nohighlight">\(\delta\)</span> of the plane and the rake <span class="math notranslate nohighlight">\(r\)</span> of the line, i.e. a combination of a steep plane and a large rake may result in a large trend error.</p>
+<figure class="align-default" id="ch03-fig07">
+<a class="reference internal image-reference" href="_images/ch03_fig07.png"><img alt="_images/ch03_fig07.png" src="_images/ch03_fig07.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 3.7 </span><span class="caption-text"><strong>a.</strong> Geometrical relations for estimating the trend error <span class="math notranslate nohighlight">\(\epsilon_t\)</span> from the rake <span class="math notranslate nohighlight">\(r\)</span> of the line, the dip <span class="math notranslate nohighlight">\(\delta\)</span> of the plane, and the angle on the plane  <span class="math notranslate nohighlight">\(\epsilon_o\)</span> between the measured and the true lines. <strong>b.</strong> Measured line on the down-dip side of the line. <strong>c.</strong> Measured line on the up-dip side of the line. In <strong>b</strong> and <strong>c</strong>, <span class="math notranslate nohighlight">\(\epsilon_o\)</span> is 3<span class="math notranslate nohighlight">\(^o\)</span>. Notebooks [[b]] and [[c]] produced the graphs.</span><a class="headerlink" href="#ch03-fig07" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Equations 3.3 and 3.4 allow determining the uncertainties associated to the measurement of planes and lines. As we will see in <a class="reference internal" href="ch04_coordinate_systems_vectors.html#ch04-5"><span class="std std-ref">Section 4.5</span></a>, these errors propagate in any computation making use of these angles.</p>
+</section>
+</section>
+<section id="displaying-geological-features">
+<span id="ch03-3"></span><h2><span class="section-number">3.3. </span>Displaying geological features<a class="headerlink" href="#displaying-geological-features" title="Permalink to this headline">#</a></h2>
+<p>There are two fundamental ways geologists display geological features on a piece of paper: maps and stereonets. In maps, we are concerned about the location and orientation of the features, and the spatial relation of one feature to another. In stereonets, we are just concerned with the orientation of the features.</p>
+<section id="maps">
+<span id="ch03-3-1"></span><h3><span class="section-number">3.3.1. </span>Maps<a class="headerlink" href="#maps" title="Permalink to this headline">#</a></h3>
+<p>All maps are a projection of surface or subsurface geological features onto a horizontal plane. In <a class="reference internal" href="ch02_understanding_location.html#ch02-3"><span class="std std-ref">Section 2.3</span></a>, we looked at the different methods used to project data from the approximately spherical Earth to a flat surface, and the distortions associated to these methods. Geological features (bedding, faults, the ground surface) are rarely flat, and therefore to display the spatial variation of their elevation (or depth) on maps, we use contours. A contour line is a line joining the points in the map area of equal value for a specific parameter. On a topographic map, for example, contour lines join points of equal elevation on the ground surface. Contour lines should not cross (unless very unusual circumstances) or disappear in the middle of the map (unless the contoured feature is intersected by another feature). If the difference in value between adjacent contours or contour interval is held constant throughout the map, the gradient (rate of change) of the parameter in a given direction is proportional to the spacing of the contour lines: high gradient is represented by closely spaced contours, and low gradient by widely spaced contours. This is expressed by the following relation:</p>
+<div class="math notranslate nohighlight" id="equation-ch03-eq05">
+<span class="eqno">(3.6)<a class="headerlink" href="#equation-ch03-eq05" title="Permalink to this equation">#</a></span>\[
+\textit{gradient} = \arctan\left( \frac{\textit{parameter_change_between_contours}}{\textit{map_distance_between_contours}} \right)
+\]</div>
+<p>For a topographic map, this relation becomes:</p>
+<div class="math notranslate nohighlight" id="equation-ch03-eq05">
+<span class="eqno">(3.6)<a class="headerlink" href="#equation-ch03-eq05" title="Permalink to this equation">#</a></span>\[
+\textit{slope_angle} = \arctan \left( \frac{\textit{elevation_change_between_contours}}{\textit{map_distance_between_contours}} \right)
+\]</div>
+<p>which is why when choosing the path to a high ground area, you should look for the widely spaced contours (unless you are a climber or a goat).</p>
+<p>Geological features are rarely isolated, and they usually have different orientations, so we should expect them to intersect. The intersection of two non-parallel planes (e.g. bedding contacts) is a straight line. In <a class="reference internal" href="ch04_coordinate_systems_vectors.html#ch04"><span class="std std-ref">Chapter 4</span></a>, we will see how to determine this type of intersection using vector operations. If one of the surfaces is not planar but irregular, the intersection is a curved line which is more difficult to determine. One fundamental mapping problem geology students are early confronted with is the intersection of a planar feature (e.g. bedding or a fault) with the irregular land surface. This is elegantly summarized by the <em>Rule of V’s</em> (<a class="reference internal" href="#ch03-fig08"><span class="std std-numref">Figure 3.8</span></a>).</p>
+<figure class="align-default" id="ch03-fig08">
+<a class="reference internal image-reference" href="_images/ch03_fig08.png"><img alt="_images/ch03_fig08.png" src="_images/ch03_fig08.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 3.8 </span><span class="caption-text">Outcrop pattern across a valley of <strong>a.</strong> Horizontal bed, <strong>b.</strong> Vertical bed, <strong>c.</strong> Bed dipping downstream, and <strong>d.</strong> Bed dipping upstream. Modified from Ragan (2009).</span><a class="headerlink" href="#ch03-fig08" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The Rule of V’s says that when a planar contact crosses a valley, its outcrop pattern will V or curve in the direction the contact is dipping, but only if the contact if steeper than the slope of the valley, which is often the case (<a class="reference internal" href="#ch03-fig08"><span class="std std-numref">Figure 3.8</span></a>c-d). There are two exceptions: 1. If the contact is horizontal, its outcrop pattern will follow the topographic contours, which makes sense since the contours are the intersection of horizontal planes of different elevation with the ground (<a class="reference internal" href="#ch03-fig08"><span class="std std-numref">Figure 3.8</span></a>a), and 2. If the contact is vertical, its outcrop pattern across the valley is a straight line. Vertical planes <em>ignore</em> topography.</p>
+<p>Determining the outcrop trace of a planar contact on irregular topography is not straightforward. Graphically, this problem involves making elevation contours on the planar contact. These are called structure contours. Then one should look at the location where the structure contours of the contact have the same elevation than the topographic contours of the land surface. On these locations, the contact outcrops. Finally, one should join these locations with a line, to make the outcrop trace of the contact. <a class="reference internal" href="#ch03-fig09"><span class="std std-numref">Figure 3.9</span></a> illustrates this procedure for a plane dipping north and intersecting irregular topography. Notice how in the stream valleys, the outcrop trace of the plane curves to the north, clearly following the Rule of V’s.</p>
+<figure class="align-default" id="ch03-fig09">
+<a class="reference internal image-reference" href="_images/ch03_fig09.png"><img alt="_images/ch03_fig09.png" src="_images/ch03_fig09.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 3.9 </span><span class="caption-text">Outcrop trace of a plane dipping 20<span class="math notranslate nohighlight">\(^o\)</span> N. The left figure is the map, and the right figure is a N-S cross section. Color points are the locations where the plane’s structure contours have the same elevation than the topographic contours. The line joining these points is the outcrop trace of the plane. Modified from Ragan (2009).</span><a class="headerlink" href="#ch03-fig09" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>This graphical approach requires a great deal of patience and drawing skills. Later in <a class="reference internal" href="ch05_transformations.html#ch05-2-2"><span class="std std-ref">Section 5.2.2</span></a>, we sill see that if we know the plane’s orientation and one outcrop location, it is possible to project the plane throughout the terrain using computation, provided we have a digital elevation model (DEM) of the terrain. This saves a lot of time and is a great way to quality control mapping, test different hypotheses, and take better decisions in the field.</p>
+</section>
+<section id="stereonets">
+<span id="ch03-3-2"></span><h3><span class="section-number">3.3.2. </span>Stereonets<a class="headerlink" href="#stereonets" title="Permalink to this headline">#</a></h3>
+<p>Spherical projections can be used to represent the orientation of a plane or a line, if the plane or line is positioned so that it passes through the center of the sphere. A plane will intersect the sphere along a great circle, and a line will pierce the sphere at a point (<a class="reference internal" href="#ch03-fig10"><span class="std std-numref">Figure 3.10</span></a>a). However, it would be inconvenient to carry a sphere everywhere. Fortunately, it is possible to project the sphere onto a plane using, for example, an azimuthal projection (<a class="reference internal" href="ch02_understanding_location.html#ch02-3"><span class="std std-ref">Section 2.3</span></a>).</p>
+<figure class="align-default" id="ch03-fig10">
+<a class="reference internal image-reference" href="_images/ch03_fig10.png"><img alt="_images/ch03_fig10.png" src="_images/ch03_fig10.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 3.10 </span><span class="caption-text"><strong>a.</strong> Plane and line intersecting the lower half of a sphere. The rake of the line is 90<span class="math notranslate nohighlight">\(^o\)</span> and therefore its plunge is equal to the plane’s dip <span class="math notranslate nohighlight">\(\delta\)</span>. <strong>b.</strong> Lower hemisphere stereographic projection of plane and line. Modified from Allmendiger et al. (2012) and Allmendinger (2020).</span><a class="headerlink" href="#ch03-fig10" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>A <em>stereonet</em> or stereographic projection is a special kind of azimuthal projection, where the point source or viewpoint lies on the surface of the sphere, and the projection plane passes through the center of the sphere. In a stereonet, the viewpoint is at the top of the sphere or zenith, the view direction is downwards, the projection plane is the equatorial plane dividing the sphere into lower and upper hemispheres, and the lower hemisphere (bowl in <a class="reference internal" href="#ch03-fig10"><span class="std std-numref">Figure 3.10</span></a>a) is projected. In the stereonet, the rim of the bowl is called the primitive circle and it corresponds to a horizontal plane (<a class="reference internal" href="#ch03-fig10"><span class="std std-numref">Figure 3.10</span></a>b). A net facilitates drawing any plane or line. This net consists of great circles representing N-S striking, 0-90E and W dipping planes, and small circles representing cones of N-S horizontal axis and 0-90apical radius opening to the N and S (<a class="reference internal" href="#ch03-fig10"><span class="std std-numref">Figure 3.10</span></a>b). Several books explain the use of the stereonet to solve orientation problems (e.g. Marshak and Mitra, 1988).</p>
+<p>For our purpose, it is more important to know how this projection actually works. <a class="reference internal" href="#ch03-fig11"><span class="std std-numref">Figure 3.11</span></a>a illustrates this on a vertical section passing through the center of the sphere. Any line from the zenith (the top of the sphere) pinches the equatorial plane at one point, and this is the location where the point plots in the stereonet. This is defined by the following equation:</p>
+<div class="math notranslate nohighlight" id="equation-ch03-eq06">
+<span class="eqno">(3.7)<a class="headerlink" href="#equation-ch03-eq06" title="Permalink to this equation">#</a></span>\[
+x = R\tan\left(45^o - \frac{\phi}{2}\right)
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(x\)</span> is the is the distance of the point from the center of the net, <span class="math notranslate nohighlight">\(R\)</span> is the radius of the net, and <span class="math notranslate nohighlight">\(\phi\)</span> is the plunge of the line. This method preserves angles perfectly and thus, on the primitive circle, degrees are equally spaced, and a small circle will be a circle anywhere on the net (<a class="reference internal" href="#ch03-fig11"><span class="std std-numref">Figure 3.11</span></a>b). This is why this projection is called the equal angle or Wulff stereonet. However, the preservation of angles has a disadvantage: areas are distorted. Thus, for example, a 10radius small circle will look smaller near the center of the net but larger near the edges (<a class="reference internal" href="#ch03-fig11"><span class="std std-numref">Figure 3.11</span></a>b). This poses a problem when trying to visually evaluate the density of points plotted on the net.</p>
+<figure class="align-default" id="ch03-fig11">
+<a class="reference internal image-reference" href="_images/ch03_fig11.png"><img alt="_images/ch03_fig11.png" src="_images/ch03_fig11.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 3.11 </span><span class="caption-text"><strong>a.</strong> The equal angle stereonet illustrated on a vertical plane passing through the center of the sphere. <strong>b.</strong> Lower hemisphere equal angle projection of small circles of 10<span class="math notranslate nohighlight">\(^o\)</span> radius but different axis orientations. Modified from Allmendinger et al. (2012).</span><a class="headerlink" href="#ch03-fig11" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The equal area or Schmidt net (<a class="reference internal" href="#ch03-fig12"><span class="std std-numref">Figure 3.12</span></a>) overcomes this problem. Strictly speaking, this projection is not a stereographic projection because the projection plane is at the bottom of the sphere. The point of intersection of the line and the surface of the lower hemisphere is projected to the horizontal plane at the bottom of the sphere, along a circular arc centered at the lowest point of the sphere. The <span class="math notranslate nohighlight">\(x\)</span> distance of the point is then scaled by a factor of <span class="math notranslate nohighlight">\(\sqrt{2}\)</span> to fit it to the radius <span class="math notranslate nohighlight">\(R\)</span> of the net (<a class="reference internal" href="#ch03-fig12"><span class="std std-numref">Figure 3.12</span></a>a). This is expressed by the following equation:</p>
+<div class="math notranslate nohighlight" id="equation-ch03-eq07">
+<span class="eqno">(3.8)<a class="headerlink" href="#equation-ch03-eq07" title="Permalink to this equation">#</a></span>\[
+x = R\sqrt{2}\sin\left(45^o - \frac{\phi}{2}\right)
+\]</div>
+<figure class="align-default" id="ch03-fig12">
+<a class="reference internal image-reference" href="_images/ch03_fig12.png"><img alt="_images/ch03_fig12.png" src="_images/ch03_fig12.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 3.12 </span><span class="caption-text"><strong>a.</strong> The equal area stereonet illustrated on a vertical plane passing through the center of the sphere. <strong>b.</strong> Lower hemisphere equal area projection of small circles of 10<span class="math notranslate nohighlight">\(^o\)</span> radius but different axis orientations. Modified from Allmendinger et al. (2012).</span><a class="headerlink" href="#ch03-fig12" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The tradeoff is that although areas are preserved, angles are no longer preserved, and small circles are no longer true circles (<a class="reference internal" href="#ch03-fig12"><span class="std std-numref">Figure 3.12</span></a>b). The equal angle or Wulff net is used for problems where visualizing angles on the net is important such as in crystallography and geography, while the equal area or Schmidt net is used for problems where analyzing the concentration of points on the net is important such as in structural analysis.</p>
+<p>The function <a class="reference external" href="https://github.com/nfcd/compGeo/blob/master/source/functions/st_coord_line.py">st_coord_line</a> computes the coordinates of a line in an equal angle or an equal area net (Eqs. <a class="reference internal" href="#equation-ch03-eq06">(3.7)</a> and <a class="reference internal" href="#equation-ch03-eq07">(3.8)</a>). Notice that angles (<code class="docutils literal notranslate"><span class="pre">trd</span></code> and <code class="docutils literal notranslate"><span class="pre">plg</span></code>) should be entered in radians.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+
+<span class="kn">from</span> <span class="nn">compgeo.zero_twopi</span> <span class="kn">import</span> <span class="n">zero_twopi</span>
+
+
+<span class="k">def</span> <span class="nf">st_coord_line</span><span class="p">(</span><span class="n">trd</span><span class="p">,</span><span class="n">plg</span><span class="p">,</span><span class="n">stype</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    st_coord_line computes the coordinates of a line</span>
+<span class="sd">    in an equal angle or equal area stereonet of unit radius</span>
+<span class="sd">    </span>
+<span class="sd">    trd = trend of line</span>
+<span class="sd">    plg = plunge of line</span>
+<span class="sd">    stype = Stereonet type: 0 = equal angle, 1 = equal area</span>
+<span class="sd">    xp and yp: Coordinates of the line in the stereonet</span>
+<span class="sd">    </span>
+<span class="sd">    NOTE: trend and plunge should be entered in radians</span>
+<span class="sd">    </span>
+<span class="sd">    Python function translated from the Matlab function</span>
+<span class="sd">    StCoordLine in Allmendinger et al. (2012)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Take care of negative plunges</span>
+    <span class="k">if</span> <span class="n">plg</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">trd</span> <span class="o">=</span> <span class="n">zero_twopi</span><span class="p">(</span><span class="n">trd</span><span class="o">+</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
+        <span class="n">plg</span> <span class="o">=</span> <span class="o">-</span><span class="n">plg</span>
+    
+    <span class="c1"># Some constants</span>
+    <span class="n">pis4</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">4</span>
+    <span class="n">s2</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">plgs2</span> <span class="o">=</span> <span class="n">plg</span><span class="o">/</span><span class="mi">2</span>
+    
+    <span class="c1"># Equal angle stereonet</span>
+    <span class="k">if</span> <span class="n">stype</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">xp</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">tan</span><span class="p">(</span><span class="n">pis4</span> <span class="o">-</span> <span class="n">plgs2</span><span class="p">)</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">trd</span><span class="p">)</span>
+        <span class="n">yp</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">tan</span><span class="p">(</span><span class="n">pis4</span> <span class="o">-</span> <span class="n">plgs2</span><span class="p">)</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">trd</span><span class="p">)</span>
+    <span class="c1"># Equal area stereonet</span>
+    <span class="k">elif</span> <span class="n">stype</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">xp</span> <span class="o">=</span> <span class="n">s2</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">pis4</span> <span class="o">-</span> <span class="n">plgs2</span><span class="p">)</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">trd</span><span class="p">)</span>
+        <span class="n">yp</span> <span class="o">=</span> <span class="n">s2</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">pis4</span> <span class="o">-</span> <span class="n">plgs2</span><span class="p">)</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">trd</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">xp</span><span class="p">,</span> <span class="n">yp</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="plotting-lines-and-poles-in-a-stereonet">
+<span id="ch03-3-3"></span><h3><span class="section-number">3.3.3. </span>Plotting lines and poles in a stereonet<a class="headerlink" href="#plotting-lines-and-poles-in-a-stereonet" title="Permalink to this headline">#</a></h3>
+<p>The notebook <a class="reference external" href="https://github.com/nfcd/compGeo/blob/master/source/notebooks/ch3.ipynb">ch3</a> illustrates the use of the <code class="docutils literal notranslate"><span class="pre">st_coord_line</span></code> function to plot lines and poles to planes on an equal angle or equal area stereonet. Notice that for planes, we use the <code class="docutils literal notranslate"><span class="pre">pole_from_plane</span></code> function to compute the pole to the plane. You will get the chance to practice more with these functions in <a class="reference internal" href="#ch03-4"><span class="std std-ref">Section 3.4</span></a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import libraries</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="kn">from</span> <span class="nn">compgeo.pole</span> <span class="kn">import</span> <span class="n">pole_from_plane</span>
+<span class="kn">from</span> <span class="nn">compgeo.st_coord_line</span> <span class="kn">import</span> <span class="n">st_coord_line</span>
+
+
+<span class="c1"># Make a figure</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+
+<span class="c1"># Plot the following four lines (trend and plunge)</span>
+<span class="c1"># on an equal angle or equal area stereonet</span>
+<span class="c1"># lines are in radians</span>
+<span class="n">lines</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">([[</span><span class="mi">30</span><span class="p">,</span> <span class="mi">30</span><span class="p">],[</span><span class="mi">120</span><span class="p">,</span> <span class="mi">45</span><span class="p">],[</span><span class="mi">210</span><span class="p">,</span> <span class="mi">65</span><span class="p">],[</span><span class="mi">280</span><span class="p">,</span> <span class="mi">15</span><span class="p">]])</span>
+
+<span class="c1"># Plot the primitive of the stereonet</span>
+<span class="n">r</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="c1"># unit radius</span>
+<span class="n">th</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">361</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">r</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">th</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">r</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">th</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="s2">&quot;k&quot;</span><span class="p">)</span>
+<span class="c1"># Plot center of circle</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="s2">&quot;k+&quot;</span><span class="p">)</span>
+<span class="c1"># Make axes equal and remove them</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;equal&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;off&quot;</span><span class="p">)</span>
+
+<span class="c1"># Find the coordinates of the lines in the</span>
+<span class="c1"># equal angle or equal area stereonet</span>
+<span class="n">nrow</span><span class="p">,</span> <span class="n">ncol</span> <span class="o">=</span> <span class="n">lines</span><span class="o">.</span><span class="n">shape</span>
+<span class="n">eq_angle</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">nrow</span><span class="p">,</span> <span class="n">ncol</span><span class="p">))</span>
+<span class="n">eq_area</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">nrow</span><span class="p">,</span> <span class="n">ncol</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nrow</span><span class="p">):</span>
+    <span class="c1"># Equal angle coordinates</span>
+    <span class="n">eq_angle</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">eq_angle</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">st_coord_line</span><span class="p">(</span><span class="n">lines</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span>
+                                    <span class="n">lines</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span><span class="mi">0</span><span class="p">)</span> 
+    <span class="c1"># Equal area coordinates</span>
+    <span class="n">eq_area</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">eq_area</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">st_coord_line</span><span class="p">(</span><span class="n">lines</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span>
+                                    <span class="n">lines</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span><span class="mi">1</span><span class="p">)</span>
+    
+<span class="c1"># Plot the lines</span>
+<span class="c1"># Equal angle as black dots</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">eq_angle</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">eq_angle</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span><span class="s2">&quot;ko&quot;</span><span class="p">)</span>
+<span class="c1"># Equal area as red dots</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">eq_area</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">eq_area</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span><span class="s2">&quot;ro&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/ch03_geological_features_38_0.png" src="_images/ch03_geological_features_38_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the following four planes (strike and dip, RHR)</span>
+<span class="c1"># as poles on an equal angle or equal area stereonet</span>
+<span class="c1"># planes are in radians</span>
+<span class="n">planes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">30</span><span class="p">],</span> <span class="p">[</span><span class="mi">90</span><span class="p">,</span> <span class="mi">50</span><span class="p">],</span> 
+                     <span class="p">[</span><span class="mi">180</span><span class="p">,</span> <span class="mi">15</span><span class="p">],</span> <span class="p">[</span><span class="mi">270</span><span class="p">,</span> <span class="mi">65</span><span class="p">]])</span>
+
+<span class="c1"># make a figure</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+
+<span class="c1"># Plot the primitive of the stereonet</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="s2">&quot;k&quot;</span><span class="p">)</span>
+<span class="c1"># Plot center of circle</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="s2">&quot;k+&quot;</span><span class="p">)</span>
+<span class="c1"># Make axes equal and remove them</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;equal&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;off&quot;</span><span class="p">)</span>
+
+<span class="c1"># Find the coordinates of the poles to the planes in the</span>
+<span class="c1"># equal angle or equal area stereonet</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nrow</span><span class="p">):</span>
+    <span class="c1"># Compute pole of plane</span>
+    <span class="n">trd</span><span class="p">,</span> <span class="n">plg</span> <span class="o">=</span> <span class="n">pole_from_plane</span><span class="p">(</span><span class="n">planes</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span><span class="n">planes</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+    <span class="c1"># Equal angle coordinates</span>
+    <span class="n">eq_angle</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">eq_angle</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">st_coord_line</span><span class="p">(</span><span class="n">trd</span><span class="p">,</span><span class="n">plg</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span> 
+    <span class="c1"># Equal area coordinates</span>
+    <span class="n">eq_area</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">eq_area</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">st_coord_line</span><span class="p">(</span><span class="n">trd</span><span class="p">,</span><span class="n">plg</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Plot the poles</span>
+<span class="c1"># Equal angle as black asterisks</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">eq_angle</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">eq_angle</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span><span class="s2">&quot;k*&quot;</span><span class="p">)</span>
+<span class="c1"># Equal area as red asterisks</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">eq_area</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">eq_area</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span><span class="s2">&quot;r*&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/ch03_geological_features_39_0.png" src="_images/ch03_geological_features_39_0.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="exercises">
+<span id="ch03-4"></span><h2><span class="section-number">3.4. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">#</a></h2>
+<ol>
+<li><p>Modify the notebook that makes <a class="reference internal" href="#ch03-fig06"><span class="std std-numref">Figure 3.6</span></a> to extend the range of dip <span class="math notranslate nohighlight">\(\delta\)</span> angles from 0 to 90 and the operator error <span class="math notranslate nohighlight">\(\varepsilon_o\)</span> from 1 to 10.</p></li>
+<li><p>Modify the notebooks that make <a class="reference internal" href="#ch03-fig07"><span class="std std-numref">Figure 3.7</span></a>b and c for an <span class="math notranslate nohighlight">\(\varepsilon_o\)</span> of 5.</p></li>
+<li><p>A great circle on a stereonet can be drawn by plotting closely spaced points along the great circle. These are lines on the plane. The following arrays contain the trend and plunge of lines on a plane of orientation 030/40 (strike and dip, RHR format):</p>
+<p>trend = [30, 34, 38, 42, 46, 50, 54, 58, 63, 67, 72, 78, 83, 89, 95, 101, 107, 113, 120, 127, 133, 139, 145, 151, 157, 162, 168, 173, 177, 182, 186, 190, 194, 198, 202, 206, 210]</p>
+<p>plunge = [0, 3, 6, 10, 13, 16, 19, 22, 24, 27, 29, 32, 34, 36, 37, 38, 39, 40, 40, 40, 39, 38, 37, 36, 34, 32, 29, 27, 24, 22, 19, 16, 13, 10, 6, 3, 0]</p>
+<p>Plot these lines on an equal angle and an equal area stereonet using the function <code class="docutils literal notranslate"><span class="pre">st_coord_line</span></code>. Don’t use a stereonet program, we will implement one in <a class="reference internal" href="ch05_transformations.html#ch05"><span class="std std-ref">Chapter 5</span></a>.</p>
+</li>
+<li><p>A small circle on a stereonet can be drawn by plotting closely spaced points along the small circle. These are lines on the conical surface. The following arrays contain the trend and plunge of lines on a small circle of axis 050/30 (trend and plunge) and radius 20:</p>
+<p>trend = [50, 53, 57, 60, 63, 66, 68, 70, 72, 73, 73, 73, 72, 70, 68, 64, 60, 55, 50, 45, 40, 36, 32, 30, 28, 27, 27, 27, 28, 30, 32, 34 37, 40, 43, 47, 50]</p>
+<p>plunge = [10, 10, 11, 12, 14, 16, 19, 22, 25, 28, 31, 35, 38, 41, 44, 47, 48, 50, 50, 50, 48, 47, 44, 41, 38, 35, 31, 28, 25, 22, 19, 16 14, 12, 11, 10, 10]</p>
+<p>Plot these lines on an equal angle and an equal area stereonet using the function <code class="docutils literal notranslate"><span class="pre">st_coord_line</span></code>. What are the differences between the small circles in the equal angle and equal area stereonets?</p>
+</li>
+<li><p>The strike and dip arrays below contain the strike and dip (RHR format) of 50 bedding planes in a fold:</p>
+<p>strike = [8, 22, 19, 33, 27, 37, 41, 47, 55, 40, 32, 55, 65, 68, 89, 79, 102, 105, 108, 122, 132, 136, 145, 159, 156, 164, 176, 169, 179, 173, 167, 160, 145, 148, 141, 125, 108, 92, 75, 57, 50, 39, 22,     10, 1, 9, 15, 16, 114, 78]</p>
+<p>dip = [75, 79, 68, 72, 61, 46, 50, 67, 51, 66, 55, 42, 49, 58, 54, 45, 35, 49, 63, 45, 52, 66, 52, 59, 76, 64, 72, 83, 78, 88, 72, 81, 73, 62, 50, 63, 42, 48, 56, 62, 50, 65, 76, 87, 81, 68, 74, 83, 56,     37]</p>
+<p>Plot the poles to these planes in an equal area stereonet using the functions <code class="docutils literal notranslate"><span class="pre">pole_from_plane</span></code> and <code class="docutils literal notranslate"><span class="pre">st_coord_line</span></code>. The resultant diagram is called a <span class="math notranslate nohighlight">\(\pi\)</span>- diagram. What is the approximate orientation of the great circle defined by the poles? What does the pole to this great circle represent?</p>
+</li>
+</ol>
+</section>
+<section id="references">
+<span id="ch03-5"></span><h2><span class="section-number">3.5. </span>References<a class="headerlink" href="#references" title="Permalink to this headline">#</a></h2>
+<p>Allmendinger, R.W., Cardozo, N. and Fisher, D.W. 2012. Structural
+Geology Algorithms: Vectors and Tensors. Cambridge University Press.</p>
+<p>Allmendinger, R.W., Siron, C.R. and Scott, C.P. 2017. Structural data
+collection with mobile devices: Accuracy, redundancy,and best practices.
+Journal of Structural Geology 102, 98-112.</p>
+<p>Allmendinger, R.W. 2020. Modern Structural Practice: A structural
+geology laboratory manual for the 21st century.
+[<a class="reference external" href="https://www.rickallmendinger.net/download">Online</a>]. [Accessed
+March, 2021].</p>
+<p>Coe, A. 2010. Geological Field Techniques. Wiley-Blackwell.</p>
+<p>Compton, R.R. 1985. Geology in the field. John Wiley &amp; Sons.</p>
+<p>Novakova, L. and Pavlis, T.L. 2017. Assessment of the precision of smart
+phones and tablets for measurement of planar orientations: A case study.
+Journal of Structural Geology 97, 93-103.</p>
+<p>Marshak, S. and Mitra, G. 1988. Basic Methods of Structural Geology.
+Prentice Hall.</p>
+<p>Ragan, D.M. 2009. Structural Geology: An Introduction to Geometrical
+Techniques. Cambridge University Press.</p>
+<p>Wang, J., Nengpan, J., Chaoyang, H., Junchao, C. and Zheng, D. 2020.
+Assessment of the accuracy of several methods for measuring the spatial
+attitude of geological bodies using an android smartphone. Journal of
+Structural Geology 136, 104393.</p>
+<p>Whitmeyer, S.J., Pyle, E.J., Pavlis, T.L, Swanger, W. and Roberts, L.
+2019. Modern approaches to field data collection and mapping: Digital
+methods, crowdsourcing, and the future of statistical analyses. Journal
+of Structural Geology 125, 29-40.</p>
+<p>Woodcock, N.H. 1976. The accuracy of structural field measurements.
+Journal of Geology 84, 350-355.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="ch02_understanding_location.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">2. </span>Understanding location</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="ch04_coordinate_systems_vectors.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">4. </span>Coordinate systems and vectors</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Nestor Cardozo & Alex F. Antunes<br/>
+  
+      &copy; Copyright 2023.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

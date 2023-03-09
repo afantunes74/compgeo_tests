@@ -1,0 +1,806 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Defining the coordinate reference system &#8212; Computational Geosciences</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Coordinate conversion" href="ch02_nb03.html" />
+    <link rel="prev" title="Tissot’s Indicatrix" href="ch02_nb01.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Computational Geosciences</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Welcome to Computational Geosciences book
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  GET STARTED
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../preface.html">
+   Preface
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../access.html">
+   Accessing the resource material
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../changelog.html">
+   Changelog
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../todo.html">
+   TODOs
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  CONTENTS
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../ch01_computation_geosciences.html">
+   1. Computation in Geosciences
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../ch02_understanding_location.html">
+   2. Understanding location
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../ch03_geological_features.html">
+   3. Geological features
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../ch04_coordinate_systems_vectors.html">
+   4. Coordinate systems and vectors
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../ch05_transformations.html">
+   5. Transformations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../ch06_tensors.html">
+   6. Tensors
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../ch07_stress.html">
+   7. Stress
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../ch08_strain.html">
+   8. Strain
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../ch09_elasticity.html">
+   9. Elasticity
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  THE COMPANION NOTEBOOKS
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch01/ch01_nb01.html">
+   Introduction to Python and Jupyter Notebooks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ch02_nb01.html">
+   Tissot’s Indicatrix
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Defining the coordinate reference system
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ch02_nb03.html">
+   Coordinate conversion
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ch02_nb04.html">
+   Coordinate transformation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ch02_nb05.html">
+   Transform locations from lat-long to World Mercator
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch03/ch03_nb01.html">
+   Plotting lines and poles in a stereonet
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch03/ch03_nb02.html">
+   Maximum strike error vs. dip graph
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch03/ch03_nb03.html">
+   Maximum trend error vs. dip graph [1]
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch03/ch03_nb04.html">
+   Maximum trend error vs. dip graph [2]
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch04/ch04_nb01.html">
+   Vector components, magnitude, and unit vectors
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch04/ch04_nb02.html">
+   Vector operations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch04/ch04_nb03.html">
+   Mean vector
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch04/ch04_nb04.html">
+   Angles, intersections, and poles
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch04/ch04_nb05.html">
+   Three points problem
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch04/ch04_nb06.html">
+   Uncertainties
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch05/ch05_nb01.html">
+   Stratigraphic thickness
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch05/ch05_nb02.html">
+   Stratigraphic thickness and uncertainties
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch05/ch05_nb03.html">
+   Outcrop trace of a plane
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch05/ch05_nb04.html">
+   Down-plunge projection
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch05/ch05_nb05.html">
+   Rotations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch05/ch05_nb06.html">
+   Plotting great and small circles using rotations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch06/ch06_nb01.html">
+   Best-fit fold axis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch06/ch06_nb02.html">
+   Best-fit plane
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch07/ch07_nb01.html">
+   Principal axes of stress
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch07/ch07_nb02.html">
+   Normal and shear tractions on a plane
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch07/ch07_nb03.html">
+   The Mohr circle for stress in 3D
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch08/ch08_nb01.html">
+   P and T axes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch08/ch08_nb02.html">
+   2D strain from GPS data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch08/ch08_nb03.html">
+   2D finite strain from displacement data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch08/ch08_nb04.html">
+   Pure shear
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch08/ch08_nb05.html">
+   Simple shear
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch08/ch08_nb06.html">
+   General shear
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch09/ch09_nb01.html">
+   Stresses around a circular hole
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch09/ch09_nb02.html">
+   Lithospheric flexure
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch09/ch09_nb03.html">
+   Faults as elastic dislocations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch09/ch09_nb04.html">
+   Wave propagation
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=lab/tree/docs/notebooks/ch02/ch02_nb02.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fnotebooks/ch02/ch02_nb02.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/notebooks/ch02/ch02_nb02.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Defining the coordinate reference system</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="defining-the-coordinate-reference-system">
+<span id="ch02-nb02"></span><h1>Defining the coordinate reference system<a class="headerlink" href="#defining-the-coordinate-reference-system" title="Permalink to this headline">#</a></h1>
+<p>First we will create some dummy data on a regular latitude/longitude grid:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lon</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">80</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">25</span><span class="p">)</span>
+<span class="n">lat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">25</span><span class="p">)</span>
+<span class="n">lon2d</span><span class="p">,</span> <span class="n">lat2d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">lon</span><span class="p">,</span> <span class="n">lat</span><span class="p">)</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">deg2rad</span><span class="p">(</span><span class="n">lat2d</span><span class="p">)</span> <span class="o">*</span> <span class="mi">4</span><span class="p">)</span> <span class="o">+</span> \
+    <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">deg2rad</span><span class="p">(</span><span class="n">lon2d</span><span class="p">)</span> <span class="o">*</span> <span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>In order to demonstrate the error before “best practice”, we will create a map using the Plate Carree projection but only specify the <code class="docutils literal notranslate"><span class="pre">projection</span></code> argument. Remember that the best practice requires both <code class="docutils literal notranslate"><span class="pre">projection</span></code> and <code class="docutils literal notranslate"><span class="pre">transform</span></code> arguments to be defined.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import cartopy and matplotlib</span>
+<span class="kn">import</span> <span class="nn">cartopy.crs</span> <span class="k">as</span> <span class="nn">ccrs</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># Hide warnings</span>
+<span class="kn">import</span> <span class="nn">warnings</span> 
+<span class="n">warnings</span><span class="o">.</span><span class="n">simplefilter</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># The projection keyword determines how the plot will look</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">())</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_global</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">coastlines</span><span class="p">()</span>
+
+<span class="c1"># didn&#39;t use transform, but looks ok...</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">lon</span><span class="p">,</span> <span class="n">lat</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/ch02_nb02_6_0.png" src="../../_images/ch02_nb02_6_0.png" />
+</div>
+</div>
+<p>In this case, the data just happen to fall in the correct location. Now, we will define the data coordinate reference system (first line of code below) and add the <code class="docutils literal notranslate"><span class="pre">transform</span></code> argument to the plot (second last line of code below).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># The data are defined in lat/lon coordinate system, </span>
+<span class="c1"># so PlateCarree() is the appropriate choice:</span>
+<span class="n">data_crs</span> <span class="o">=</span> <span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">()</span>
+
+<span class="c1"># The projection keyword determines how the plot will look</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">())</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_global</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">coastlines</span><span class="p">()</span>
+
+<span class="c1"># use transform</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">lon</span><span class="p">,</span> <span class="n">lat</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">data_crs</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/ch02_nb02_8_0.png" src="../../_images/ch02_nb02_8_0.png" />
+</div>
+</div>
+<p>You will notice that our plot remains unchanged. The assumption, as stated previously, is that if the coordinate reference system of the data is undefined, it is the same as the map (or plot) projection. In the example above, this has been the case. Let us now investigate what happens when changing the projection of the map without defining the coordinate reference system of the data. We now define the projection to <code class="docutils literal notranslate"><span class="pre">RotatedPole</span></code> and omit the <code class="docutils literal notranslate"><span class="pre">transform</span></code> argument to see what happens:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Now we plot a rotated pole projection</span>
+<span class="n">projection</span> <span class="o">=</span> <span class="n">ccrs</span><span class="o">.</span><span class="n">RotatedPole</span><span class="p">(</span><span class="n">pole_longitude</span><span class="o">=-</span><span class="mf">177.5</span><span class="p">,</span> <span class="n">pole_latitude</span><span class="o">=</span><span class="mf">37.5</span><span class="p">)</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="n">projection</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_global</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">coastlines</span><span class="p">()</span>
+
+<span class="c1"># didn&#39;t use transform, uh oh!</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">lon</span><span class="p">,</span> <span class="n">lat</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/ch02_nb02_10_0.png" src="../../_images/ch02_nb02_10_0.png" />
+</div>
+</div>
+<p>In this case, we see that the country boundaries have rotated and changed shape, however, the data did not move with the the country boundaries. We made a wrong assumption in the data definition. Therefore we need to define the <code class="docutils literal notranslate"><span class="pre">transform</span></code> argument:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># A rotated pole projection again...</span>
+<span class="n">projection</span> <span class="o">=</span> <span class="n">ccrs</span><span class="o">.</span><span class="n">RotatedPole</span><span class="p">(</span><span class="n">pole_longitude</span><span class="o">=-</span><span class="mf">177.5</span><span class="p">,</span> <span class="n">pole_latitude</span><span class="o">=</span><span class="mf">37.5</span><span class="p">)</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="n">projection</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_global</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">coastlines</span><span class="p">()</span>
+
+<span class="c1"># ...but now using the transform argument</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">lon</span><span class="p">,</span> <span class="n">lat</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">data_crs</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/ch02_nb02_12_0.png" src="../../_images/ch02_nb02_12_0.png" />
+</div>
+</div>
+<p>Now the data are correctly projected. Get in the habit of always defining the coordinate reference system and the map plot projection. It will save headaches and misunderstandings of the data.</p>
+<p>Here is another script using an entirely different projection and additional plotting parameters. Can you figure out what the script will produce before running the cell? Notice the presence of the <code class="docutils literal notranslate"><span class="pre">Matplotlib</span></code> function <code class="docutils literal notranslate"><span class="pre">subplot</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># We can choose any projection we like...</span>
+<span class="n">projection</span> <span class="o">=</span> <span class="n">ccrs</span><span class="o">.</span><span class="n">InterruptedGoodeHomolosine</span><span class="p">()</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
+<span class="n">ax1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">211</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="n">projection</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_global</span><span class="p">()</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">coastlines</span><span class="p">()</span>
+<span class="n">ax2</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">212</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">NorthPolarStereo</span><span class="p">())</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_extent</span><span class="p">([</span><span class="o">-</span><span class="mi">180</span><span class="p">,</span> <span class="mi">180</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">90</span><span class="p">],</span> <span class="n">crs</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">())</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">coastlines</span><span class="p">()</span>
+
+<span class="c1"># ...as long as we provide the correct transform, </span>
+<span class="c1"># the plot will be correct</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">lon</span><span class="p">,</span> <span class="n">lat</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">data_crs</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">lon</span><span class="p">,</span> <span class="n">lat</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">data_crs</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/ch02_nb02_14_0.png" src="../../_images/ch02_nb02_14_0.png" />
+</div>
+</div>
+<p>Now that you have worked through the exercise, you should have an understanding of why it is important to fully define the coordinate reference system and the projection when creating a map.</p>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./notebooks/ch02"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="ch02_nb01.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Tissot’s Indicatrix</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="ch02_nb03.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Coordinate conversion</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Nestor Cardozo & Alex F. Antunes<br/>
+  
+      &copy; Copyright 2023.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

@@ -1,0 +1,1360 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>2. Understanding location &#8212; Computational Geosciences</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="3. Geological features" href="ch03_geological_features.html" />
+    <link rel="prev" title="1. Computation in Geosciences" href="ch01_computation_geosciences.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Computational Geosciences</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to the Computational Geosciences resource
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  GET STARTED
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="preface.html">
+   Preface
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="changelog.html">
+   Changelog
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="todo.html">
+   TODOs
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  CONTENTS
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="ch01_computation_geosciences.html">
+   1. Computation in Geosciences
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   2. Understanding location
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ch03_geological_features.html">
+   3. Geological features
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ch04_coordinate_systems_vectors.html">
+   4. Coordinate systems and vectors
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ch05_transformations.html">
+   5. Transformations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ch06_tensors.html">
+   6. Tensors
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ch07_stress.html">
+   7. Stress
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ch08_strain.html">
+   8. Strain
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ch09_elasticity.html">
+   9. Elasticity
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  THE COMPANION NOTEBOOKS
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="notebooks/ch01/ch01_nb01.html">
+   Introduction to Python and Jupyter Notebooks
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=lab/tree/docs/ch02_understanding_location.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fch02_understanding_location.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/ch02_understanding_location.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#location">
+   2.1. Location
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#geodesy-basics">
+   2.2. Geodesy basics
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#scales">
+     2.2.1. Scales
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-1-understanding-map-scales">
+     2.2.2. Example 1: Understanding Map Scales
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#authalic-sphere">
+     2.2.3. Authalic Sphere
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ellipsoidal-earth">
+     2.2.4. Ellipsoidal Earth
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#geoid">
+     2.2.5. Geoid
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#projections">
+   2.3. Projections
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#distortions">
+     2.3.1. Distortions
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-2-tissots-indicatrix">
+     2.3.2. Example 2: Tissot’s Indicatrix
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reference-systems-and-datums">
+   2.4. Reference systems and datums
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-3-defining-the-coordinate-reference-system">
+     2.4.1. Example 3: Defining the coordinate reference system
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conversion-vs-transformation">
+   2.5. Conversion vs. transformation
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-4-coordinate-conversion">
+     2.5.1. Example 4: Coordinate conversion
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-5-coordinate-transformation">
+     2.5.2. Example 5: Coordinate transformation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-6-transforming-several-points-at-once">
+     2.5.3. Example 6: Transforming several points at once
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercises">
+   2.6. Exercises
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#references">
+   2.7. References
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Understanding location</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#location">
+   2.1. Location
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#geodesy-basics">
+   2.2. Geodesy basics
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#scales">
+     2.2.1. Scales
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-1-understanding-map-scales">
+     2.2.2. Example 1: Understanding Map Scales
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#authalic-sphere">
+     2.2.3. Authalic Sphere
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ellipsoidal-earth">
+     2.2.4. Ellipsoidal Earth
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#geoid">
+     2.2.5. Geoid
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#projections">
+   2.3. Projections
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#distortions">
+     2.3.1. Distortions
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-2-tissots-indicatrix">
+     2.3.2. Example 2: Tissot’s Indicatrix
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reference-systems-and-datums">
+   2.4. Reference systems and datums
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-3-defining-the-coordinate-reference-system">
+     2.4.1. Example 3: Defining the coordinate reference system
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conversion-vs-transformation">
+   2.5. Conversion vs. transformation
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-4-coordinate-conversion">
+     2.5.1. Example 4: Coordinate conversion
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-5-coordinate-transformation">
+     2.5.2. Example 5: Coordinate transformation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-6-transforming-several-points-at-once">
+     2.5.3. Example 6: Transforming several points at once
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercises">
+   2.6. Exercises
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#references">
+   2.7. References
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="understanding-location">
+<span id="ch02"></span><h1><span class="section-number">2. </span>Understanding location<a class="headerlink" href="#understanding-location" title="Permalink to this headline">#</a></h1>
+<section id="location">
+<span id="ch02-1"></span><h2><span class="section-number">2.1. </span>Location<a class="headerlink" href="#location" title="Permalink to this headline">#</a></h2>
+<p>Understanding where we are located or where an object of interest is located is very important in geosciences. Geographic information science is the study of geographic information; it includes theory and concepts and provides methods to combine and analyze spatial data (Watson, 2017). Geographic information systems is the software and technology that supports the application of geographic information theory (Watson, 2017). GIS is an acronym used for either geographic information systems or geographic information science.</p>
+<p>Geosciences are Earth-based and so location-based. The geographic aspect is highly applicable for the geosciences. The basic usage of GIS is cartographic – making maps. In this chapter, you will become familiar with some of the basic concepts in defining locations on the Earth. These concepts are also used for defining locations on other planets as well.</p>
+</section>
+<section id="geodesy-basics">
+<span id="ch02-2"></span><h2><span class="section-number">2.2. </span>Geodesy basics<a class="headerlink" href="#geodesy-basics" title="Permalink to this headline">#</a></h2>
+<p>Geodesy is “the branch of mathematics dealing with the shape and area of the Earth or large portions of it” (Lexico, 2019); however, the discipline is expanding to include other planets. We need geodesy to model the Earth and make calculations because the Earth is not a perfect sphere nor flat.</p>
+<section id="scales">
+<span id="ch02-2-1"></span><h3><span class="section-number">2.2.1. </span>Scales<a class="headerlink" href="#scales" title="Permalink to this headline">#</a></h3>
+<p>In cartography, we use scales to describe how the real world length has been reduced to fit on a page or screen. Usually, map scales are described as ratios, such as 1:50,000. When we describe the scale, we say it is either small or large. The description of small or large refers to the scale, not the size of the area. Therefore, if we describe a scale as small, it means the fraction described by the scale ratio is small; this in turn means the map covers a large area. The inverse is true for large scales; the fraction described by the scale is large and in turn covers a small area (Kraak and Ormeling, 2003, Lisle et al., 2011). There is not an official categorical differentiation between small and large scales. Generally speaking, small scale maps cover regions, countries, and continents, while large scale maps cover neighborhoods, towns, or counties. The following example illustrates this.</p>
+</section>
+<section id="example-1-understanding-map-scales">
+<span id="ch02-2-2"></span><h3><span class="section-number">2.2.2. </span>Example 1: Understanding Map Scales<a class="headerlink" href="#example-1-understanding-map-scales" title="Permalink to this headline">#</a></h3>
+<p>A map has a scale of 1:1,000,000. Would you refer to this as a small or large scale?</p>
+<ol class="simple">
+<li><p>First, rewrite this as a fraction: 1/1,000,000</p></li>
+<li><p>Is this a small fraction or a large fraction? This is a relatively small fraction, so it is a small scale.</p></li>
+</ol>
+<p><a class="reference internal" href="#ch02-fig01"><span class="std std-numref">Figure 2.1</span></a> is an example of a map with a scale of 1:1,000,000.</p>
+<figure class="align-default" id="ch02-fig01">
+<a class="reference internal image-reference" href="_images/ch02_fig01.png"><img alt="_images/ch02_fig01.png" src="_images/ch02_fig01.png" style="width: 450px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 2.1 </span><span class="caption-text">A historical map of northern Scotland at the scale of 1:1,000,000 (Geographic Section - General Staff, 1941).</span><a class="headerlink" href="#ch02-fig01" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>A map has a scale of 1:10,000. Would you refer to this as a small or large scale?</p>
+<ol class="simple">
+<li><p>First, rewrite this as a fraction: 1/10,000</p></li>
+<li><p>Is this a small fraction or a large fraction? This is a relatively large fraction, so it is a large scale.</p></li>
+</ol>
+<p><a class="reference internal" href="#ch02-fig02"><span class="std std-numref">Figure 2.2</span></a> is an example of a map with a scale of 1:10,000.</p>
+<figure class="align-default" id="ch02-fig02">
+<a class="reference internal image-reference" href="_images/ch02_fig02.png"><img alt="_images/ch02_fig02.png" src="_images/ch02_fig02.png" style="width: 500px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 2.2 </span><span class="caption-text">A historical map of Rome, Italy at the scale of 1:10,000 (C.I.U. and War Office, 1944).</span><a class="headerlink" href="#ch02-fig02" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="authalic-sphere">
+<span id="ch02-2-3"></span><h3><span class="section-number">2.2.3. </span>Authalic Sphere<a class="headerlink" href="#authalic-sphere" title="Permalink to this headline">#</a></h3>
+<p>The authalic sphere is a sphere used for the basic surface for mapping (<a class="reference internal" href="#ch02-fig03"><span class="std std-numref">Figure 2.3</span></a>); its surface area is the same as the ellipsoid (Robinson et al., 1995). Based on the WGS-84 ellipsoid, the Earth has an equatorial radius of 6371 km and a circumference of 40,030.2 km. The radius is an often-used constant in geodesy (Robinson et al., 1995). The authalic sphere is used in small scale mapping (small scale covers a large area) because the difference between the authalic sphere and the ellipsoid is minimum over large areas (Robinson et al., 1995).</p>
+<figure class="align-default" id="ch02-fig03">
+<a class="reference internal image-reference" href="_images/ch02_fig03.png"><img alt="_images/ch02_fig03.png" src="_images/ch02_fig03.png" style="width: 450px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 2.3 </span><span class="caption-text">Highly stylized comparison of sphere, ellipse, and geoid.</span><a class="headerlink" href="#ch02-fig03" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="ellipsoidal-earth">
+<span id="ch02-2-4"></span><h3><span class="section-number">2.2.4. </span>Ellipsoidal Earth<a class="headerlink" href="#ellipsoidal-earth" title="Permalink to this headline">#</a></h3>
+<p>Due to gravity, the Earth flattens at the poles. In a cross-section, the Earth looks like an oblate ellipsoid (<a class="reference internal" href="#ch02-fig03"><span class="std std-numref">Figure 2.3</span></a>) (Robinson et al., 1995). Oblateness refers to flatness. When mapping over small areas (large scale mapping), the oblateness of the ellipsoid must be taken into account. The GPS network uses the WGS-84 ellipsoid (Robinson et al., 1995).</p>
+<p>There are varying ellipsoidal measurements on different continents and times. These continental differences are due to gravity. Temporal differences are due to technological accuracy. The WGS-84 ellipsoid is based on satellite observations and is accepted as being highly accurate (Robinson et al., 1995).</p>
+</section>
+<section id="geoid">
+<span id="ch02-2-5"></span><h3><span class="section-number">2.2.5. </span>Geoid<a class="headerlink" href="#geoid" title="Permalink to this headline">#</a></h3>
+<p>Geoid means Earth-like and is in 3D. It is based on an equipotential gravity surface. The geoid follows the mean sea level in oceans and hypothetical sea-level canals on the continents (Robinson et al., 1995). Due to geology (rock density) and topography, the geoid deviates from the ellipsoid (<a class="reference internal" href="#ch02-fig01"><span class="std std-numref">Figure 2.1</span></a>). The geoid is a “reference surface for ground surveyed horizontal and vertical positions” (Robinson et al., 1995).</p>
+</section>
+</section>
+<section id="projections">
+<span id="ch02-3"></span><h2><span class="section-number">2.3. </span>Projections<a class="headerlink" href="#projections" title="Permalink to this headline">#</a></h2>
+<p>A projection is a mathematical equation to transfer a region, of whatever size, of the round Earth onto a flat surface. Projections are used because distance and surface area calculations are more difficult on a sphere. A flat map can show greater detail than a sphere and is more transportable. Imagine how large a globe you would need to sufficiently show the streets in your neighborhood! We need projections to transform our 3D ellipsoidal Earth onto a flat map. Projections may be based on the authalic sphere, ellipsoid, or geoid.</p>
+<p>Before proceeding, take a moment to look over an informational <a class="reference external" href="https://pubs.usgs.gov/gip/70047422/report.pdf">pictographic</a> by the U.S. Geological Survey describing different types of projection.</p>
+<section id="distortions">
+<span id="ch02-3-1"></span><h3><span class="section-number">2.3.1. </span>Distortions<a class="headerlink" href="#distortions" title="Permalink to this headline">#</a></h3>
+<p>All projections have distortions that vary by projection type (i.e. transverse Mercator vs. Miller cylindrical – see pictograph mentioned in previous section). Selecting a projection depends on discipline, size of area, orientation of area, regional standards, map purpose, and map scale. There are many resources for determining which projection you should use. Large-scale mapping uses conformal projection because angles measured on the ground are the same as those in the map (Iliffe and Lott, 2008). Four types of distortion are: area, shape, direction, and distance. The Tissot’s Indicatrix is a graphic device to show the distortion at a point (Robinson et al., 1995). We will investigate this phenomenon using the Python library <a class="reference external" href="https://scitools.org.uk/cartopy/docs/latest/">Cartopy</a>. To install this library, follow the steps below:</p>
+<div class="admonition-installing-cartopy admonition">
+<p class="admonition-title">Installing Cartopy</p>
+<p>We will use the Cartopy library to visualize projection distortions using the Tissot’s Indicatrix. We will make a special Cartopy Environment in Anaconda. This is because Cartopy dependencies are lower than some other libraries we’ll be using. This happens from time to time when we use open-source libraries.</p>
+<ol>
+<li><p>Open Anaconda Navigator.</p></li>
+<li><p>In the left panel, click on <code class="docutils literal notranslate"><span class="pre">Environments</span></code>.</p></li>
+<li><p>In the middle panel, click <code class="docutils literal notranslate"><span class="pre">Create</span></code> to create a new environment</p></li>
+<li><p>Name this environment: <code class="docutils literal notranslate"><span class="pre">ch2cartopy</span></code></p></li>
+<li><p>Select Python version 3.8 or later</p></li>
+<li><p>Click <code class="docutils literal notranslate"><span class="pre">Create</span></code>. This will take a few minutes.</p></li>
+<li><p>We need to install Cartopy. In the right panel in the search field, type: <code class="docutils literal notranslate"><span class="pre">cartopy</span></code></p></li>
+<li><p>You will get the message <code class="docutils literal notranslate"><span class="pre">0</span> <span class="pre">packages</span> <span class="pre">available</span> <span class="pre">matching</span> <span class="pre">cartopy</span></code> since Cartopy is not installed.</p></li>
+<li><p>In the right panel, change <code class="docutils literal notranslate"><span class="pre">Installed</span></code> to <code class="docutils literal notranslate"><span class="pre">Not</span> <span class="pre">installed</span></code></p></li>
+<li><p>Cartopy now shows up. Click the check box next to <code class="docutils literal notranslate"><span class="pre">cartopy</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If it does not, press <code class="docutils literal notranslate"><span class="pre">Update</span> <span class="pre">index</span></code> in the right panel.</p>
+</div>
+</li>
+<li><p>In the screen lower right corner, click <code class="docutils literal notranslate"><span class="pre">Apply</span></code></p></li>
+<li><p>Please wait while Cartopy is collected and then click <code class="docutils literal notranslate"><span class="pre">Apply</span></code></p></li>
+<li><p>The Cartopy library and any dependencies will be installed or updated. This may take a few minutes.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If Cartopy is lower than v. 0.21, you will need to downgrade the Matplotlib from 3.6.2 to 3.5.2. Open a terminal or command window. Type <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">activate</span> <span class="pre">ch2cartopy</span></code> followed by <code class="docutils literal notranslate"><span class="pre">Enter</span></code>, and then <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">matplotlib==3.5.2</span></code> followed by <code class="docutils literal notranslate"><span class="pre">Enter</span></code>.</p>
+</div>
+</li>
+<li><p>Click on <code class="docutils literal notranslate"><span class="pre">Home</span></code></p></li>
+<li><p>Click on <code class="docutils literal notranslate"><span class="pre">Install</span></code> under Jupyter Notebook.</p></li>
+<li><p>Click on <code class="docutils literal notranslate"><span class="pre">Launch</span></code> under Jupyter Notebook.</p></li>
+</ol>
+</div>
+</section>
+<section id="example-2-tissots-indicatrix">
+<span id="ch02-3-2"></span><h3><span class="section-number">2.3.2. </span>Example 2: Tissot’s Indicatrix<a class="headerlink" href="#example-2-tissots-indicatrix" title="Permalink to this headline">#</a></h3>
+<p>This example will introduce you to understanding distortions in projections. As you change the projection name, a different mathematical equation will be used to portray the round Earth in a flat presentation. Pay particular attention to the size, shape, and spacing of the ellipses describing the distortion. The Tissot’s Indicatrix quickly and easily visualizes the changes in area and spatial relationships between different projections.</p>
+<p>The notebook <a class="reference external" href="https://github.com/nfcd/compGeo/blob/master/source/notebooks/ch2-1.ipynb">ch2-1</a> contains this example. If you just launched Jupyter Notebook as indicated above, open the notebook. If you closed Anaconda, follow these steps:</p>
+<ol class="simple">
+<li><p>Open Anaconda Navigator</p></li>
+<li><p>Click on <code class="docutils literal notranslate"><span class="pre">Environments</span></code></p></li>
+<li><p>Choose <code class="docutils literal notranslate"><span class="pre">ch2cartopy</span></code></p></li>
+<li><p>Click <code class="docutils literal notranslate"><span class="pre">Home</span></code></p></li>
+<li><p>Launch Jupyter Notebook</p></li>
+<li><p>Open the notebook <code class="docutils literal notranslate"><span class="pre">ch2-1</span></code></p></li>
+</ol>
+<p>This example starts with the Plate Carree projection (<a class="reference external" href="https://scitools.org.uk/cartopy/docs/latest/gallery/tissot.html">Cartopy, 2018b</a>). Run the code below:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import cartopy and matplotlib</span>
+<span class="kn">import</span> <span class="nn">cartopy.crs</span> <span class="k">as</span> <span class="nn">ccrs</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># Hide warnings</span>
+<span class="kn">import</span> <span class="nn">warnings</span> 
+<span class="n">warnings</span><span class="o">.</span><span class="n">simplefilter</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
+
+
+<span class="c1"># Figure</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="c1"># Plate Carree projection</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">())</span>
+
+<span class="c1"># Make the map global rather than have it zoom in to</span>
+<span class="c1"># the extents of any plotted data</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_global</span><span class="p">()</span>
+
+<span class="c1"># Earth image</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">stock_img</span><span class="p">()</span>
+<span class="c1"># Coastlines</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">coastlines</span><span class="p">()</span>
+
+<span class="c1"># Tissot&quot;s indicatrix: Orange ellipses</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">tissot</span><span class="p">(</span><span class="n">facecolor</span><span class="o">=</span><span class="s2">&quot;orange&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;cartopy.mpl.feature_artist.FeatureArtist at 0x10937e3d0&gt;
+</pre></div>
+</div>
+<img alt="_images/ch02_understanding_location_16_1.png" src="_images/ch02_understanding_location_16_1.png" />
+</div>
+</div>
+<p>The Tissot’s Indicatrix is symbolized by the orange ellipses. Closer to the poles, the ellipses become more oblate; while closer to the Equator, they are more circular. The Plate Carrée projection is a specific form of the Equidistant Cylindrical projection. Plate Carrée has the latitude of origin at the Equator.</p>
+<p>Change the code to use the Mollweide projection:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Figure</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="c1"># Mollweide projection</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">Mollweide</span><span class="p">())</span>
+
+<span class="c1"># Make the map global rather than have it zoom in to</span>
+<span class="c1"># the extents of any plotted data</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_global</span><span class="p">()</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">stock_img</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">coastlines</span><span class="p">()</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">tissot</span><span class="p">(</span><span class="n">facecolor</span><span class="o">=</span><span class="s2">&quot;orange&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;cartopy.mpl.feature_artist.FeatureArtist at 0x10950bad0&gt;
+</pre></div>
+</div>
+<img alt="_images/ch02_understanding_location_18_1.png" src="_images/ch02_understanding_location_18_1.png" />
+</div>
+</div>
+<p>Notice how the sizes of the ellipses are very similar throughout the map. All of the ellipses are more rounded and circular regardless of their position, as compared to the Plate Carrée projection. Mollweide is often used for world maps.</p>
+<p>Cartopy has a list of projections that are included in the library (<a class="reference external" href="https://scitools.org.uk/cartopy/docs/latest/crs/projections.html">Cartopy, 2018a</a>). Change the code above to project the map in Azimuthal Equidistant.</p>
+</section>
+</section>
+<section id="reference-systems-and-datums">
+<span id="ch02-4"></span><h2><span class="section-number">2.4. </span>Reference systems and datums<a class="headerlink" href="#reference-systems-and-datums" title="Permalink to this headline">#</a></h2>
+<p>A coordinate reference system is a coordinate system that has been referenced to a datum. A datum is the location used for a reference point from which spatial measurements are made. There are geographic and Cartesian coordinate systems. Coordinates are for specific locations on the Earth. They can be expressed as geographic using latitude and longitude. Latitude are parallels that are evenly spaced and longitude are meridians that converge at the poles. These are measured in degrees. Cartesian coordinates are expressed in x and y and may have units that are meters, feet, or kilometers, for example. Coordinates only have meaning when the coordinate system and datum are known (Iliffe and Lott, 2008, Robinson et al., 1995).</p>
+<section id="example-3-defining-the-coordinate-reference-system">
+<span id="ch02-4-1"></span><h3><span class="section-number">2.4.1. </span>Example 3: Defining the coordinate reference system<a class="headerlink" href="#example-3-defining-the-coordinate-reference-system" title="Permalink to this headline">#</a></h3>
+<p>In any GIS program, including spatial libraries and code, the user must ensure that the coordinate reference system is defined for the spatial data. The GIS software will make assumptions, sometimes erroneous, if the coordinate reference system is not properly defined. In this example, we will see a demonstration of these assumptions and how to prevent them. This example is from the SciTools tutorials to understand Cartopy (<a class="reference external" href="https://scitools.org.uk/cartopy/docs/latest/tutorials/understanding_transform.html">Cartopy, 2018c</a>).</p>
+<p>In Cartopy, there are two keywords that you must understand in order to properly display your data. The “projection” argument is used for display of your data. This only affects the map or plot. It does not define the coordinate reference system of the data itself. The “transform” argument, on the other hand, defines the coordinate reference system. The best practice is to define both of these. We will investigate the error that occurs when the best practice is not followed and compare this to when the best practice is followed. The notebook <a class="reference external" href="https://github.com/nfcd/compGeo/blob/master/source/notebooks/ch2-2.ipynb">ch2-2</a> contains this example.</p>
+<p>First we will create some dummy data on a regular latitude/longitude grid:</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In Python, the backslash character <code class="docutils literal notranslate"><span class="pre">\</span></code> can be used to split a long line of code.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+
+<span class="n">lon</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">80</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">25</span><span class="p">)</span>
+<span class="n">lat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">25</span><span class="p">)</span>
+<span class="n">lon2d</span><span class="p">,</span> <span class="n">lat2d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">lon</span><span class="p">,</span> <span class="n">lat</span><span class="p">)</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">deg2rad</span><span class="p">(</span><span class="n">lat2d</span><span class="p">)</span> <span class="o">*</span> <span class="mi">4</span><span class="p">)</span> <span class="o">+</span> \
+    <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">deg2rad</span><span class="p">(</span><span class="n">lon2d</span><span class="p">)</span> <span class="o">*</span> <span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>In order to demonstrate the error before “best practice”, we will create a map using the Plate Carree projection but only specify the <code class="docutils literal notranslate"><span class="pre">projection</span></code> argument. Remember that the best practice requires both <code class="docutils literal notranslate"><span class="pre">projection</span></code> and <code class="docutils literal notranslate"><span class="pre">transform</span></code> arguments to be defined.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import cartopy and matplotlib</span>
+<span class="kn">import</span> <span class="nn">cartopy.crs</span> <span class="k">as</span> <span class="nn">ccrs</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># Hide warnings</span>
+<span class="kn">import</span> <span class="nn">warnings</span> 
+<span class="n">warnings</span><span class="o">.</span><span class="n">simplefilter</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
+
+
+<span class="c1"># The projection keyword determines how the plot will look</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">())</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_global</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">coastlines</span><span class="p">()</span>
+
+<span class="c1"># didn&#39;t use transform, but looks ok...</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">lon</span><span class="p">,</span> <span class="n">lat</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;cartopy.mpl.contour.GeoContourSet at 0x10ac3bb50&gt;
+</pre></div>
+</div>
+<img alt="_images/ch02_understanding_location_24_1.png" src="_images/ch02_understanding_location_24_1.png" />
+</div>
+</div>
+<p>In this case, the data just happen to fall in the correct location. Now, we will define the data coordinate reference system (first line of code below) and add the <code class="docutils literal notranslate"><span class="pre">transform</span></code> argument to the plot (second last line of code below).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># The data are defined in lat/lon coordinate system, </span>
+<span class="c1"># so PlateCarree() is the appropriate choice:</span>
+<span class="n">data_crs</span> <span class="o">=</span> <span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">()</span>
+
+<span class="c1"># The projection keyword determines how the plot will look</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">())</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_global</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">coastlines</span><span class="p">()</span>
+
+<span class="c1"># use transform</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">lon</span><span class="p">,</span> <span class="n">lat</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">data_crs</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;cartopy.mpl.contour.GeoContourSet at 0x10ee99cd0&gt;
+</pre></div>
+</div>
+<img alt="_images/ch02_understanding_location_26_1.png" src="_images/ch02_understanding_location_26_1.png" />
+</div>
+</div>
+<p>You will notice that our plot remains unchanged. The assumption, as stated previously, is that if the coordinate reference system of the data is undefined, it is the same as the map (or plot) projection. In the example above, this has been the case. Let us now investigate what happens when changing the projection of the map without defining the coordinate reference system of the data. We now define the projection to <code class="docutils literal notranslate"><span class="pre">RotatedPole</span></code> and omit the <code class="docutils literal notranslate"><span class="pre">transform</span></code> argument to see what happens:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Now we plot a rotated pole projection</span>
+<span class="n">projection</span> <span class="o">=</span> <span class="n">ccrs</span><span class="o">.</span><span class="n">RotatedPole</span><span class="p">(</span><span class="n">pole_longitude</span><span class="o">=-</span><span class="mf">177.5</span><span class="p">,</span> <span class="n">pole_latitude</span><span class="o">=</span><span class="mf">37.5</span><span class="p">)</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="n">projection</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_global</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">coastlines</span><span class="p">()</span>
+
+<span class="c1"># didn&#39;t use transform, uh oh!</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">lon</span><span class="p">,</span> <span class="n">lat</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;cartopy.mpl.contour.GeoContourSet at 0x10eee1190&gt;
+</pre></div>
+</div>
+<img alt="_images/ch02_understanding_location_28_1.png" src="_images/ch02_understanding_location_28_1.png" />
+</div>
+</div>
+<p>In this case, we see that the country boundaries have rotated and changed shape, however, the data did not move with the the country boundaries. We made a wrong assumption in the data definition. Therefore we need to define the <code class="docutils literal notranslate"><span class="pre">transform</span></code> argument:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># A rotated pole projection again...</span>
+<span class="n">projection</span> <span class="o">=</span> <span class="n">ccrs</span><span class="o">.</span><span class="n">RotatedPole</span><span class="p">(</span><span class="n">pole_longitude</span><span class="o">=-</span><span class="mf">177.5</span><span class="p">,</span> <span class="n">pole_latitude</span><span class="o">=</span><span class="mf">37.5</span><span class="p">)</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="n">projection</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_global</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">coastlines</span><span class="p">()</span>
+
+<span class="c1"># ...but now using the transform argument</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">lon</span><span class="p">,</span> <span class="n">lat</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">data_crs</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;cartopy.mpl.contour.GeoContourSet at 0x10ef20ad0&gt;
+</pre></div>
+</div>
+<img alt="_images/ch02_understanding_location_30_1.png" src="_images/ch02_understanding_location_30_1.png" />
+</div>
+</div>
+<p>Now the data are correctly projected. Get in the habit of always defining the coordinate reference system and the map plot projection. It will save headaches and misunderstandings of the data.</p>
+<p>Here is another script using an entirely different projection and additional plotting parameters. Can you figure out what the script will produce before running the cell? Notice the presence of the Matplotlib function <code class="docutils literal notranslate"><span class="pre">subplot</span></code>. What do you think this function does?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># We can choose any projection we like...</span>
+<span class="n">projection</span> <span class="o">=</span> <span class="n">ccrs</span><span class="o">.</span><span class="n">InterruptedGoodeHomolosine</span><span class="p">()</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
+<span class="n">ax1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">211</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="n">projection</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_global</span><span class="p">()</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">coastlines</span><span class="p">()</span>
+<span class="n">ax2</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">212</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">NorthPolarStereo</span><span class="p">())</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_extent</span><span class="p">([</span><span class="o">-</span><span class="mi">180</span><span class="p">,</span> <span class="mi">180</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">90</span><span class="p">],</span> <span class="n">crs</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">())</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">coastlines</span><span class="p">()</span>
+
+<span class="c1"># ...as long as we provide the correct transform, </span>
+<span class="c1"># the plot will be correct</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">lon</span><span class="p">,</span> <span class="n">lat</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">data_crs</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">lon</span><span class="p">,</span> <span class="n">lat</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">data_crs</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;cartopy.mpl.contour.GeoContourSet at 0x10ef4cb10&gt;
+</pre></div>
+</div>
+<img alt="_images/ch02_understanding_location_32_1.png" src="_images/ch02_understanding_location_32_1.png" />
+</div>
+</div>
+<p>Now that you have worked through the exercise, you should have an understanding of why it is important to fully define the coordinate reference system and the projection when creating a map.</p>
+</section>
+</section>
+<section id="conversion-vs-transformation">
+<span id="ch02-5"></span><h2><span class="section-number">2.5. </span>Conversion vs. transformation<a class="headerlink" href="#conversion-vs-transformation" title="Permalink to this headline">#</a></h2>
+<p>When working with data collected from several sources or in different coordinate reference systems, the data must be redefined to have the same coordinate reference system and datum. Consistent coordinate reference systems for data in a map is important because there may be spatial differences between the coordinate reference systems creating locational errors. A coordinate conversion is when the coordinate reference systems have the same datum. A coordinate transformation is when the coordinate reference systems have different datums.</p>
+<p>When making a map, all of the data in the map should have the same coordinate reference system definition. Software include many definitions and transformations but refer to Snyder (1987) and International Association of Oil and Gas Producers (2018) for projection formulae (Iliffe and Lott, 2008). In Example 2, the Tissot’s Indicatrix ellipses did not change coordinate reference systems. The method used to plot the ellipses changed. In Example 3, we also only changed the projection of the map, not the coordinate reference system. In the following examples, we will make coordinate conversions and transformations. For this purpose, we will use the <a class="reference external" href="https://pypi.org/project/pyproj/">pyproj</a> Python library and examples from the pyproj documentation (<a class="reference external" href="https://pyproj4.github.io/pyproj/stable/api/transformer.html?highlight=transformer">Whitaker, 2019</a>).</p>
+<div class="admonition-installing-pyproj admonition">
+<p class="admonition-title">Installing pyproj</p>
+<p>A version of pyproj was installed with Cartopy, but you need the latest version which has different dependencies than Cartopy. You will create a new environment.</p>
+<ol class="simple">
+<li><p>Open Anaconda Navigator.</p></li>
+<li><p>In the left panel, click on <code class="docutils literal notranslate"><span class="pre">Environments</span></code></p></li>
+<li><p>In the middle panel, click <code class="docutils literal notranslate"><span class="pre">Create</span></code> to create a new environment</p></li>
+<li><p>Name this environment: <code class="docutils literal notranslate"><span class="pre">ch2pyproj</span></code></p></li>
+<li><p>Select Python version 3.8 or later</p></li>
+<li><p>Click <code class="docutils literal notranslate"><span class="pre">Create</span></code>. This will take a few minutes</p></li>
+<li><p>We need to install pyproj. In the right panel in the search field, type: <code class="docutils literal notranslate"><span class="pre">pyproj</span></code></p></li>
+<li><p>You will get the message <code class="docutils literal notranslate"><span class="pre">0</span> <span class="pre">packages</span> <span class="pre">available</span> <span class="pre">matching</span> <span class="pre">pyproj</span></code> since pyproj is not installed.</p></li>
+<li><p>In the right panel, change <code class="docutils literal notranslate"><span class="pre">Installed</span></code> to <code class="docutils literal notranslate"><span class="pre">Not</span> <span class="pre">installed</span></code></p></li>
+<li><p>pyproj now shows up. Click the check box next to <code class="docutils literal notranslate"><span class="pre">pyproj</span></code>.</p></li>
+<li><p>In the screen lower right corner, click <code class="docutils literal notranslate"><span class="pre">Apply</span></code></p></li>
+<li><p>Please wait while pyproj is collected and then click <code class="docutils literal notranslate"><span class="pre">Apply</span></code></p></li>
+<li><p>The pyproj library and any dependencies will be installed or updated. This may take a few minutes.</p></li>
+<li><p>Click on <code class="docutils literal notranslate"><span class="pre">Home</span></code></p></li>
+<li><p>Click on <code class="docutils literal notranslate"><span class="pre">Install</span></code> under Jupyter Notebook.</p></li>
+<li><p>Click on <code class="docutils literal notranslate"><span class="pre">Launch</span></code> under Jupyter Notebook.</p></li>
+</ol>
+</div>
+<section id="example-4-coordinate-conversion">
+<span id="ch02-5-1"></span><h3><span class="section-number">2.5.1. </span>Example 4: Coordinate conversion<a class="headerlink" href="#example-4-coordinate-conversion" title="Permalink to this headline">#</a></h3>
+<p>The notebook <a class="reference external" href="https://github.com/nfcd/compGeo/blob/master/source/notebooks/ch2-3.ipynb">ch2-3</a> contains this example. If you just launched Jupyter Notebook as indicated above, open the notebook. If you closed Anaconda, follow these steps:</p>
+<ol class="simple">
+<li><p>Open Anaconda Navigator</p></li>
+<li><p>Click on <code class="docutils literal notranslate"><span class="pre">Environments</span></code></p></li>
+<li><p>Choose <code class="docutils literal notranslate"><span class="pre">ch2pyproj</span></code></p></li>
+<li><p>Click <code class="docutils literal notranslate"><span class="pre">Home</span></code></p></li>
+<li><p>Launch Jupyter Notebook</p></li>
+<li><p>Open the notebook <code class="docutils literal notranslate"><span class="pre">ch2-3</span></code></p></li>
+</ol>
+<p>We have a coordinate pair defined in decimal degrees of latitude and longitude. The longitude is -120.108and latitude is 34.36116666. We want to make a coordinate conversion from latitude and longitude to Universal Transverse Mercator, where the point is defined by east and north coordinates in meters. To learn more about Universal Transverse Mercator (UTM), refer to (Snyder, 1987). In the code, we use the pyproj <code class="docutils literal notranslate"><span class="pre">Proj</span></code> function. We can only use <code class="docutils literal notranslate"><span class="pre">Proj</span></code> when making a coordinate conversion (i.e. the same datum):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import pyproj</span>
+<span class="kn">from</span> <span class="nn">pyproj</span> <span class="kn">import</span> <span class="n">Proj</span>
+
+
+<span class="c1"># Construct the projection matrix</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">Proj</span><span class="p">(</span><span class="n">proj</span><span class="o">=</span><span class="s2">&quot;utm&quot;</span><span class="p">,</span><span class="n">zone</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span><span class="n">ellps</span><span class="o">=</span><span class="s2">&quot;WGS84&quot;</span><span class="p">,</span> 
+         <span class="n">preserve_units</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="c1"># Apply the projection to the lat-long point</span>
+<span class="n">x</span><span class="p">,</span><span class="n">y</span> <span class="o">=</span> <span class="n">p</span><span class="p">(</span><span class="o">-</span><span class="mf">120.108</span><span class="p">,</span> <span class="mf">34.36116666</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;x=</span><span class="si">{</span><span class="n">x</span><span class="si">:</span><span class="s2">9.3f</span><span class="si">}</span><span class="s2">, y=</span><span class="si">{</span><span class="n">y</span><span class="si">:</span><span class="s2">11.3f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x=765975.641, y=3805993.134
+</pre></div>
+</div>
+</div>
+</div>
+<p>This is the same location but only expressed in east and north coordinates in meters using the UTM coordinate reference system. The datum used is WGS84. We can convert the UTM coordinates back to latitute and longitude by adding two lines of code:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Apply the inverse of the projection matrix</span>
+<span class="c1"># to the point in UTM</span>
+<span class="n">lon</span><span class="p">,</span><span class="n">lat</span> <span class="o">=</span> <span class="n">p</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">inverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;lon=</span><span class="si">{</span><span class="n">lon</span><span class="si">:</span><span class="s2">8.8f</span><span class="si">}</span><span class="s2">, lat=</span><span class="si">{</span><span class="n">lat</span><span class="si">:</span><span class="s2">5.8f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>lon=-120.10800000, lat=34.36116666
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can confirm that the inverse conversion arrives at the original pair. Let’s now try converting several points of different latitude and longitude using a collection of objects in Python, or tuples. Add the following code:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># three points in lat-long</span>
+<span class="n">lons</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mf">119.72</span><span class="p">,</span><span class="o">-</span><span class="mf">118.40</span><span class="p">,</span><span class="o">-</span><span class="mf">122.38</span><span class="p">)</span>
+<span class="n">lats</span> <span class="o">=</span> <span class="p">(</span><span class="mf">36.77</span><span class="p">,</span> <span class="mf">33.93</span><span class="p">,</span> <span class="mf">37.62</span> <span class="p">)</span>
+<span class="c1"># Apply the projection to the points</span>
+<span class="n">x1</span><span class="p">,</span><span class="n">y1</span> <span class="o">=</span> <span class="n">p</span><span class="p">(</span><span class="n">lons</span><span class="p">,</span> <span class="n">lats</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span><span class="n">y1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(792763.8631257229, 925321.5373562573, 554714.3009414743) (4074377.6167697194, 3763936.9410883673, 4163835.3033114495)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, let’s do a more advanced exercise: In the cartographic community, an easy way to communicate the coordinate reference system is to use the EPSG Geodetic Parameter Data set. Every coordinate reference system is given a code. This ensures that if someone uses UTM zone 10 North with datum WGS-84 and tells you UTM zone 10, that you do not accidentally use UTM zone 10 North with datum GRS80, for example.</p>
+<p>Earlier in this exercise, we defined the UTM zone in the <code class="docutils literal notranslate"><span class="pre">Proj</span></code> function. Here, we will refer to the EPSG code. First, we will take a coordinate pair in longitude and latitude with datum WGS84 and convert it to EPSG:32667. Before proceeding, conduct a quick internet search on what EPSG:32667 means. This is important to understand what we will do next. The first part of the code is:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># silence warnings</span>
+<span class="kn">import</span> <span class="nn">warnings</span> 
+<span class="n">warnings</span><span class="o">.</span><span class="n">simplefilter</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
+
+
+<span class="c1"># initial coordinate conversion</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">Proj</span><span class="p">(</span><span class="n">init</span><span class="o">=</span><span class="s2">&quot;EPSG:32667&quot;</span><span class="p">,</span> <span class="n">preserve_units</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> 
+         <span class="n">always_xy</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="c1"># Apply the conversion to the lat-long point</span>
+<span class="n">x</span><span class="p">,</span><span class="n">y</span> <span class="o">=</span> <span class="n">p</span><span class="p">(</span><span class="o">-</span><span class="mf">114.057222</span><span class="p">,</span> <span class="mf">51.045</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;x=</span><span class="si">{</span><span class="n">x</span><span class="si">:</span><span class="s2">9.3f</span><span class="si">}</span><span class="s2">, y=</span><span class="si">{</span><span class="n">y</span><span class="si">:</span><span class="s2">11.3f</span><span class="si">}</span><span class="s2"> (feet)&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x=-5851386.754, y=20320914.191 (feet)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s dissect this as the pyproj code looks quite a bit different. The first part of the function <code class="docutils literal notranslate"><span class="pre">Proj</span></code> calls EPSG:32667. If you looked up EPSG:32667 online, you found that it is for UTM zone 17 North, but the units are in feet. The default mode for <code class="docutils literal notranslate"><span class="pre">Proj</span></code> is <code class="docutils literal notranslate"><span class="pre">preserve_units=False</span></code>, which forces any unit to meters. However, we want to see the units in US Survey Feet as the projection defines; therefore, we change the argument to <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
+<p>Now, suppose we want to see the output in meters. How will you amend the code? Here is what you should add:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Print the coordinate pair in meters</span>
+<span class="n">p1</span> <span class="o">=</span> <span class="n">Proj</span><span class="p">(</span><span class="n">init</span><span class="o">=</span><span class="s2">&quot;EPSG:32667&quot;</span><span class="p">,</span> <span class="n">preserve_units</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">x1</span><span class="p">,</span><span class="n">y1</span> <span class="o">=</span> <span class="n">p1</span><span class="p">(</span><span class="o">-</span><span class="mf">114.057222</span><span class="p">,</span> <span class="mf">51.045</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;x=</span><span class="si">{</span><span class="n">x1</span><span class="si">:</span><span class="s2">9.3f</span><span class="si">}</span><span class="s2">, y=</span><span class="si">{</span><span class="n">y1</span><span class="si">:</span><span class="s2">11.3f</span><span class="si">}</span><span class="s2"> (meters)&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x=-1783506.250, y=6193827.033 (meters)
+</pre></div>
+</div>
+</div>
+</div>
+<p>As discussed, you should change <code class="docutils literal notranslate"><span class="pre">preserve_units=False</span></code> and change the unit to be printed from <code class="docutils literal notranslate"><span class="pre">feet</span></code> to <code class="docutils literal notranslate"><span class="pre">meters</span></code>. Congratulations! You now have a good understanding of coordinate conversions.</p>
+</section>
+<section id="example-5-coordinate-transformation">
+<span id="ch02-5-2"></span><h3><span class="section-number">2.5.2. </span>Example 5: Coordinate transformation<a class="headerlink" href="#example-5-coordinate-transformation" title="Permalink to this headline">#</a></h3>
+<p>We learned earlier that we have a coordinate conversion where a coordinate pair is converted between coordinate reference systems with the same datum. In many instances, the coordinate reference system will also undergo a datum shift – this is a coordinate transformation.</p>
+<p>This example is included in the notebook <a class="reference external" href="https://github.com/nfcd/compGeo/blob/master/source/notebooks/ch2-4.ipynb">ch2-4</a>. We will use the pyproj <code class="docutils literal notranslate"><span class="pre">CRS</span></code> and <code class="docutils literal notranslate"><span class="pre">transform</span></code> functions. The <code class="docutils literal notranslate"><span class="pre">CRS</span></code> function defines the coordinate reference system while the <code class="docutils literal notranslate"><span class="pre">transform</span></code> function specifies which coordinate reference system is the original and which is the output. <code class="docutils literal notranslate"><span class="pre">CRS</span></code> has the same ability to refer directly to an EPSG code.</p>
+<p>The input coordinates are in EPSG:4326, which is a commonly used code. It is the geographic coordinate system with datum WGS84. The output coordinates are EPSG:31984, which is for UTM zone 24 S with datum SIRGAS2000.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import transform and CRS functions</span>
+<span class="kn">from</span> <span class="nn">pyproj</span> <span class="kn">import</span> <span class="n">transform</span>
+<span class="kn">from</span> <span class="nn">pyproj</span> <span class="kn">import</span> <span class="n">CRS</span>
+
+<span class="c1"># Function transform is deprecated</span>
+<span class="c1"># Silence warnings</span>
+<span class="kn">import</span> <span class="nn">warnings</span> 
+<span class="n">warnings</span><span class="o">.</span><span class="n">simplefilter</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
+
+
+<span class="c1"># input coordinates</span>
+<span class="n">c1</span> <span class="o">=</span> <span class="n">CRS</span><span class="p">(</span><span class="s2">&quot;EPSG:4326&quot;</span><span class="p">)</span>
+<span class="c1"># coordinate pair</span>
+<span class="n">y1</span><span class="o">=-</span><span class="mf">10.754283</span>
+<span class="n">x1</span><span class="o">=-</span><span class="mf">39.866132</span>
+<span class="c1"># output coordinates</span>
+<span class="n">c2</span> <span class="o">=</span> <span class="n">CRS</span><span class="p">(</span><span class="s2">&quot;EPSG:31984&quot;</span><span class="p">)</span>
+<span class="c1"># Coordinate transformation</span>
+<span class="n">x2</span><span class="p">,</span> <span class="n">y2</span> <span class="o">=</span> <span class="n">transform</span><span class="p">(</span><span class="n">c1</span><span class="p">,</span> <span class="n">c2</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;x=</span><span class="si">{</span><span class="n">x2</span><span class="si">:</span><span class="s2">9.3f</span><span class="si">}</span><span class="s2">, y=</span><span class="si">{</span><span class="n">y2</span><span class="si">:</span><span class="s2">11.3f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x=2930179.850, y=5185231.716
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="example-6-transforming-several-points-at-once">
+<span id="ch02-5-3"></span><h3><span class="section-number">2.5.3. </span>Example 6: Transforming several points at once<a class="headerlink" href="#example-6-transforming-several-points-at-once" title="Permalink to this headline">#</a></h3>
+<p>We have focused our examples on one coordinate pair at a time. The reality is that you will more often have several coordinates to transform at one time. The notebook <a class="reference external" href="https://github.com/nfcd/compGeo/blob/master/source/notebooks/ch2-5.ipynb">ch2-5</a> explains how to do this.</p>
+<p>We have a csv file with two columns: longitude and latitude. Each coordinate pair is the center of a volcano around the world. There are 1,509 volcanoes in our dataset. The original coordinate reference system is geographic coordinates with datum WGS84. We want to make a coordinate transformation of these data points to World Mercator. It will take much too long to manually transform these coordinates as we have done in the notebooks before. Therefore, our new code will read the csv file and create a new csv file.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Notice that the code can be further simplified by the use of the Numpy library or the Pandas library.</p>
+</div>
+<p>Check that the input (<code class="docutils literal notranslate"><span class="pre">src_dir</span></code>) and output (<code class="docutils literal notranslate"><span class="pre">dst_dir</span></code>) directories match the directory where the csv file is. In this example, the volcanoes file (<a class="reference external" href="https://github.com/nfcd/compGeo/blob/master/source/data/ch2-5/volc_longlat.csv">volc_longlat.csv</a>) is in the directory <code class="docutils literal notranslate"><span class="pre">data/ch2-5</span></code>. Run the code, you will know the process is finished when the message <code class="docutils literal notranslate"><span class="pre">process</span> <span class="pre">completed</span></code> and the time of execution are returned:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Thanks to Rustam Zaitov for implementing </span>
+<span class="c1"># this new version of the code</span>
+
+<span class="c1"># Import libraries</span>
+<span class="kn">import</span> <span class="nn">csv</span><span class="o">,</span> <span class="nn">time</span>
+<span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">path</span>
+<span class="kn">from</span> <span class="nn">pyproj</span> <span class="kn">import</span> <span class="n">Transformer</span><span class="p">,</span> <span class="n">CRS</span>
+
+
+<span class="n">src_file</span> <span class="o">=</span> <span class="s2">&quot;volc_longlat.csv&quot;</span> <span class="c1"># input file</span>
+<span class="n">dst_file</span> <span class="o">=</span> <span class="s2">&quot;volc_projected.csv&quot;</span> <span class="c1"># output file</span>
+
+<span class="n">src_dir</span> <span class="o">=</span> <span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="s2">&quot;data/ch2-5/&quot;</span><span class="p">)</span> <span class="c1"># input directory</span>
+<span class="n">dst_dir</span> <span class="o">=</span> <span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="s2">&quot;data/ch2-5/&quot;</span><span class="p">)</span> <span class="c1"># output directory</span>
+
+<span class="n">src_path</span> <span class="o">=</span> <span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">src_dir</span><span class="p">,</span> <span class="n">src_file</span><span class="p">)</span>
+<span class="n">dst_path</span> <span class="o">=</span> <span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">dst_dir</span><span class="p">,</span> <span class="n">dst_file</span><span class="p">)</span>
+
+<span class="n">src_crs</span> <span class="o">=</span> <span class="n">CRS</span><span class="p">(</span><span class="s2">&quot;EPSG:4326&quot;</span><span class="p">)</span> <span class="c1">#WGS84</span>
+<span class="n">dst_crs</span> <span class="o">=</span> <span class="n">CRS</span><span class="p">(</span><span class="s2">&quot;EPSG:3395&quot;</span><span class="p">)</span> <span class="c1">#World Mercator</span>
+
+<span class="c1"># create coordinate transformer</span>
+<span class="c1"># always_xy=True makes projector.transform() accept </span>
+<span class="c1"># lon, lat (GIS order) instead of lat, lon</span>
+<span class="n">projector</span> <span class="o">=</span> <span class="n">Transformer</span><span class="o">.</span><span class="n">from_crs</span><span class="p">(</span><span class="n">src_crs</span><span class="p">,</span> <span class="n">dst_crs</span><span class="p">,</span> 
+                                 <span class="n">always_xy</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># source csv file has lon, lat columns</span>
+<span class="n">src_header</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;LONGITUDE&quot;</span><span class="p">,</span> <span class="s2">&quot;LATITUDE&quot;</span><span class="p">]</span>
+
+<span class="c1"># destinatin csv file will have x, y columns</span>
+<span class="n">dst_header</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">]</span>
+
+<span class="c1"># start benchmark timer</span>
+<span class="n">start_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+
+<span class="c1"># open destination file in write mode</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">dst_path</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">w</span><span class="p">:</span>
+    <span class="c1"># open source file in read mode</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">src_path</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">r</span><span class="p">:</span>
+        <span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">dialect</span><span class="o">=</span><span class="s2">&quot;excel&quot;</span><span class="p">)</span>
+        <span class="c1"># read and skip first header row </span>
+        <span class="n">input_headers</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">reader</span><span class="p">)</span>         
+
+        <span class="n">writer</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">writer</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s2">&quot;,&quot;</span><span class="p">,</span> <span class="n">quotechar</span><span class="o">=</span><span class="s1">&#39;&quot;&#39;</span><span class="p">,</span>
+                            <span class="n">quoting</span><span class="o">=</span><span class="n">csv</span><span class="o">.</span><span class="n">QUOTE_MINIMAL</span><span class="p">)</span>
+        <span class="c1"># Write the output header</span>
+        <span class="n">writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">(</span><span class="n">dst_header</span><span class="p">)</span>   
+        <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">reader</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="c1"># convert string values inside row </span>
+                <span class="c1"># into float values</span>
+                <span class="n">lon</span><span class="p">,</span> <span class="n">lat</span> <span class="o">=</span> <span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="n">val</span><span class="p">)</span> <span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">row</span><span class="p">]</span>
+                <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">projector</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">lon</span><span class="p">,</span> <span class="n">lat</span><span class="p">)</span>
+                <span class="n">writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">([</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="p">])</span>
+            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="c1"># If coordinates are out of bounds, </span>
+                <span class="c1"># skip row and print the error</span>
+                <span class="nb">print</span> <span class="p">(</span><span class="n">e</span><span class="p">)</span>
+
+<span class="c1"># stop benchmarking</span>
+<span class="n">end_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;process completed in </span><span class="si">{}</span><span class="s2"> seconds&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">end_time</span><span class="o">-</span><span class="n">start_time</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>process completed in 0.02579212188720703 seconds
+</pre></div>
+</div>
+</div>
+</div>
+<p>It takes less than one second to run this code! Check the newly created csv file and notice that you now have a listing of coordinates in meters. The EPSG definition of the output coordinate reference system is listed under <code class="docutils literal notranslate"><span class="pre">dst_crs</span></code>. You can easily change this variable to another EPSG and rerun the script. If you wish to run the script on another file, change the <code class="docutils literal notranslate"><span class="pre">src_file</span></code> and <code class="docutils literal notranslate"><span class="pre">dst_file</span></code>, and the <code class="docutils literal notranslate"><span class="pre">src_dir</span></code> and <code class="docutils literal notranslate"><span class="pre">dst_dir</span></code> if the file is in another directory.</p>
+</section>
+</section>
+<section id="exercises">
+<span id="ch02-6"></span><h2><span class="section-number">2.6. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">#</a></h2>
+<ol>
+<li><p>So far, you have worked with data sets that have been provided to you. It is an important skill to be able to find data sets online and to prepare them for use in your work.</p>
+<p>The United States Geological Survey (USGS) Earthquake Hazards Program monitors, records, and maintains a global database of earthquake activity. The public can query the archive and download earthquake epicenter data. Go to the <a class="reference external" href="https://earthquake.usgs.gov/earthquakes/search/">Search Earthquake Catalog</a> page of the USGS. Using the Basic Options, download all of the magnitude 4.5+ earthquakes in the last year in the world. In the Output Options, choose a CSV format.</p>
+<ol class="simple">
+<li><p>Modify the notebook <a class="reference external" href="https://github.com/nfcd/compGeo/blob/master/source/notebooks/ch2-5.ipynb">ch2-5</a> to transform the earthquake epicenters from latitude-longitude to World Mercator (or another map projection of your choice). Use this <a class="reference external" href="https://pubs.usgs.gov/gip/70047422/report.pdf">pictographic</a> for further information. The datum of the earthquake epicenters is likely WGS84.</p></li>
+<li><p>Plot the earthquake epicenters. Make sure to include the outline of the continents.</p></li>
+</ol>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>Look at the notebook <a class="reference external" href="https://github.com/nfcd/compGeo/blob/master/source/notebooks/ch2-2.ipynb">ch2-2</a> for a starting point, and check the <a class="reference external" href="https://scitools.org.uk/cartopy/docs/latest/">Cartopy</a> website for examples of how to plot localities on a map.</p>
+</div>
+<ol class="simple">
+<li><p>Now modify your plot to color the earthquakes by depth (red are shallow and blue are deep earthquakes), and the size of the points by the earthquake magnitude.</p></li>
+<li><p>Add the volcanoes from Example 6 (<a class="reference external" href="https://github.com/nfcd/compGeo/blob/master/source/data/ch2-5/volc_longlat.csv">volc_longlat.csv</a>) to the map (use triangles to indicate volcanoes). Do you see any correlation between the earthquake epicenters and the volcanoes?</p></li>
+</ol>
+</li>
+</ol>
+</section>
+<section id="references">
+<span id="ch02-7"></span><h2><span class="section-number">2.7. </span>References<a class="headerlink" href="#references" title="Permalink to this headline">#</a></h2>
+<p>C.I.U. AND WAR OFFICE. 1944. Town Plan of Roma (Rome) (North Sheet),
+1:10,000. Washington, D. C.: War Office.</p>
+<p>Cartopy. 2018a. Projections
+[<a class="reference external" href="https://scitools.org.uk/cartopy/docs/latest/crs/projections.html">Online</a>].
+UK: SciTools. [Accessed 19 November, 2019]</p>
+<p>Cartopy. 2018b. Tissot’s Indicatrix
+[<a class="reference external" href="https://scitools.org.uk/cartopy/docs/latest/gallery/tissot.html">Online</a>].
+UK: SciTools. [Accessed 19 November, 2019].</p>
+<p>Cartopy. 2018c. Understanding the Transform and Projection Keywords
+[<a class="reference external" href="https://scitools.org.uk/cartopy/docs/latest/tutorials/understanding_transform.html">Online</a>].
+UK: SciTools. [Accessed 19 November, 2019].</p>
+<p>Geographic Section - General Staff. 1941. Aberdeen, 1:1,000,000. Great
+Britain: War Office.</p>
+<p>Iliffe, J. and Lott, R. 2008. Datums and Map Projections: For Remote
+Sensing, GIS, and Surveying, Dunbeath, Scotland, Whittles.</p>
+<p>International Association of Oil and Gas Producers. 2018. Geomatics
+Guidance Note 7, Part 2 Coordinate conversions and Transformations
+including Formulas.</p>
+<p>Kraak, M.J. and Ormeling, F.J. 2003. Cartography: visualization of
+geospatial data. Addison Wesley.</p>
+<p>Lexico. 2019. Geodesy
+[<a class="reference external" href="https://www.lexico.com/en/definition/geodesy">Online</a>]. Oxford.
+[Accessed August, 2019].</p>
+<p>Lisle, R. J., Brabham, P. and Barnes, J. W. 2011. Basic Geological
+Mapping, Chicester, UK, Wiley-Blackwell.</p>
+<p>Robinson, A. H., Morrison, J. L., Muehrcke, P. C., Kimerling, A. J. and
+Guptill, S. C. 1995. Elements of Cartography, New York, Wiley.</p>
+<p>Snyder, J. P. 1987. Map Projections: a working manual. Geological Survey
+Professional Paper. Washington, D. C., U.S.A.: United States Government
+Printing Office.</p>
+<p>Watson, L. 2017. Spatial-based assessment at continental to global
+scale: case studies in petroleum exploration and ecosystem services.
+PhD, Utrecht University.</p>
+<p>Whitaker, J. 2019. pyproj Transformer Documentation
+[<a class="reference external" href="https://pyproj4.github.io/pyproj/stable/api/transformer.html?highlight=transformer">Online</a>].
+[Accessed 7 January, 2020].</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="ch01_computation_geosciences.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">1. </span>Computation in Geosciences</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="ch03_geological_features.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">3. </span>Geological features</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Nestor Cardozo & Alex F. Antunes<br/>
+  
+      &copy; Copyright 2023.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

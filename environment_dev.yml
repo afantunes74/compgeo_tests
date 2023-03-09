@@ -1,0 +1,24 @@
+name: compgeo
+channels:
+  - conda-forge
+  - anaconda
+  - defaults
+dependencies:
+  - python
+  - pip
+  - cartopy
+  - html2text
+  - ipywidgets
+  - jupyter-book
+  - jupyterlab
+  - matplotlib
+  - nodejs
+  - numpy
+  - pyproj
+  - scipy
+  - seaborn
+  - spyder-notebook
+  - tqdm
+  - pip:
+    - nbmanips
+    - uncertainties

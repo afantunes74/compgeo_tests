@@ -1,0 +1,872 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Faults as elastic dislocations &#8212; Computational Geosciences</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Wave propagation" href="ch09_nb04.html" />
+    <link rel="prev" title="Lithospheric flexure" href="ch09_nb02.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Computational Geosciences</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Welcome to Computational Geosciences book
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  GET STARTED
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../preface.html">
+   Preface
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../access.html">
+   Accessing the resource material
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../changelog.html">
+   Changelog
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../todo.html">
+   TODOs
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  CONTENTS
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../ch01_computation_geosciences.html">
+   1. Computation in Geosciences
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../ch02_understanding_location.html">
+   2. Understanding location
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../ch03_geological_features.html">
+   3. Geological features
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../ch04_coordinate_systems_vectors.html">
+   4. Coordinate systems and vectors
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../ch05_transformations.html">
+   5. Transformations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../ch06_tensors.html">
+   6. Tensors
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../ch07_stress.html">
+   7. Stress
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../ch08_strain.html">
+   8. Strain
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../ch09_elasticity.html">
+   9. Elasticity
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  THE COMPANION NOTEBOOKS
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch01/ch01_nb01.html">
+   Introduction to Python and Jupyter Notebooks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch02/ch02_nb01.html">
+   Tissot’s Indicatrix
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch02/ch02_nb02.html">
+   Defining the coordinate reference system
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch02/ch02_nb03.html">
+   Coordinate conversion
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch02/ch02_nb04.html">
+   Coordinate transformation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch02/ch02_nb05.html">
+   Transform locations from lat-long to World Mercator
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch03/ch03_nb01.html">
+   Plotting lines and poles in a stereonet
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch03/ch03_nb02.html">
+   Maximum strike error vs. dip graph
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch03/ch03_nb03.html">
+   Maximum trend error vs. dip graph [1]
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch03/ch03_nb04.html">
+   Maximum trend error vs. dip graph [2]
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch04/ch04_nb01.html">
+   Vector components, magnitude, and unit vectors
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch04/ch04_nb02.html">
+   Vector operations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch04/ch04_nb03.html">
+   Mean vector
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch04/ch04_nb04.html">
+   Angles, intersections, and poles
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch04/ch04_nb05.html">
+   Three points problem
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch04/ch04_nb06.html">
+   Uncertainties
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch05/ch05_nb01.html">
+   Stratigraphic thickness
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch05/ch05_nb02.html">
+   Stratigraphic thickness and uncertainties
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch05/ch05_nb03.html">
+   Outcrop trace of a plane
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch05/ch05_nb04.html">
+   Down-plunge projection
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch05/ch05_nb05.html">
+   Rotations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch05/ch05_nb06.html">
+   Plotting great and small circles using rotations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch06/ch06_nb01.html">
+   Best-fit fold axis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch06/ch06_nb02.html">
+   Best-fit plane
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch07/ch07_nb01.html">
+   Principal axes of stress
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch07/ch07_nb02.html">
+   Normal and shear tractions on a plane
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch07/ch07_nb03.html">
+   The Mohr circle for stress in 3D
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch08/ch08_nb01.html">
+   P and T axes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch08/ch08_nb02.html">
+   2D strain from GPS data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch08/ch08_nb03.html">
+   2D finite strain from displacement data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch08/ch08_nb04.html">
+   Pure shear
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch08/ch08_nb05.html">
+   Simple shear
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch08/ch08_nb06.html">
+   General shear
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ch09_nb01.html">
+   Stresses around a circular hole
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ch09_nb02.html">
+   Lithospheric flexure
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Faults as elastic dislocations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ch09_nb04.html">
+   Wave propagation
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=lab/tree/docs/notebooks/ch09/ch09_nb03.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fnotebooks/ch09/ch09_nb03.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/notebooks/ch09/ch09_nb03.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-1-surface-deformation">
+   Example 1: Surface Deformation.
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-2-displacement-vectors">
+   Example 2: Displacement Vectors
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-3-fold-growth">
+   Example 3: Fold Growth
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Faults as elastic dislocations</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-1-surface-deformation">
+   Example 1: Surface Deformation.
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-2-displacement-vectors">
+   Example 2: Displacement Vectors
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-3-fold-growth">
+   Example 3: Fold Growth
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="faults-as-elastic-dislocations">
+<span id="ch09-nb03"></span><h1>Faults as elastic dislocations<a class="headerlink" href="#faults-as-elastic-dislocations" title="Permalink to this headline">#</a></h1>
+<p>This code runs three examples using the <code class="docutils literal notranslate"><span class="pre">disloc2d</span></code> function:</p>
+<ol class="simple">
+<li><p>Surface deformation due to slip on a fault at depth.</p></li>
+<li><p>Plot of displacement vectors due to slip on a fault.</p></li>
+<li><p>Fold formed by repeated slip on a fault.</p></li>
+</ol>
+<p>First, let’s import the required libraries and function:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import libraries</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+
+<span class="c1"># Import function disloc2d</span>
+<span class="kn">import</span> <span class="nn">sys</span><span class="o">,</span> <span class="nn">os</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="s2">&quot;../../&quot;</span><span class="p">))</span>
+
+<span class="kn">from</span> <span class="nn">compgeo.disloc2d</span> <span class="kn">import</span> <span class="n">disloc2d</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We will use the same fault geometry, which we define here, for all three examples.
+(xt,yt) and (xb,yb) are the fault tip and base coordinates, respectively. slip is slip on the fault.
+The units of length are meters, and down is negative in the y coordinate.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Define the fault:</span>
+<span class="n">dip</span> <span class="o">=</span> <span class="mf">30.0</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mf">180.0</span> <span class="c1">#Fault dip in radians</span>
+<span class="n">xt</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span class="n">yt</span> <span class="o">=</span> <span class="o">-</span><span class="mf">500.0</span>
+<span class="n">yb</span> <span class="o">=</span> <span class="o">-</span><span class="mf">1500.0</span>
+<span class="n">xb</span> <span class="o">=</span> <span class="n">xt</span><span class="o">-</span><span class="p">(</span><span class="n">yt</span><span class="o">-</span><span class="n">yb</span><span class="p">)</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">tan</span><span class="p">(</span><span class="n">dip</span><span class="p">)</span>
+<span class="n">tip</span> <span class="o">=</span> <span class="p">(</span><span class="n">xt</span><span class="p">,</span><span class="n">yt</span><span class="p">)</span>
+<span class="n">base</span> <span class="o">=</span> <span class="p">(</span><span class="n">xb</span><span class="p">,</span><span class="n">yb</span><span class="p">)</span>
+<span class="n">nu</span> <span class="o">=</span> <span class="mf">0.25</span> <span class="c1">#Poisson&#39;s ratio</span>
+<span class="n">slip</span> <span class="o">=</span> <span class="mf">2.0</span> <span class="c1">#Positive for reverse, negative for normal</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="example-1-surface-deformation">
+<h2>Example 1: Surface Deformation.<a class="headerlink" href="#example-1-surface-deformation" title="Permalink to this headline">#</a></h2>
+<p>This example models deformation at the surface of the Earth due to slip on a
+fault, such as might be observed after an earthquake.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Define the observation points at the surface</span>
+<span class="n">obsx1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mf">3000.0</span><span class="p">,</span><span class="mf">3100.0</span><span class="p">,</span><span class="mf">10.0</span><span class="p">,</span><span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+<span class="n">obsy1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">obsx1</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+
+<span class="c1">#Apply slip and deform the surface</span>
+<span class="n">ux</span><span class="p">,</span><span class="n">uy</span> <span class="o">=</span> <span class="n">disloc2d</span><span class="p">(</span><span class="n">tip</span><span class="p">,</span><span class="n">base</span><span class="p">,</span><span class="n">slip</span><span class="p">,</span><span class="n">nu</span><span class="p">,</span><span class="n">obsx1</span><span class="p">,</span><span class="n">obsy1</span><span class="p">)</span>
+<span class="n">obsx1</span> <span class="o">=</span> <span class="n">obsx1</span><span class="o">+</span><span class="n">ux</span>
+<span class="n">obsy1</span> <span class="o">=</span> <span class="n">obsy1</span><span class="o">+</span><span class="n">uy</span>
+
+<span class="c1">#Plot the result</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">obsx1</span><span class="p">,</span><span class="n">obsy1</span><span class="p">,</span><span class="s2">&quot;k-&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Distance (m)&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Uplift (m)&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Surface Deformation&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/ch09_nb03_6_0.png" src="../../_images/ch09_nb03_6_0.png" />
+</div>
+</div>
+</section>
+<section id="example-2-displacement-vectors">
+<h2>Example 2: Displacement Vectors<a class="headerlink" href="#example-2-displacement-vectors" title="Permalink to this headline">#</a></h2>
+<p>This example shows the displacements that occur at depth within the half-space
+due to slip on the fault.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Define observation points in a region around the fault.</span>
+<span class="n">obsx2</span><span class="p">,</span> <span class="n">obsy2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mf">2500.0</span><span class="p">,</span><span class="mf">1100.0</span><span class="p">,</span><span class="mf">100.0</span><span class="p">,</span>
+    <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">),</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mf">2500.0</span><span class="p">,</span><span class="mf">100.0</span><span class="p">,</span><span class="mf">100.0</span><span class="p">,</span><span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">))</span>
+
+<span class="c1">#Ignore divide by zero error for point right at fault tip.</span>
+<span class="n">np</span><span class="o">.</span><span class="n">seterr</span><span class="p">(</span><span class="n">divide</span><span class="o">=</span><span class="s1">&#39;ignore&#39;</span><span class="p">,</span> <span class="n">invalid</span><span class="o">=</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span> 
+<span class="c1">#Apply slip and calculate displacement vectors.</span>
+<span class="n">ux</span><span class="p">,</span><span class="n">uy</span> <span class="o">=</span> <span class="n">disloc2d</span><span class="p">(</span><span class="n">tip</span><span class="p">,</span><span class="n">base</span><span class="p">,</span><span class="n">slip</span><span class="p">,</span><span class="n">nu</span><span class="p">,</span><span class="n">obsx2</span><span class="p">,</span><span class="n">obsy2</span><span class="p">)</span>
+
+<span class="c1">#Plot the result.</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">xt</span><span class="p">,</span><span class="n">xb</span><span class="p">],[</span><span class="n">yt</span><span class="p">,</span><span class="n">yb</span><span class="p">],</span><span class="s1">&#39;r-&#39;</span><span class="p">)</span> <span class="c1">#Plot the fault</span>
+<span class="n">q</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">quiver</span><span class="p">(</span><span class="n">obsx2</span><span class="p">,</span> <span class="n">obsy2</span><span class="p">,</span> <span class="n">ux</span><span class="p">,</span> <span class="n">uy</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">quiverkey</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="n">X</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span> <span class="n">Y</span><span class="o">=</span><span class="mf">1.05</span><span class="p">,</span> <span class="n">U</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> 
+             <span class="n">label</span><span class="o">=</span><span class="s1">&#39;1 m displacement&#39;</span><span class="p">,</span> <span class="n">labelpos</span><span class="o">=</span><span class="s1">&#39;E&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Distance (m)&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Elevation (m)&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Displacement Vectors&#39;</span><span class="p">,</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/ch09_nb03_8_0.png" src="../../_images/ch09_nb03_8_0.png" />
+</div>
+</div>
+</section>
+<section id="example-3-fold-growth">
+<h2>Example 3: Fold Growth<a class="headerlink" href="#example-3-fold-growth" title="Permalink to this headline">#</a></h2>
+<p>This example shows how repeated slip on the fault can cause growth
+of a fold above the fault tip.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Define the observation points as horizontal beds</span>
+<span class="n">obsx3</span><span class="p">,</span> <span class="n">obsy3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mf">2500.0</span><span class="p">,</span><span class="mf">1100.0</span><span class="p">,</span>
+    <span class="mf">100.0</span><span class="p">,</span><span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">),[</span><span class="o">-</span><span class="mf">400.0</span><span class="p">,</span><span class="o">-</span><span class="mf">300.0</span><span class="p">,</span><span class="o">-</span><span class="mf">200.0</span><span class="p">])</span>
+
+<span class="c1">#Plot the initial state:</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">hspace</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">xt</span><span class="p">,</span><span class="n">xb</span><span class="p">],[</span><span class="n">yt</span><span class="p">,</span><span class="n">yb</span><span class="p">],</span><span class="s1">&#39;r-&#39;</span><span class="p">)</span> <span class="c1">#Plot the fault</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">obsx3</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+    <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">obsx3</span><span class="p">[</span><span class="n">i</span><span class="p">,:],</span><span class="n">obsy3</span><span class="p">[</span><span class="n">i</span><span class="p">,:],</span><span class="s1">&#39;k-&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Elevation (m)&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Initial State&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+
+<span class="c1">#Apply repeated slip increments and displace </span>
+<span class="c1">#the observation points.</span>
+<span class="n">n_inc</span> <span class="o">=</span> <span class="mi">200</span> <span class="c1">#Total number of increments.</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_inc</span><span class="p">):</span>
+    <span class="n">ux</span><span class="p">,</span><span class="n">uy</span> <span class="o">=</span> <span class="n">disloc2d</span><span class="p">(</span><span class="n">tip</span><span class="p">,</span><span class="n">base</span><span class="p">,</span><span class="n">slip</span><span class="p">,</span><span class="n">nu</span><span class="p">,</span><span class="n">obsx3</span><span class="p">,</span><span class="n">obsy3</span><span class="p">)</span>
+    <span class="n">obsx3</span> <span class="o">=</span> <span class="n">obsx3</span><span class="o">+</span><span class="n">ux</span>
+    <span class="n">obsy3</span> <span class="o">=</span> <span class="n">obsy3</span><span class="o">+</span><span class="n">uy</span>
+    
+<span class="c1">#Plot the final state:</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">xt</span><span class="p">,</span><span class="n">xb</span><span class="p">],[</span><span class="n">yt</span><span class="p">,</span><span class="n">yb</span><span class="p">],</span><span class="s1">&#39;r-&#39;</span><span class="p">)</span> <span class="c1">#Plot the fault</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">obsx3</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+    <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">obsx3</span><span class="p">[</span><span class="n">i</span><span class="p">,:],</span><span class="n">obsy3</span><span class="p">[</span><span class="n">i</span><span class="p">,:],</span><span class="s1">&#39;k-&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Distance (m)&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Elevation (m)&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Final State&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/ch09_nb03_10_0.png" src="../../_images/ch09_nb03_10_0.png" />
+</div>
+</div>
+<p>Try a normal fault dipping 60 degrees.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./notebooks/ch09"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="ch09_nb02.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Lithospheric flexure</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="ch09_nb04.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Wave propagation</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Nestor Cardozo & Alex F. Antunes<br/>
+  
+      &copy; Copyright 2023.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

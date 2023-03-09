@@ -1,0 +1,1174 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>1. Computation in Geosciences &#8212; Computational Geosciences</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="2. Understanding location" href="ch02_understanding_location.html" />
+    <link rel="prev" title="TODOs" href="todo.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Computational Geosciences</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to the Computational Geosciences resource
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  GET STARTED
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="preface.html">
+   Preface
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="changelog.html">
+   Changelog
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="todo.html">
+   TODOs
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  CONTENTS
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   1. Computation in Geosciences
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ch02_understanding_location.html">
+   2. Understanding location
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ch03_geological_features.html">
+   3. Geological features
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ch04_coordinate_systems_vectors.html">
+   4. Coordinate systems and vectors
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ch05_transformations.html">
+   5. Transformations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ch06_tensors.html">
+   6. Tensors
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ch07_stress.html">
+   7. Stress
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ch08_strain.html">
+   8. Strain
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ch09_elasticity.html">
+   9. Elasticity
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  THE COMPANION NOTEBOOKS
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="notebooks/ch01/ch01_nb01.html">
+   Introduction to Python and Jupyter Notebooks
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=lab/tree/docs/ch01_computation_geosciences.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fch01_computation_geosciences.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/ch01_computation_geosciences.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#solving-problems-by-computation">
+   1.1. Solving problems by computation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#why-python">
+   1.2. Why Python?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#installing-python">
+   1.3. Installing Python
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#a-first-introduction-to-python">
+   1.4. A first introduction to Python
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#basics">
+     1.4.1. Basics
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#conditionals">
+     1.4.2. Conditionals
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#loops">
+     1.4.3. Loops
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#functions-and-modules">
+     1.4.4. Functions and modules
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mathematics">
+     1.4.5. Mathematics
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#plotting">
+     1.4.6. Plotting
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercises">
+   1.5. Exercises
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#references">
+   1.6. References
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Computation in Geosciences</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#solving-problems-by-computation">
+   1.1. Solving problems by computation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#why-python">
+   1.2. Why Python?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#installing-python">
+   1.3. Installing Python
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#a-first-introduction-to-python">
+   1.4. A first introduction to Python
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#basics">
+     1.4.1. Basics
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#conditionals">
+     1.4.2. Conditionals
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#loops">
+     1.4.3. Loops
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#functions-and-modules">
+     1.4.4. Functions and modules
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mathematics">
+     1.4.5. Mathematics
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#plotting">
+     1.4.6. Plotting
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercises">
+   1.5. Exercises
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#references">
+   1.6. References
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="computation-in-geosciences">
+<span id="ch01"></span><h1><span class="section-number">1. </span>Computation in Geosciences<a class="headerlink" href="#computation-in-geosciences" title="Permalink to this headline">#</a></h1>
+<section id="solving-problems-by-computation">
+<span id="ch01-1"></span><h2><span class="section-number">1.1. </span>Solving problems by computation<a class="headerlink" href="#solving-problems-by-computation" title="Permalink to this headline">#</a></h2>
+<p>Geology is an interpretive and historical science (Frodeman, 1995). We observe, collect, analyze, and interpret data (what) to tell a story (why). To collect data, we need to take measurements. All measurements have some uncertainty, and therefore uncertainty and error propagation are important in geosciences, and they are a recurring topic in this resource.</p>
+<p>For the last 50 years or more, the methods geoscientists have used to visualize, analyze and interpret data are mostly graphical. For example, in structural geology, students typically learn two types of graphical constructions: orthographic and spherical projections (stereonets) (Ragan, 2009). Although these methods are great to visualize and solve geometrical problems in three-dimensions, they are not amenable to computation, and therefore applying these methods to large datasets with thousands of entries is impractical. Plane and spherical trigonometry allow deriving formulas (e.g. apparent dip formula) for computation (Ragan, 2009). However, these formulas give little insight about the problems. They are just formulas associated with complex geometric constructions, which bear no relation to each other, and which are difficult to combine to solve more complicated problems.</p>
+<p>It turns out that many of the most interesting problems in geosciences can be solved using linear algebra, and vectors and tensors (Allmendinger et al., 2012). Linear algebra also happens to be the language of computation. The main purpose of this resource is to show how to solve problems in geosciences using computation. There are several advantages of following this approach. It will enhance your mathematical and computational skills, as well as promote your geological-mathematical problem solving disposition. In today’s digital age, these skills are very useful.</p>
+</section>
+<section id="why-python">
+<span id="ch01-2"></span><h2><span class="section-number">1.2. </span>Why Python?<a class="headerlink" href="#why-python" title="Permalink to this headline">#</a></h2>
+<p>The choice of programming language is important. While computer languages such as C or C++ are ideal to work with large datasets and computer-intensive operations, they involve a steep learning curve associated with their syntax, compilation, and execution (Jacobs et al., 2016). These coding details have little to do with the problem-solving approach of this resource. Interpretive languages such as Python, R or Matlab are a better choice because of their simpler syntax, and the interpretation and execution of commands as they are called (no need for compilation). In addition, these languages have access to an integrated development environment (IDE) that facilitates writing and debugging programs, and to many standard libraries that perform advanced tasks such as matrix operations and data visualization. Thus, Python, R or Matlab are “scientific packages” rather than just programming languages.</p>
+<p>In this resource, the language of choice is Python. Besides the reasons above, Python has the following advantages:</p>
+<ul class="simple">
+<li><p>Python can be learned quickly. It typically involves less code than other languages and its syntax is easier to read.</p></li>
+<li><p>Python comes with robust standard libraries for arrays and mathematical functions (NumPy), visualization (Pyplot), and scientific computing (SciPy).</p></li>
+<li><p>As of December 2022, Python is the most popular programming language followed by C, C++, and Java (<a class="reference external" href="https://tiobe.com/tiobe-index/">TIOBE index</a>), with a large base of developers and users. It is used by every major technology company and it is almost a skill you must have in your CV to land a job as a geoscientist.</p></li>
+<li><p>Because of its large developers base, Python has access to a large amount of external libraries, including several libraries for geosciences. We make use of some of these libraries in this resource.</p></li>
+<li><p>Python can be installed easily through a single distribution that includes all the standard libraries and provides access to external libraries (see next section).</p></li>
+<li><p>Last but not least, Python is free and open source. This is probably why Python is more popular than its commercial counterparts.</p></li>
+</ul>
+</section>
+<section id="installing-python">
+<span id="ch01-3"></span><h2><span class="section-number">1.3. </span>Installing Python<a class="headerlink" href="#installing-python" title="Permalink to this headline">#</a></h2>
+<p>We recommend installing Python using the free Anaconda distribution. This distribution includes Python as well as many other useful applications, including Jupyter, which is the system we use to write the notebooks in this resource. Anaconda can be easily installed on any major operating system, including Windows, macOS, or Linux.</p>
+<p>The installation process is quite straightforward. From the <a class="reference external" href="https://www.anaconda.com">Anaconda</a> page, press the <code class="docutils literal notranslate"><span class="pre">Download</span></code> button. Windows and macOS users just need to download the Graphical installer, run it, and follow the steps to install Anaconda. Linux users need to download the installer and type a set of commands in a terminal window. Further instructions can be found in the <a class="reference external" href="https://docs.anaconda.com/anaconda/install/">Anaconda installation</a> section.</p>
+</section>
+<section id="a-first-introduction-to-python">
+<span id="ch01-4"></span><h2><span class="section-number">1.4. </span>A first introduction to Python<a class="headerlink" href="#a-first-introduction-to-python" title="Permalink to this headline">#</a></h2>
+<p>In this section, we use our first Jupyter notebook to learn the basics of Python. Clone or download the resource <a class="reference external" href="https://github.com/nfcd/compGeo">git repository</a>. Open Anaconda and then launch Jupyter Notebook. This will open a browser with a list of files and folders in your home directory. Navigate to the folder <code class="docutils literal notranslate"><span class="pre">/notebooks</span></code> in the repository and open the notebook <a class="reference external" href="https://github.com/nfcd/compGeo/blob/master/source/notebooks/ch1.ipynb">ch1</a>. Alternatively, follow the notebook in the sections below. Surprisingly, few lines of code are required to introduce key topics such as conditionals, loops, functions, array mathematics, and plotting. This shows the power of Python.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Notice that in the notebook we concentrate on features relevant to this resource. There is much more to learn about Python and there are very good online and book resources to do that.</p>
+</div>
+<section id="basics">
+<span id="ch01-4-1"></span><h3><span class="section-number">1.4.1. </span>Basics<a class="headerlink" href="#basics" title="Permalink to this headline">#</a></h3>
+<p>A notebook is divided into computational units called <em>cells</em>. Cells can contain text such as this one or Python code. Below is a cell with some typical Python statements.. Try changing the variables and re-run the cell. To run a cell, either click the <code class="docutils literal notranslate"><span class="pre">Run</span></code> button, or type <code class="docutils literal notranslate"><span class="pre">Ctrl+Enter</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In this book, a gray box with a green ribbon on the left indicates a code block; while a plain gray box indicates the output of a code block.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mf">9.0</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The sum is: &quot;</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The sum is:  11.0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># this is just a comment</span>
+<span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Donald&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello, my name is &quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hello, my name is  Donald
+</pre></div>
+</div>
+</div>
+</div>
+<p>There are some other useful shortcuts you should know. To run a cell and move to the next cell, type <code class="docutils literal notranslate"><span class="pre">Shift+Enter</span></code>. To run a cell and insert a new cell below, type <code class="docutils literal notranslate"><span class="pre">Alt+Enter</span></code>. You can use the arrow keys to move quickly between cells. To run all the cells of a notebook, choose the <code class="docutils literal notranslate"><span class="pre">Cell</span> </code> <span class="math notranslate nohighlight">\(\rightarrow\)</span> <code class="docutils literal notranslate"> <span class="pre">Run</span> <span class="pre">All</span></code> menu.</p>
+</section>
+<section id="conditionals">
+<span id="ch01-4-2"></span><h3><span class="section-number">1.4.2. </span>Conditionals<a class="headerlink" href="#conditionals" title="Permalink to this headline">#</a></h3>
+<p>A conditional is used to decide between different operations depending on a conditional statement. In Python, this is expressed in the following way:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">5</span>
+
+<span class="k">if</span> <span class="n">a</span> <span class="o">&gt;</span> <span class="n">b</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;a is bigger than b&quot;</span><span class="p">)</span>
+
+<span class="k">elif</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="n">b</span><span class="p">:</span>    
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;a is smaller than b&quot;</span><span class="p">)</span>
+
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;a is equal to b&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a is smaller than b
+</pre></div>
+</div>
+</div>
+</div>
+<p>Try changing the values of <code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code> to see how the output changes. Also, note that Python cares about the indentation of the line, so there must be a tab indent or 4 spaces for each operation in the if statement. You can also use the logical operators <code class="docutils literal notranslate"><span class="pre">and</span></code>, <code class="docutils literal notranslate"><span class="pre">or</span></code>, and <code class="docutils literal notranslate"><span class="pre">not</span></code> in the conditional statement:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">age</span> <span class="o">=</span> <span class="mi">30</span>
+
+<span class="k">if</span> <span class="n">age</span> <span class="o">&gt;</span> <span class="mi">18</span> <span class="ow">and</span> <span class="n">age</span> <span class="o">&lt;</span> <span class="mi">34</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;You are a young adult&quot;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">age</span> <span class="o">&lt;</span> <span class="mi">18</span> <span class="ow">or</span> <span class="n">age</span> <span class="o">&gt;</span> <span class="mi">80</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;You are not allowed to drive a car&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>You are a young adult
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="loops">
+<span id="ch01-4-3"></span><h3><span class="section-number">1.4.3. </span>Loops<a class="headerlink" href="#loops" title="Permalink to this headline">#</a></h3>
+<p>A loop is used to execute a group of statements multiple times. For instance, to print all numbers from 1 to 10 divisible by 3, we can use a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop together with an <code class="docutils literal notranslate"><span class="pre">if</span></code> statement, and the modulus operator <code class="docutils literal notranslate"><span class="pre">%</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Numbers divisible by three:&quot;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Numbers divisible by three:
+3
+6
+9
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">range</span></code> is a Python function that iterates from the given first number up to the second number, but without including this number. If we only give one number, the iteration will go from zero up to the given number <span class="math notranslate nohighlight">\(-1\)</span>. We give more examples of <code class="docutils literal notranslate"><span class="pre">for</span></code> loops later in this notebook.</p>
+</section>
+<section id="functions-and-modules">
+<span id="ch01-4-4"></span><h3><span class="section-number">1.4.4. </span>Functions and modules<a class="headerlink" href="#functions-and-modules" title="Permalink to this headline">#</a></h3>
+<p>If we have written a useful piece of code, we often want to use it again without copying and pasting the code multiple times. To do this, we use functions and modules. For instance, if we want to convert an angle from degrees to radians, we can use the following formula:</p>
+<div class="math notranslate nohighlight" id="equation-ch01-eq01">
+<span class="eqno">(1.1)<a class="headerlink" href="#equation-ch01-eq01" title="Permalink to this equation">#</a></span>\[
+\alpha_\text{radians} = \alpha_\text{degrees}\frac{\pi}{180}
+\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This example is just for demonstration. Python has specialized functions to convert from degrees to radians (<code class="docutils literal notranslate"><span class="pre">math.radians</span></code>) and vice-versa (<code class="docutils literal notranslate"><span class="pre">math.degrees</span></code>).</p>
+</div>
+<p>To put this into a callable function, we use the <code class="docutils literal notranslate"><span class="pre">def</span></code> keyword:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">deg_to_rad</span><span class="p">(</span><span class="n">angle_degrees</span><span class="p">):</span>
+    <span class="n">pi</span> <span class="o">=</span> <span class="mf">3.141592</span>
+    <span class="k">return</span> <span class="n">pi</span> <span class="o">*</span> <span class="n">angle_degrees</span><span class="o">/</span><span class="mf">180.0</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">angle_degrees</span> <span class="o">=</span> <span class="mf">45.0</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Radians&quot;</span><span class="p">,</span> <span class="n">deg_to_rad</span><span class="p">(</span><span class="n">angle_degrees</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Radians 0.785398
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can also include code from other places. This is useful to make your own library of functions that you can then use in any code. This is the modus operandi of this resource. We will implement and use functions to solve problems in geosciences. Using a text editor, create a file called <code class="docutils literal notranslate"><span class="pre">mylib.py</span></code> and put it in the same folder the notebook is. In the file, write two functions to convert from degrees to radians, and from radians to degrees:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">deg_to_rad</span><span class="p">(</span><span class="n">angle_degrees</span><span class="p">):</span>
+    <span class="n">pi</span> <span class="o">=</span> <span class="mf">3.141592</span>
+    <span class="k">return</span> <span class="n">pi</span> <span class="o">*</span> <span class="n">angle_degrees</span><span class="o">/</span><span class="mi">180</span>
+
+<span class="k">def</span> <span class="nf">rad_to_deg</span><span class="p">(</span><span class="n">angle_radians</span><span class="p">):</span>
+    <span class="n">pi</span> <span class="o">=</span> <span class="mf">3.141592</span>
+    <span class="k">return</span> <span class="n">angle_radians</span> <span class="o">*</span> <span class="mi">180</span><span class="o">/</span><span class="n">pi</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>A file like this is called a <em>module</em>, and it can contain one or several functions. We can then import in the notebook the module and use its functions like this:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">mylib</span>
+
+    <span class="c1"># degrees to radians</span>
+    <span class="n">angle_degrees</span> <span class="o">=</span> <span class="mi">45</span>
+    <span class="n">angle_radians</span> <span class="o">=</span> <span class="n">mylib</span><span class="o">.</span><span class="n">deg_to_rad</span><span class="p">(</span><span class="n">angle_degrees</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">angle_degrees</span><span class="p">,</span> <span class="s2">&quot;degrees is&quot;</span><span class="p">,</span>  <span class="n">angle_radians</span><span class="p">,</span> <span class="s2">&quot;radians&quot;</span><span class="p">)</span>
+
+    <span class="c1"># radians to degrees</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">angle_radians</span><span class="p">,</span> <span class="s2">&quot;radians is&quot;</span><span class="p">,</span> <span class="n">mylib</span><span class="o">.</span><span class="n">rad_to_deg</span><span class="p">(</span><span class="n">angle_radians</span><span class="p">),</span> <span class="s2">&quot;degrees&quot;</span><span class="p">)</span>
+    
+<span class="k">except</span> <span class="ne">ModuleNotFoundError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Create a file called mylib.py&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Create a file called mylib.py
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you make a change in <code class="docutils literal notranslate"><span class="pre">mylib.py</span></code>, the changes will not be immediately available in the notebook and it needs to be restarted. To circumvent this, we can use the following commands to always reload imported modules:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>%autoreload
+</pre></div>
+</div>
+</div>
+</section>
+<section id="mathematics">
+<span id="ch01-4-5"></span><h3><span class="section-number">1.4.5. </span>Mathematics<a class="headerlink" href="#mathematics" title="Permalink to this headline">#</a></h3>
+<p>To use Python as an environment for numerical mathematics, it is useful to use the NumPy library for arrays and matrices, and the Matplotlib library for plotting. See the links in the Jupyter Notebook <code class="docutils literal notranslate"><span class="pre">Help</span></code> menu for more information on these libraries. The following two lines import these libraries:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>To define an array, we use the NumPy <code class="docutils literal notranslate"><span class="pre">array</span></code> function:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1 2 3 4]
+</pre></div>
+</div>
+</div>
+</div>
+<p>To access an array element, we use brackets with the index of the element. A very important difference compared to Matlab is that in Python, the first element has index zero (like most other programming languages). We can also use negative indices to access values starting from the end of the array.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1 3
+4
+</pre></div>
+</div>
+</div>
+</div>
+<p>Slicing is a very useful feature to extract subarrays. For instance:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">:])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[3 4]
+[2 3]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Matrices are defined as multi-dimensional arrays:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a_matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> 
+                     <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> 
+                     <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]])</span>
+
+<span class="n">b_matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
+                     <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span>
+                     <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">]])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">a_matrix</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b_matrix</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[1 2 3]
+ [4 5 6]
+ [7 8 9]]
+[[2 4]
+ [3 5]
+ [5 7]]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In Python, a long line within parenthesis can be broken into several lines.</p>
+</div>
+<p>We can get the number of rows and columns of the matrix from the <code class="docutils literal notranslate"><span class="pre">shape</span></code> method:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nrow</span><span class="p">,</span> <span class="n">ncol</span> <span class="o">=</span> <span class="n">b_matrix</span><span class="o">.</span><span class="n">shape</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;b has </span><span class="si">{}</span><span class="s2"> rows and </span><span class="si">{}</span><span class="s2"> columns&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">nrow</span><span class="p">,</span> <span class="n">ncol</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>b has 3 rows and 2 columns
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let us make a function to multiply two matrices. Consider a <span class="math notranslate nohighlight">\(n\times m\)</span> matrix <strong>A</strong> and a <span class="math notranslate nohighlight">\(m\times p\)</span> matrix <strong>B</strong>. The formula to multiply these matrices can be written as:</p>
+<div class="math notranslate nohighlight" id="equation-ch01-eq02">
+<span class="eqno">(1.2)<a class="headerlink" href="#equation-ch01-eq02" title="Permalink to this equation">#</a></span>\[
+C_{ij} = \sum_{k=1}^m A_{ik}B_{kj}
+\]</div>
+<p>for <span class="math notranslate nohighlight">\(i = 1,...,n\)</span> and <span class="math notranslate nohighlight">\(j = 1,...,p\)</span>. Here <strong>C</strong> will be a <span class="math notranslate nohighlight">\(n\times p\)</span> matrix. To implement this formula, we need to use a triple-nested loop, as shown in the function below:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">matrix_multiply</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">):</span>
+    <span class="n">n</span><span class="p">,</span> <span class="n">m</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">shape</span>
+    <span class="n">nrow_B</span><span class="p">,</span> <span class="n">p</span> <span class="o">=</span> <span class="n">B</span><span class="o">.</span><span class="n">shape</span>
+    
+    <span class="c1"># Check that the matrices are conformable</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">nrow_B</span> <span class="o">==</span> <span class="n">m</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Error: Number of columns in A&quot;</span>
+                         <span class="s2">&quot;must equal number of rows in B&quot;</span><span class="p">)</span>
+    
+    <span class="c1"># Initialize C using the numpy zeros function</span>
+    <span class="n">C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n</span><span class="p">,</span> <span class="n">p</span><span class="p">))</span>
+    
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>
+                <span class="n">C</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">C</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">k</span><span class="p">]</span><span class="o">*</span><span class="n">B</span><span class="p">[</span><span class="n">k</span><span class="p">,</span><span class="n">j</span><span class="p">]</span>
+                
+    <span class="k">return</span> <span class="n">C</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In Python, a long string within parenthesis can be split as shown in the code above.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">matrix_multiply</span><span class="p">(</span><span class="n">a_matrix</span><span class="p">,</span> <span class="n">b_matrix</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 23.  35.]
+ [ 53.  83.]
+ [ 83. 131.]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Verify by hand calculation that the above result is correct. Remember, the element in the first row and first column of <strong>C</strong> is equal to the sum of the product of the elements in the first row of <strong>A</strong> times the elements in the first column of <strong>B</strong>, and so on. Try the multiplication <strong>BA</strong>. What happens?</p>
+<p>Although the function above is elegant, it is not very efficient. The NumPy library contains super-optimized code for common operations such as matrix multiplication. The NumPy <code class="docutils literal notranslate"><span class="pre">dot</span></code> function can be used for matrix multiplication. Let’s repeat the matrix multiplication above using this function:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">a_matrix</span><span class="p">,</span> <span class="n">b_matrix</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">C</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 23  35]
+ [ 53  83]
+ [ 83 131]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>When working with large matrices, there is a significant impact on the runtime. To illustrate this, let’s generate two 100 <span class="math notranslate nohighlight">\(\times\)</span> 100 matrices with random numbers. The NumPy <code class="docutils literal notranslate"><span class="pre">random.rand</span></code> function generates the arrays and fill them with random numbers.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+<span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, let’s measure the difference in execution time between multiplying these matrices with our function, or the NumPy <code class="docutils literal notranslate"><span class="pre">dot</span></code> function. The <code class="docutils literal notranslate"><span class="pre">time</span></code> function allows us to determine the time taken by each function in seconds:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
+
+
+<span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="c1"># start time</span>
+<span class="n">C</span> <span class="o">=</span> <span class="n">matrix_multiply</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">)</span>
+<span class="n">endt</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="c1"># end time</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Our function time = &quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">endt</span> <span class="o">-</span> <span class="n">start</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Our function time =  0.7785131931304932
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="c1"># start time</span>
+<span class="n">C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">)</span>
+<span class="n">endt</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="c1"># end time</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;NumPy dot function time = &quot;</span><span class="p">,(</span><span class="n">endt</span> <span class="o">-</span> <span class="n">start</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>NumPy dot function time =  0.0014812946319580078
+</pre></div>
+</div>
+</div>
+</div>
+<p>The NumPy <code class="docutils literal notranslate"><span class="pre">dot</span></code> function is much faster than our function!</p>
+</section>
+<section id="plotting">
+<span id="ch01-4-6"></span><h3><span class="section-number">1.4.6. </span>Plotting<a class="headerlink" href="#plotting" title="Permalink to this headline">#</a></h3>
+<p>Arrays can be easily plotted using the Matplotlib <code class="docutils literal notranslate"><span class="pre">plot</span></code> command. Below we plot the sine function. We use the NumPy <code class="docutils literal notranslate"><span class="pre">linspace</span></code> function to generate an array with equally spaced values between the start and end point, and the NumPy <code class="docutils literal notranslate"><span class="pre">sin</span></code> function to take the sine of the array. The <code class="docutils literal notranslate"><span class="pre">plot</span></code> command plots the data and the semicolon after it removes any message output. With a low number of points, the curve looks jagged. Increase the number of points <code class="docutils literal notranslate"><span class="pre">n</span></code> to get a smoother curve. Try values of <code class="docutils literal notranslate"><span class="pre">n</span></code> = 100, 1000, and 10000.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># The linspace command gives us an equally spaced array</span>
+<span class="c1"># The syntax is: </span>
+<span class="c1"># linspace(start_point, end_point, number_of_points)</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/ch01_computation_geosciences_49_0.png" src="_images/ch01_computation_geosciences_49_0.png" />
+</div>
+</div>
+<p>We end with a slightly more advanced plot, showing how to change line style and markers, and add axis labels and a legend. The NumPy <code class="docutils literal notranslate"><span class="pre">cos</span></code> function takes the cosine of the array. The <code class="docutils literal notranslate"><span class="pre">plt.subplots</span></code> command makes a new figure and returns handles to the figure <code class="docutils literal notranslate"><span class="pre">fig</span></code> and axes <code class="docutils literal notranslate"><span class="pre">ax</span></code>. We can then use <code class="docutils literal notranslate"><span class="pre">ax</span></code> to plot the functions (<code class="docutils literal notranslate"><span class="pre">plot</span></code>), set the axes labels (<code class="docutils literal notranslate"><span class="pre">set_xlabel</span></code> and <code class="docutils literal notranslate"><span class="pre">set_ylabel</span></code>), and add a legend (<code class="docutils literal notranslate"><span class="pre">legend</span></code>). The last line saves the figure as a png image. Try also different values of <code class="docutils literal notranslate"><span class="pre">n</span></code> to see how the plot changes:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">25</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="c1"># Make a figure</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+
+<span class="c1"># plot cosine function as a red line</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Cosine&quot;</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mf">0.01</span> <span class="o">*</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span>
+
+<span class="c1"># plot quadratic funcion as blue dashed line with dots</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s2">&quot;bo--&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Quadratic&quot;</span><span class="p">)</span>
+
+<span class="c1"># label axes</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Time&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Amplitude&quot;</span><span class="p">)</span>
+
+<span class="c1"># Add legend</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+<span class="c1"># Save the figure as a png with resolution 300 dpi</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;data/output/my_first_plot.png&quot;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/ch01_computation_geosciences_51_0.png" src="_images/ch01_computation_geosciences_51_0.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="exercises">
+<span id="ch01-5"></span><h2><span class="section-number">1.5. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">#</a></h2>
+<ol class="simple">
+<li><p>Write a program that prints each number from 1 to 20 on a new line. For each multiple of 3, print “Fizz” instead of the number. For each multiple of 5, print “Buzz” instead of the number. For numbers which are multiples of both 3 and 5, print “FizzBuzz” instead of the number. The correct answer is: 1 2 Fizz 4 Buzz Fizz 7 8 Fizz Buzz 11 Fizz 13 14 FizzBuzz 16 17 Fizz 19 Buzz.</p></li>
+</ol>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>You will need to use a loop and conditionals to solve this problem.</p>
+</div>
+<ol>
+<li><p>Use the module <code class="docutils literal notranslate"><span class="pre">mylib.py</span></code> to convert the following angles in degrees to radians and vice versa: 0, 45, 90, 135, 180, 225, 270, 315, 360. Print the results in a neatly way.</p></li>
+<li><p>Given two 3 <span class="math notranslate nohighlight">\(\times\)</span> 3 matrices <strong>A</strong> = [[1, 2, 3], [4, 5, 6], [7, 8, 9]] and <strong>B</strong> = [[5, 7, 2], [3, 5, 1], [2, 4, 3]], compute:</p>
+<ol class="simple">
+<li><p>The sum of the matrices (<strong>A</strong> + <strong>B</strong>),</p></li>
+<li><p>The difference of the matrices (<strong>A</strong> - <strong>B</strong>),</p></li>
+<li><p>The product of the matrices (<strong>AB</strong>),</p></li>
+<li><p>The sum of all elements of matrix <strong>B</strong>,</p></li>
+<li><p>The column sum of matrix <strong>A</strong>,</p></li>
+<li><p>The row sum of matrix <strong>A</strong>,</p></li>
+<li><p>The transpose <span class="math notranslate nohighlight">\((\textbf{A}^T)\)</span> of matrix <strong>A</strong>,</p></li>
+<li><p>The product <span class="math notranslate nohighlight">\(\textbf{AA}^T\)</span>. What is this product equal to?</p></li>
+</ol>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Check the functions <code class="docutils literal notranslate"><span class="pre">add</span></code>, <code class="docutils literal notranslate"><span class="pre">subtract</span></code>, <code class="docutils literal notranslate"><span class="pre">dot</span></code>, <code class="docutils literal notranslate"><span class="pre">sum</span></code>, and <code class="docutils literal notranslate"><span class="pre">transpose</span></code> in the NumPy library.</p>
+</div>
+</li>
+<li><p>The apparent dip <span class="math notranslate nohighlight">\(\alpha\)</span> of a plane is given by the equation <span class="math notranslate nohighlight">\(\tan\alpha=\tan\delta\sin\beta\)</span>, where <span class="math notranslate nohighlight">\(\delta\)</span> is the true dip of the plane, and <span class="math notranslate nohighlight">\(\beta\)</span> is the orientation of the vertical profile along which the dip is measured (<a class="reference internal" href="ch03_geological_features.html#ch03-fig01"><span class="std std-numref">Figure 3.1</span></a>b).</p>
+<ol class="simple">
+<li><p>Make a function to compute the apparent dip <span class="math notranslate nohighlight">\(\alpha\)</span> from the true dip <span class="math notranslate nohighlight">\(\delta\)</span> and the orientation of the profile <span class="math notranslate nohighlight">\(\beta\)</span>. Angles should be entered in radians.</p></li>
+<li><p>Use this function to make a graph of profile orientation <span class="math notranslate nohighlight">\(\beta\)</span> (0 to 90) versus apparent dip <span class="math notranslate nohighlight">\(\alpha\)</span> (0 to 90), for values of true dip <span class="math notranslate nohighlight">\(\delta\)</span> of 10, 20, 30, 40, 50, 60, 70, and 80. The graph should look like <a class="reference internal" href="#ch01-fig01"><span class="std std-numref">Figure 1.1</span></a> below.</p></li>
+</ol>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>You need to use the NumPy and Matplotlib libraries. This problem is hard, don’t give up.</p>
+</div>
+</li>
+</ol>
+<figure class="align-default" id="ch01-fig01">
+<a class="reference internal image-reference" href="_images/ch01_fig01.png"><img alt="_images/ch01_fig01.png" src="_images/ch01_fig01.png" style="width: 450px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 1.1 </span><span class="caption-text">Apparent dip <span class="math notranslate nohighlight">\(\alpha\)</span> as function of the profile orientation <span class="math notranslate nohighlight">\(\beta\)</span> and true dip <span class="math notranslate nohighlight">\(\delta\)</span>.</span><a class="headerlink" href="#ch01-fig01" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="references">
+<span id="ch01-6"></span><h2><span class="section-number">1.6. </span>References<a class="headerlink" href="#references" title="Permalink to this headline">#</a></h2>
+<p>Allmendinger, R.W., Cardozo, N. and Fisher, D.W. 2012. Structural
+Geology Algorithms: Vectors and Tensors. Cambridge University Press.</p>
+<p>Frodeman, R. 1995. Geological reasoning: Geology as an interpretive and
+historical science. GSA Bulletin 107, 960-968.</p>
+<p>Jacobs, C.T., Gorman, G.J., Rees, H.E. and Craig, L.E. 2016. Experiences
+with efficient methodologies for teaching computer programming to
+geoscientists. Journal of Geological Education 64, 183-198.</p>
+<p>Ragan, D.M. 2009. Structural Geology: An Introduction to Geometrical
+Techniques. Cambridge University Press.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="todo.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">TODOs</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="ch02_understanding_location.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">2. </span>Understanding location</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Nestor Cardozo & Alex F. Antunes<br/>
+  
+      &copy; Copyright 2023.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
