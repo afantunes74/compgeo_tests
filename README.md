@@ -1,1 +1,0 @@
-# compgeo_tests

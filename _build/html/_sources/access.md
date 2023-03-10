@@ -1,3 +1,0 @@
-# Accessing the resource material
-
-The best way to access the resource is by cloning or downloading its [git repository](https://github.com/nfcd/compGeo). This repository contains a [pdf of this book](https://github.com/nfcd/compGeo/blob/master/compGeo.pdf) and a folder called [source](https://github.com/nfcd/compGeo/blob/master/source) with the [notebooks](https://github.com/nfcd/compGeo/blob/master/source/notebooks), [functions](https://github.com/nfcd/compGeo/blob/master/source/functions) and [data](https://github.com/nfcd/compGeo/blob/master/source/data) in their corresponding folders. The notebooks follow this directory structure. We recommend you use the same structure when running them.

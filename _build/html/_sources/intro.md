@@ -25,7 +25,7 @@ The best way to work with the resource is to clone this [repository](https://git
 1. Open a terminal.
 2. Navigate to the folder where you would like to store the local copy of the repository. (cd `foldername`)
 3. Press the green button **Code** on the right hand side and copy the path in the Clone section.
-4. Execute the terminal command git clone <https://github.com/nfcd/compGeo>.
+4. Execute the terminal command `git clone <https://github.com/nfcd/compGeo>`.
 5. Now you can start working with the resource files. They are saved in the folder you chose in step 2.
 
 ### Updating your local files
@@ -34,7 +34,7 @@ Once in a while you should update your local files to the latest changes in the 
 
 1. Open a terminal.
 2. Navigate inside the folder of the repository on your machine. (cd `foldername`)
-3. Execute the terminal command git pull
+3. Execute the terminal command `git pull`
 
 :::{note}
 If using this Jupyter Book, you don’t need to clone and update the repository, but you can run the code in the Book interactively.

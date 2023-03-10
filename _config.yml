@@ -40,11 +40,13 @@ bibtex_bibfiles:
 # Launch button settings
 launch_buttons:
   notebook_interface        : jupyterlab  # The interface interactive links will activate ["classic", "jupyterlab"]
+  binderhub_url             : "https://mybinder.org"  # The URL for your BinderHub (e.g., https://mybinder.org)
+  thebe                     : true # to make code cells executable
 
 # Information about where the book exists on the web
 repository:
-  url                       : https://github.com/executablebooks/jupyter-book  # Online location of your book
-  path_to_book              : docs      # Optional path to your book, relative to the repository root
+  url                       : https://github.com/afantunes74/compgeo_tests  # Online location of your book
+  #path_to_book              : docs      # Optional path to your book, relative to the repository root
   branch                    : master    # Which branch of the repository should be used when creating links (optional)
 
 #######################################################################################
